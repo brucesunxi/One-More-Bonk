@@ -23,8 +23,15 @@
 
 - Unity `6000.3.17f1`，URP `17.3.0`；先沿用已知版本。
 - `rebuild/minimal-core`分支以仓库根目录作为新的Unity项目壳；尚无完整入口场景或可安装游戏包。
-- 在工作分支运行 `sh Tools/verify-core.sh`，重跑自包含的133组概率向量。脚本需要本机Unity附带的Mono/C#编译器与Newtonsoft依赖，详见测试说明；不启动Unity编辑器，不读取旧项目。
+- 在工作分支运行下方命令，重跑133组概率向量和6组保护顺序检查。脚本需要本机Unity附带的Mono/C#编译器与Newtonsoft依赖；不启动Unity编辑器，不读取旧项目。
 - Google广告SDK尚未接入这个新壳，生产广告与奖励业务单独验证。
+
+```sh
+# macOS：将占位符替换为已安装的 Unity.app 完整路径。
+UNITY_EDITOR_ROOT="<Unity.app的完整路径>" sh Tools/verify-core.sh
+```
+
+依赖查找方式见 `sh Tools/verify-core.sh --help`。测试产物只写入已忽略的`Tests/Headless/.build/`；JSON反序列化字段的3条CS0649警告为当前已知警告。来源哈希及已验证范围见[核心来源记录](Docs/core-provenance.json)。
 
 ## 来源与验证边界
 

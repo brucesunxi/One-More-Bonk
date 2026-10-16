@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-16",
+  "baseline": "isolated forging/relic probability core",
+  "namespace": "OneMoreBonk.Rebuild",
+  "source_path_convention": "Source paths are relative to the identified predecessor/research project root; no absolute local paths or runtime dependency on that project.",
+  "imports": [
+    {
+      "source_project": "audited-predecessor",
+      "source_path": "Assets/Scripts/Gameplay/RiskForgeRules.cs",
+      "source_sha256": "780528bacc072f6c2546a1b866b96f3f0fc8341f7406d9e00d1c1fe535be0a7a",
+      "destination_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeRules.cs",
+      "destination_sha256": "566a594208980fd896b7e529362042a0f863f04bcd7e52815e4cb2d7cbcf14bd",
+      "change": "Only namespace OneMoreBonk → OneMoreBonk.Rebuild; no algorithm or loader edits."
+    },
+    {
+      "source_project": "audited-predecessor",
+      "source_path": "Assets/Scripts/Gameplay/RiskForgeModels.cs",
+      "source_sha256": "bd0bcd77b57bb93ffae547eddbf2d034f8dcdbff0148bada6cfc948abcf6bbcd",
+      "destination_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeModels.cs",
+      "destination_sha256": "229d3625bac36214e1f5226949c8ca68cfbf3ec8675329b6aa67a7ef913108af",
+      "change": "Only namespace OneMoreBonk → OneMoreBonk.Rebuild; no algorithm or loader edits."
+    },
+    {
+      "source_project": "audited-predecessor",
+      "source_path": "Assets/Scripts/Gameplay/RiskRelicData.cs",
+      "source_sha256": "0f153418481c0989eee8f39d697950b4a564d09ea9a71531501adc706e133c20",
+      "destination_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskRelicData.cs",
+      "destination_sha256": "2538ff9d8e9b53379138bd8d4828f553ba8c6cd93baa84df9c717f4ba68cc609",
+      "change": "Only namespace OneMoreBonk → OneMoreBonk.Rebuild; no algorithm or loader edits."
+    },
+    {
+      "source_project": "audited-predecessor",
+      "source_path": "Assets/Scripts/Gameplay/ForgeSession.cs",
+      "source_lines": [
+        9,
+        12
+      ],
+      "source_sha256": "9bb1b0c55225bfeef3230ba5bbe18625226dca5ce8d5d0c6b0eb10ed6ba2c420",
+      "extracted_declarations_sha256": "181a3a8b0e14a8e80bbee2653547ac732a4a3f6bd5fec40840ca1f38c9ac25b3",
+      "destination_path": "Assets/OneMoreBonkRebuild/Gameplay/ForgeTypes.cs",
+      "destination_sha256": "d386ee88322ad0a1a4befc187d2b871ebadb72e396edc4190ff4173ac8b6aeb5",
+      "change": "Extracted exactly two enum declarations, preserving member order and values; new namespace. No legacy session implementation."
+    },
+    {
+      "source_project": "audited-predecessor",
+      "source_path": "Assets/Resources/Risk/rule-data.json",
+      "source_sha256": "b96b16ca937b8aba71efbc330c8f840c96e39c91e6f6c2c0dbb105eb68175ac1",
+      "destination_path": "Assets/Resources/Risk/rule-data.json",
+      "destination_sha256": "b96b16ca937b8aba71efbc330c8f840c96e39c91e6f6c2c0dbb105eb68175ac1",
+      "change": "Byte-for-byte copy."
+    },
+    {
+      "source_project": "research-fixtures",
+      "source_path": "design/balance-architecture-v1.0/reference/vectors.json",
+      "source_sha256": "f02f8904fc03ea0b96709f28705c090f54c88be03a907ae7f95d7021ce1b9e8a",
+      "destination_path": "Tests/Fixtures/probability-vectors.json",
+      "destination_sha256": "f02f8904fc03ea0b96709f28705c090f54c88be03a907ae7f95d7021ce1b9e8a",
+      "change": "Byte-for-byte copy."
+    },
+    {
+      "source_project": "research-test-adapter",
+      "source_path": "design/balance-architecture-v1.0/experiments/UnityDataShim.cs",
+      "source_sha256": "7733917425f643dff00250c7c1272deb9878442f296dac772b46103bb4084838",
+      "destination_path": "Tests/Headless/UnityDataShim.cs",
+      "destination_sha256": "7733917425f643dff00250c7c1272deb9878442f296dac772b46103bb4084838",
+      "change": "Byte-for-byte copy."
+    }
+  ],
+  "unity_data_loading": {
+    "adapter": "Assets/OneMoreBonkRebuild/Gameplay/RiskRelicData.cs",
+    "resource_key": "Risk/rule-data",
+    "explicit_dependency": [
+      "UnityEngine.Resources",
+      "UnityEngine.JsonUtility"
+    ],
+    "headless_adapter": "Tests/Headless/UnityDataShim.cs",
+    "headless_adapter_note": "Test-only Newtonsoft-backed public-field JSON/Resources shim, outside Assets. It does not prove every native JsonUtility behavior."
+  },
+  "meta": {
+    "method": "UUIDv5 of fixed project namespace and repository-relative asset path; new GUIDs, not predecessor GUIDs.",
+    "namespace_uuid": "0fa4c90b-d9c1-5d55-8f38-3ebba76de20f",
+    "entries": [
+      {
+        "asset_path": "Assets/OneMoreBonkRebuild/Gameplay",
+        "meta_path": "Assets/OneMoreBonkRebuild/Gameplay.meta",
+        "guid": "4a19533078a05aeaaeaf3ce7514b47a3"
+      },
+      {
+        "asset_path": "Assets/Resources/Risk",
+        "meta_path": "Assets/Resources/Risk.meta",
+        "guid": "3535846b4d8f5ee680c5b6ffe339ed0e"
+      },
+      {
+        "asset_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeRules.cs",
+        "meta_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeRules.cs.meta",
+        "guid": "28ffc675a3be5c32894b0d1780fe3010"
+      },
+      {
+        "asset_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeModels.cs",
+        "meta_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeModels.cs.meta",
+        "guid": "b1b57d5d118c50a4a15a791e94ca7ccb"
+      },
+      {
+        "asset_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskRelicData.cs",
+        "meta_path": "Assets/OneMoreBonkRebuild/Gameplay/RiskRelicData.cs.meta",
+        "guid": "0e9d286500c15be980dff7966ca461b4"
+      },
+      {
+        "asset_path": "Assets/OneMoreBonkRebuild/Gameplay/ForgeTypes.cs",
+        "meta_path": "Assets/OneMoreBonkRebuild/Gameplay/ForgeTypes.cs.meta",
+        "guid": "5647f10f1aca55b3868b43dcbc6138b4"
+      },
+      {
+        "asset_path": "Assets/Resources/Risk/rule-data.json",
+        "meta_path": "Assets/Resources/Risk/rule-data.json.meta",
+        "guid": "d1813a9daba851c5b08e2013ddb870df"
+      }
+    ]
+  },
+  "fixture": {
+    "path": "Tests/Fixtures/probability-vectors.json",
+    "cases": 133,
+    "named": 33,
+    "random": 100,
+    "outcome_order": [
+      "Break",
+      "Damage",
+      "Hold",
+      "Success",
+      "Great"
+    ],
+    "origin": "Existing fan-site public JavaScript runtime exports executed in isolated Node VM and cross-checked with independent formula. Not independent Steam executable verification.",
+    "expected_regeneration": "Never regenerate expected values during verification."
+  },
+  "offline_verification": {
+    "entrypoint": "Tools/verify-core.sh",
+    "runtime_dependency": "Existing Unity Editor Mono/csc and Newtonsoft.Json assembly, supplied by UNITY_EDITOR_ROOT and optional NEWTONSOFT_JSON_PATH. No DLL vendoring or network package restore.",
+    "included_gameplay_sources": [
+      "RiskForgeRules.cs",
+      "RiskForgeModels.cs",
+      "RiskRelicData.cs",
+      "ForgeTypes.cs"
+    ],
+    "excluded": [
+      "legacy ForgeSession implementation",
+      "RiskSession",
+      "ContractSession",
+      "ContractModels",
+      "Career/progression",
+      "save IO",
+      "advertising",
+      "UI"
+    ],
+    "result": {
+      "status": "PASS",
+      "date": "2026-10-16",
+      "editor_version": "6000.3.17f1",
+      "vectors": 133,
+      "mismatches": 0,
+      "catalogue": 98,
+      "active": 94,
+      "warnings": [
+        "Three expected CS0649 warnings on JSON-populated private RuleData fields."
+      ],
+      "additional_checks": [
+        {
+          "name": "repo_relative_verifier_from_other_working_directory",
+          "exit_code": 0,
+          "expected_exit_code": 0
+        },
+        {
+          "name": "missing_editor_configuration",
+          "exit_code": 2,
+          "expected_exit_code": 2
+        },
+        {
+          "name": "missing_newtonsoft_dependency",
+          "exit_code": 2,
+          "expected_exit_code": 2
+        },
+        {
+          "name": "wrong_expected_value_detected",
+          "exit_code": 1,
+          "expected_exit_code": 1
+        },
+        {
+          "name": "unknown_fixture_field_detected",
+          "exit_code": 2,
+          "expected_exit_code": 2
+        },
+        {
+          "name": "empty_fixture_not_false_pass",
+          "exit_code": 2,
+          "expected_exit_code": 2
+        }
+      ],
+      "ordered_effect_smoke_cases": 6
+    }
+  },
+  "scope_limits": [
+    "Not a playable Unity game or Session implementation.",
+    "133 vectors cover supplied-state Tickets probabilities; they do not prove all ordered Strike effects, Prime behavior, full-run balance, native original equivalence, ads, or target-device behavior.",
+    "The rule core remains unchanged except namespace; production Unity data loading remains explicit."
+  ],
+  "verification_artifacts": [
+    {
+      "path": "Tools/verify-core.sh",
+      "sha256": "5969e1e9784b8181459c42caaf4b18ef3b7c5a7c21ba1d26d86b59624cc536b2"
+    },
+    {
+      "path": "Tests/Headless/GoldenRunner.cs",
+      "sha256": "19e6141ece90542745869925217b503b1a2e6213db262c6dfa3e80ca8e433c91"
+    },
+    {
+      "path": "Tests/Headless/UnityDataShim.cs",
+      "sha256": "7733917425f643dff00250c7c1272deb9878442f296dac772b46103bb4084838"
+    },
+    {
+      "path": "Tests/Fixtures/probability-vectors.json",
+      "sha256": "f02f8904fc03ea0b96709f28705c090f54c88be03a907ae7f95d7021ce1b9e8a"
+    }
+  ],
+  "ordered_effect_smoke": {
+    "runner": "Tests/Headless/GoldenRunner.cs",
+    "cases": 6,
+    "coverage": [
+      "Unprotected fatal Break",
+      "Cornerstone converts Break to Damage, then repair observes Damage",
+      "Insurance converts Break to Damage, then repair observes Damage",
+      "Spine conversion does not recharge its own damage counter",
+      "Phoenix prevents fatal loss without changing effective outcome to Damage",
+      "Combined protections consume only Cornerstone; downstream repair and Spine damage observation still occur"
+    ],
+    "origin": "First five expectations reproduce prior researched protection regression examples; the combined case is a controlled local priority regression, not an independent Steam oracle.",
+    "source_project": "research-fixtures",
+    "source_path": "design/balance-architecture-v1.0/experiments/verification.json"
+  }
+}

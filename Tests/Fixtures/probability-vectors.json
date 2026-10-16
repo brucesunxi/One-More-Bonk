@@ -1,0 +1,5110 @@
+{
+  "schema_version": "1.0",
+  "outcome_order": [
+    "Break",
+    "Damage",
+    "Hold",
+    "Success",
+    "Great"
+  ],
+  "evidence": "Existing fan-site public JS runtime exports directly executed in isolated Node vm; independently calculated formula agrees. Not independent Steam verification.",
+  "source_sha256": "2b919717745ff673bfe838356563fedde74fd74a9a1c9eecd85a0af19db7cbe9",
+  "generated": "2026-10-15 Asia/Shanghai",
+  "mapping_notes": {
+    "effects": "C# RiskSwordEffects member names; default unspecified fields zero/false. Set Primed=true. Charge on RiskSword; FrenzyActive=frenzy and FrenzyRemaining=1 when true. Grade on RiskSword.",
+    "ctx": "C# RiskForgeContext member names; unspecified zero. IDs exact reference catalogue IDs."
+  },
+  "named_count": 33,
+  "random_count": 100,
+  "cases": [
+    {
+      "id": "baseline-0",
+      "grade": 0,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "baseline-1",
+      "grade": 1,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        18,
+        94,
+        234,
+        561,
+        93
+      ],
+      "independent_expected": [
+        18,
+        94,
+        234,
+        561,
+        93
+      ]
+    },
+    {
+      "id": "baseline-4",
+      "grade": 4,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        248,
+        72,
+        179,
+        430,
+        71
+      ],
+      "independent_expected": [
+        248,
+        72,
+        179,
+        430,
+        71
+      ]
+    },
+    {
+      "id": "baseline-10",
+      "grade": 10,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        467,
+        51,
+        127,
+        304,
+        51
+      ],
+      "independent_expected": [
+        467,
+        51,
+        127,
+        304,
+        51
+      ]
+    },
+    {
+      "id": "baseline-20",
+      "grade": 20,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        630,
+        35,
+        88,
+        212,
+        35
+      ],
+      "independent_expected": [
+        630,
+        35,
+        88,
+        212,
+        35
+      ]
+    },
+    {
+      "id": "baseline-30",
+      "grade": 30,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ],
+      "independent_expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ]
+    },
+    {
+      "id": "baseline-80",
+      "grade": 80,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ],
+      "independent_expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ]
+    },
+    {
+      "id": "baseline-99",
+      "grade": 99,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ],
+      "independent_expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ]
+    },
+    {
+      "id": "nail-10",
+      "grade": 10,
+      "ids": [
+        "nail"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        424,
+        46,
+        115,
+        369,
+        46
+      ],
+      "independent_expected": [
+        424,
+        46,
+        115,
+        369,
+        46
+      ]
+    },
+    {
+      "id": "rivet-10",
+      "grade": 10,
+      "ids": [
+        "rivet"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        405,
+        57,
+        141,
+        340,
+        57
+      ],
+      "independent_expected": [
+        405,
+        57,
+        141,
+        340,
+        57
+      ]
+    },
+    {
+      "id": "seal-tongs-10",
+      "grade": 10,
+      "ids": [
+        "seal",
+        "tongs"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        315,
+        65,
+        163,
+        392,
+        65
+      ],
+      "independent_expected": [
+        315,
+        65,
+        163,
+        392,
+        65
+      ]
+    },
+    {
+      "id": "tongs-threshold-5",
+      "grade": 5,
+      "ids": [
+        "tongs"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        297,
+        67,
+        167,
+        402,
+        67
+      ],
+      "independent_expected": [
+        297,
+        67,
+        167,
+        402,
+        67
+      ]
+    },
+    {
+      "id": "tongs-threshold-6",
+      "grade": 6,
+      "ids": [
+        "tongs"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        260,
+        71,
+        176,
+        423,
+        70
+      ],
+      "independent_expected": [
+        260,
+        71,
+        176,
+        423,
+        70
+      ]
+    },
+    {
+      "id": "reset-10",
+      "grade": 10,
+      "ids": [
+        "sicklehammer"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        338,
+        166,
+        166,
+        165,
+        165
+      ],
+      "independent_expected": [
+        338,
+        166,
+        166,
+        165,
+        165
+      ]
+    },
+    {
+      "id": "reset-rivet-nail-20",
+      "grade": 20,
+      "ids": [
+        "sicklehammer",
+        "rivet",
+        "nail"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        332,
+        139,
+        139,
+        251,
+        139
+      ],
+      "independent_expected": [
+        332,
+        139,
+        139,
+        251,
+        139
+      ]
+    },
+    {
+      "id": "frenzy-99",
+      "grade": 99,
+      "ids": [],
+      "charge": 0,
+      "frenzy": true,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "full-charge-80",
+      "grade": 80,
+      "ids": [],
+      "charge": 10,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "frenzy-core-99",
+      "grade": 99,
+      "ids": [
+        "perfectcore"
+      ],
+      "charge": 0,
+      "frenzy": true,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        0,
+        74,
+        185,
+        445,
+        296
+      ],
+      "independent_expected": [
+        0,
+        74,
+        185,
+        445,
+        296
+      ]
+    },
+    {
+      "id": "frenzy-core-chalk-20",
+      "grade": 20,
+      "ids": [
+        "perfectcore"
+      ],
+      "charge": 0,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "ChalkArmed": true
+      },
+      "ctx": {},
+      "expected": [
+        0,
+        57,
+        143,
+        343,
+        457
+      ],
+      "independent_expected": [
+        0,
+        57,
+        143,
+        343,
+        457
+      ]
+    },
+    {
+      "id": "chalk-10",
+      "grade": 10,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "ChalkArmed": true
+      },
+      "ctx": {},
+      "expected": [
+        444,
+        48,
+        121,
+        290,
+        97
+      ],
+      "independent_expected": [
+        444,
+        48,
+        121,
+        290,
+        97
+      ]
+    },
+    {
+      "id": "powder-0",
+      "grade": 0,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "PowderArmed": true
+      },
+      "ctx": {},
+      "expected": [
+        333,
+        0,
+        0,
+        0,
+        667
+      ],
+      "independent_expected": [
+        333,
+        0,
+        0,
+        0,
+        667
+      ]
+    },
+    {
+      "id": "powder-10",
+      "grade": 10,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "PowderArmed": true
+      },
+      "ctx": {},
+      "expected": [
+        645,
+        0,
+        0,
+        0,
+        355
+      ],
+      "independent_expected": [
+        645,
+        0,
+        0,
+        0,
+        355
+      ]
+    },
+    {
+      "id": "chalk-powder-10",
+      "grade": 10,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "ChalkArmed": true,
+        "PowderArmed": true
+      },
+      "ctx": {},
+      "expected": [
+        614,
+        0,
+        0,
+        0,
+        386
+      ],
+      "independent_expected": [
+        614,
+        0,
+        0,
+        0,
+        386
+      ]
+    },
+    {
+      "id": "powder-ward-10",
+      "grade": 10,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "PowderArmed": true,
+        "WardArmed": true
+      },
+      "ctx": {},
+      "expected": [
+        645,
+        0,
+        0,
+        0,
+        355
+      ],
+      "independent_expected": [
+        645,
+        0,
+        0,
+        0,
+        355
+      ]
+    },
+    {
+      "id": "all-risk-multipliers-20",
+      "grade": 20,
+      "ids": [
+        "repair",
+        "brace",
+        "star",
+        "thread",
+        "seal",
+        "tongs"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "TemperScars": 4,
+        "BraceStacks": 6,
+        "StarReady": true,
+        "ThreadReady": true
+      },
+      "ctx": {},
+      "expected": [
+        67,
+        89,
+        222,
+        533,
+        89
+      ],
+      "independent_expected": [
+        67,
+        89,
+        222,
+        533,
+        89
+      ]
+    },
+    {
+      "id": "hold-next-10",
+      "grade": 10,
+      "ids": [
+        "thirdeye",
+        "thread",
+        "dice"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2,
+        "ThreadReady": true,
+        "DiceReady": true
+      },
+      "ctx": {},
+      "expected": [
+        317,
+        49,
+        122,
+        390,
+        122
+      ],
+      "independent_expected": [
+        317,
+        49,
+        122,
+        390,
+        122
+      ]
+    },
+    {
+      "id": "state-ticket-banks-30",
+      "grade": 30,
+      "ids": [
+        "gear",
+        "kingcup",
+        "grudge"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "InheritedSuccessTickets": 4,
+        "BronzeSuccessTickets": 7,
+        "KingGreatTickets": 5
+      },
+      "ctx": {
+        "GrudgeTickets": 12,
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "expected": [
+        480,
+        32,
+        64,
+        216,
+        208
+      ],
+      "independent_expected": [
+        480,
+        32,
+        64,
+        216,
+        208
+      ]
+    },
+    {
+      "id": "obsidian-7",
+      "grade": 7,
+      "ids": [
+        "obsidian"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        383,
+        59,
+        147,
+        352,
+        59
+      ],
+      "independent_expected": [
+        383,
+        59,
+        147,
+        352,
+        59
+      ]
+    },
+    {
+      "id": "obsidian-8",
+      "grade": 8,
+      "ids": [
+        "obsidian"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        418,
+        55,
+        139,
+        277,
+        111
+      ],
+      "independent_expected": [
+        418,
+        55,
+        139,
+        277,
+        111
+      ]
+    },
+    {
+      "id": "thorn-file-pearl-99",
+      "grade": 99,
+      "ids": [
+        "thorn",
+        "file",
+        "deeppearl"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true
+      },
+      "ctx": {},
+      "expected": [
+        692,
+        90,
+        13,
+        179,
+        26
+      ],
+      "independent_expected": [
+        692,
+        90,
+        13,
+        179,
+        26
+      ]
+    },
+    {
+      "id": "protection-not-probability-10",
+      "grade": 10,
+      "ids": [
+        "cornerstone",
+        "insurance",
+        "spine",
+        "phoenix"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "SpineShield": true
+      },
+      "ctx": {},
+      "expected": [
+        467,
+        51,
+        127,
+        304,
+        51
+      ],
+      "independent_expected": [
+        467,
+        51,
+        127,
+        304,
+        51
+      ]
+    },
+    {
+      "id": "protection-ward-not-probability-99",
+      "grade": 99,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "WardArmed": true
+      },
+      "ctx": {},
+      "expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ],
+      "independent_expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ]
+    },
+    {
+      "id": "oil-retired-state-10",
+      "grade": 10,
+      "ids": [],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "OilHits": 3
+      },
+      "ctx": {},
+      "expected": [
+        467,
+        0,
+        127,
+        355,
+        51
+      ],
+      "independent_expected": [
+        467,
+        0,
+        127,
+        355,
+        51
+      ]
+    },
+    {
+      "id": "random-0",
+      "grade": 40,
+      "ids": [
+        "shard",
+        "funeralledger",
+        "ironcomb",
+        "seal"
+      ],
+      "charge": 9,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        600,
+        30,
+        74,
+        178,
+        118
+      ],
+      "independent_expected": [
+        600,
+        30,
+        74,
+        178,
+        118
+      ]
+    },
+    {
+      "id": "random-1",
+      "grade": 57,
+      "ids": [
+        "loop",
+        "pin",
+        "silverpermit",
+        "hold"
+      ],
+      "charge": 5,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        675,
+        25,
+        88,
+        150,
+        62
+      ],
+      "independent_expected": [
+        675,
+        25,
+        88,
+        150,
+        62
+      ]
+    },
+    {
+      "id": "random-2",
+      "grade": 79,
+      "ids": [
+        "glass",
+        "bell",
+        "shard",
+        "testament"
+      ],
+      "charge": 10,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ],
+      "independent_expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ]
+    },
+    {
+      "id": "random-3",
+      "grade": 63,
+      "ids": [
+        "blackstone",
+        "nail",
+        "mourning",
+        "headless"
+      ],
+      "charge": 3,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        667,
+        25,
+        62,
+        197,
+        49
+      ],
+      "independent_expected": [
+        667,
+        25,
+        62,
+        197,
+        49
+      ]
+    },
+    {
+      "id": "random-4",
+      "grade": 70,
+      "ids": [
+        "speed",
+        "token",
+        "ironcomb"
+      ],
+      "charge": 5,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ],
+      "independent_expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ]
+    },
+    {
+      "id": "random-5",
+      "grade": 8,
+      "ids": [
+        "fork",
+        "incense"
+      ],
+      "charge": 10,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "random-6",
+      "grade": 1,
+      "ids": [
+        "idol",
+        "holy",
+        "ossuary"
+      ],
+      "charge": 3,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          2,
+          2,
+          1,
+          2,
+          2
+        ]
+      },
+      "expected": [
+        15,
+        131,
+        197,
+        460,
+        197
+      ],
+      "independent_expected": [
+        15,
+        131,
+        197,
+        460,
+        197
+      ]
+    },
+    {
+      "id": "random-7",
+      "grade": 83,
+      "ids": [
+        "ironcomb",
+        "hourglass",
+        "nail",
+        "letter",
+        "star",
+        "locket",
+        "eternalseed",
+        "shard"
+      ],
+      "charge": 10,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "StarReady": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        57,
+        314,
+        457,
+        172
+      ],
+      "independent_expected": [
+        0,
+        57,
+        314,
+        457,
+        172
+      ]
+    },
+    {
+      "id": "random-8",
+      "grade": 63,
+      "ids": [
+        "shard",
+        "dragonseal",
+        "file",
+        "deeppearl",
+        "kingcup",
+        "insurance"
+      ],
+      "charge": 4,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "KingGreatTickets": 4,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        658,
+        61,
+        37,
+        171,
+        73
+      ],
+      "independent_expected": [
+        658,
+        61,
+        37,
+        171,
+        73
+      ]
+    },
+    {
+      "id": "random-9",
+      "grade": 72,
+      "ids": [
+        "brace",
+        "scales",
+        "watch",
+        "fork",
+        "mourning",
+        "royalseal",
+        "sieve"
+      ],
+      "charge": 4,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "BraceStacks": 5,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ],
+      "independent_expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ]
+    },
+    {
+      "id": "random-10",
+      "grade": 60,
+      "ids": [
+        "fork",
+        "hourglass",
+        "collector",
+        "goldgear"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ],
+      "independent_expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ]
+    },
+    {
+      "id": "random-11",
+      "grade": 87,
+      "ids": [
+        "dragonpardon",
+        "funeralledger",
+        "cornerstone"
+      ],
+      "charge": 10,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ],
+      "independent_expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ]
+    },
+    {
+      "id": "random-12",
+      "grade": 73,
+      "ids": [
+        "blackstone",
+        "hearth",
+        "fork",
+        "gear",
+        "eternalseed",
+        "headless",
+        "royalseal"
+      ],
+      "charge": 2,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "BronzeSuccessTickets": 3,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        67,
+        366,
+        500,
+        67
+      ],
+      "independent_expected": [
+        0,
+        67,
+        366,
+        500,
+        67
+      ]
+    },
+    {
+      "id": "random-13",
+      "grade": 27,
+      "ids": [
+        "insurance",
+        "glass",
+        "bell"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        673,
+        28,
+        71,
+        171,
+        57
+      ],
+      "independent_expected": [
+        673,
+        28,
+        71,
+        171,
+        57
+      ]
+    },
+    {
+      "id": "random-14",
+      "grade": 76,
+      "ids": [
+        "idol",
+        "tooth",
+        "dawnsheath",
+        "obsidian",
+        "thorn",
+        "repair"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "TemperScars": 0,
+        "InheritedSuccessTickets": 4,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        683,
+        51,
+        38,
+        177,
+        51
+      ],
+      "independent_expected": [
+        683,
+        51,
+        38,
+        177,
+        51
+      ]
+    },
+    {
+      "id": "random-15",
+      "grade": 19,
+      "ids": [
+        "locket",
+        "mirror",
+        "firstseal",
+        "watch",
+        "insurance"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        590,
+        36,
+        89,
+        214,
+        71
+      ],
+      "independent_expected": [
+        590,
+        36,
+        89,
+        214,
+        71
+      ]
+    },
+    {
+      "id": "random-16",
+      "grade": 35,
+      "ids": [
+        "grudge",
+        "thirdeye"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "GrudgeTickets": 24
+      },
+      "expected": [
+        535,
+        20,
+        49,
+        119,
+        277
+      ],
+      "independent_expected": [
+        535,
+        20,
+        49,
+        119,
+        277
+      ]
+    },
+    {
+      "id": "random-17",
+      "grade": 65,
+      "ids": [
+        "echo",
+        "dragonseal"
+      ],
+      "charge": 9,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ],
+      "independent_expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ]
+    },
+    {
+      "id": "random-18",
+      "grade": 69,
+      "ids": [
+        "perfectcore",
+        "deeppearl",
+        "coal",
+        "glass",
+        "tooth",
+        "royalnail"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "InheritedSuccessTickets": 0,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        643,
+        60,
+        59,
+        214,
+        24
+      ],
+      "independent_expected": [
+        643,
+        60,
+        59,
+        214,
+        24
+      ]
+    },
+    {
+      "id": "random-19",
+      "grade": 86,
+      "ids": [
+        "voucher",
+        "everwick"
+      ],
+      "charge": 5,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ],
+      "independent_expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ]
+    },
+    {
+      "id": "random-20",
+      "grade": 93,
+      "ids": [
+        "collector",
+        "obsidian",
+        "insurance",
+        "pin",
+        "redglass",
+        "brace",
+        "bell",
+        "endlessaxle"
+      ],
+      "charge": 5,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "BraceStacks": 3,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        83,
+        208,
+        417,
+        292
+      ],
+      "independent_expected": [
+        0,
+        83,
+        208,
+        417,
+        292
+      ]
+    },
+    {
+      "id": "random-21",
+      "grade": 2,
+      "ids": [
+        "tongs",
+        "ossuary",
+        "grudge",
+        "firstseal",
+        "phoenix",
+        "sicklehammer"
+      ],
+      "charge": 4,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          1,
+          2,
+          1,
+          2,
+          0
+        ],
+        "GrudgeTickets": 0
+      },
+      "expected": [
+        34,
+        271,
+        232,
+        270,
+        193
+      ],
+      "independent_expected": [
+        34,
+        271,
+        232,
+        270,
+        193
+      ]
+    },
+    {
+      "id": "random-22",
+      "grade": 83,
+      "ids": [
+        "thorn",
+        "dragonseal"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        720,
+        53,
+        40,
+        160,
+        27
+      ],
+      "independent_expected": [
+        720,
+        53,
+        40,
+        160,
+        27
+      ]
+    },
+    {
+      "id": "random-23",
+      "grade": 48,
+      "ids": [
+        "everwick",
+        "star",
+        "goldgear"
+      ],
+      "charge": 3,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "StarReady": false,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ],
+      "independent_expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ]
+    },
+    {
+      "id": "random-24",
+      "grade": 80,
+      "ids": [
+        "twinseal",
+        "blackstone",
+        "token",
+        "obsidian",
+        "echo",
+        "bell",
+        "funeralledger",
+        "mourning"
+      ],
+      "charge": 1,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        74,
+        185,
+        371,
+        370
+      ],
+      "independent_expected": [
+        0,
+        74,
+        185,
+        371,
+        370
+      ]
+    },
+    {
+      "id": "random-25",
+      "grade": 7,
+      "ids": [
+        "incense",
+        "oath"
+      ],
+      "charge": 4,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        383,
+        59,
+        147,
+        352,
+        59
+      ],
+      "independent_expected": [
+        383,
+        59,
+        147,
+        352,
+        59
+      ]
+    },
+    {
+      "id": "random-26",
+      "grade": 60,
+      "ids": [
+        "hold",
+        "deeppearl",
+        "headless",
+        "hearth",
+        "mold",
+        "incense",
+        "funeralledger"
+      ],
+      "charge": 4,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        659,
+        61,
+        85,
+        146,
+        49
+      ],
+      "independent_expected": [
+        659,
+        61,
+        85,
+        146,
+        49
+      ]
+    },
+    {
+      "id": "random-27",
+      "grade": 88,
+      "ids": [
+        "everwick",
+        "eternalseed",
+        "rivet",
+        "idol",
+        "dice",
+        "loop"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "DiceReady": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        532,
+        25,
+        139,
+        152,
+        152
+      ],
+      "independent_expected": [
+        532,
+        25,
+        139,
+        152,
+        152
+      ]
+    },
+    {
+      "id": "random-28",
+      "grade": 46,
+      "ids": [
+        "ghostledger",
+        "knot",
+        "loop"
+      ],
+      "charge": 5,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ],
+      "independent_expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ]
+    },
+    {
+      "id": "random-29",
+      "grade": 54,
+      "ids": [
+        "scales",
+        "lifecontract"
+      ],
+      "charge": 2,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ],
+      "independent_expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ]
+    },
+    {
+      "id": "random-30",
+      "grade": 71,
+      "ids": [
+        "gear",
+        "collar",
+        "deeppearl",
+        "funeralledger",
+        "kingcup",
+        "scales",
+        "lifecontract",
+        "watch"
+      ],
+      "charge": 10,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "KingGreatTickets": 1,
+        "BronzeSuccessTickets": 6,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        161,
+        161,
+        581,
+        97
+      ],
+      "independent_expected": [
+        0,
+        161,
+        161,
+        581,
+        97
+      ]
+    },
+    {
+      "id": "random-31",
+      "grade": 99,
+      "ids": [
+        "cornerstone",
+        "phoenix"
+      ],
+      "charge": 9,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ],
+      "independent_expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ]
+    },
+    {
+      "id": "random-32",
+      "grade": 57,
+      "ids": [
+        "speed",
+        "thread",
+        "spark",
+        "letter",
+        "lifecontract"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "ThreadReady": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        561,
+        38,
+        96,
+        229,
+        76
+      ],
+      "independent_expected": [
+        561,
+        38,
+        96,
+        229,
+        76
+      ]
+    },
+    {
+      "id": "random-33",
+      "grade": 45,
+      "ids": [
+        "redglass",
+        "rivet",
+        "hold",
+        "phoenix",
+        "still",
+        "hourglass",
+        "bell"
+      ],
+      "charge": 1,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        646,
+        31,
+        108,
+        184,
+        31
+      ],
+      "independent_expected": [
+        646,
+        31,
+        108,
+        184,
+        31
+      ]
+    },
+    {
+      "id": "random-34",
+      "grade": 77,
+      "ids": [
+        "incense",
+        "kingcup"
+      ],
+      "charge": 10,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "KingGreatTickets": 12,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        57,
+        143,
+        343,
+        457
+      ],
+      "independent_expected": [
+        0,
+        57,
+        143,
+        343,
+        457
+      ]
+    },
+    {
+      "id": "random-35",
+      "grade": 82,
+      "ids": [
+        "idol",
+        "incense",
+        "mirror",
+        "deeppearl"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        675,
+        63,
+        62,
+        150,
+        50
+      ],
+      "independent_expected": [
+        675,
+        63,
+        62,
+        150,
+        50
+      ]
+    },
+    {
+      "id": "random-36",
+      "grade": 45,
+      "ids": [
+        "knot",
+        "thorn",
+        "holy",
+        "everwick"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        711,
+        53,
+        39,
+        158,
+        39
+      ],
+      "independent_expected": [
+        711,
+        53,
+        39,
+        158,
+        39
+      ]
+    },
+    {
+      "id": "random-37",
+      "grade": 39,
+      "ids": [
+        "coal"
+      ],
+      "charge": 5,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "random-38",
+      "grade": 62,
+      "ids": [
+        "apron",
+        "knot",
+        "glove",
+        "holy"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ],
+      "independent_expected": [
+        720,
+        27,
+        67,
+        160,
+        26
+      ]
+    },
+    {
+      "id": "random-39",
+      "grade": 19,
+      "ids": [
+        "everwick",
+        "coin",
+        "sicklehammer",
+        "tongs",
+        "ironcomb",
+        "dice",
+        "mold"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "DiceReady": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        258,
+        106,
+        106,
+        106,
+        424
+      ],
+      "independent_expected": [
+        258,
+        106,
+        106,
+        106,
+        424
+      ]
+    },
+    {
+      "id": "random-40",
+      "grade": 90,
+      "ids": [
+        "incense",
+        "oracledie",
+        "brace",
+        "loop"
+      ],
+      "charge": 10,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "BraceStacks": 3,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        80,
+        200,
+        480,
+        240
+      ],
+      "independent_expected": [
+        0,
+        80,
+        200,
+        480,
+        240
+      ]
+    },
+    {
+      "id": "random-41",
+      "grade": 34,
+      "ids": [
+        "firstseal"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ],
+      "independent_expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ]
+    },
+    {
+      "id": "random-42",
+      "grade": 28,
+      "ids": [
+        "mourning"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        702,
+        29,
+        71,
+        170,
+        28
+      ],
+      "independent_expected": [
+        702,
+        29,
+        71,
+        170,
+        28
+      ]
+    },
+    {
+      "id": "random-43",
+      "grade": 8,
+      "ids": [
+        "sicklehammer"
+      ],
+      "charge": 3,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        238,
+        238,
+        238,
+        286
+      ],
+      "independent_expected": [
+        0,
+        238,
+        238,
+        238,
+        286
+      ]
+    },
+    {
+      "id": "random-44",
+      "grade": 6,
+      "ids": [
+        "file",
+        "phoenix",
+        "firstseal",
+        "royalnail",
+        "sicklehammer"
+      ],
+      "charge": 10,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        179,
+        107,
+        464,
+        250
+      ],
+      "independent_expected": [
+        0,
+        179,
+        107,
+        464,
+        250
+      ]
+    },
+    {
+      "id": "random-45",
+      "grade": 19,
+      "ids": [
+        "everwick"
+      ],
+      "charge": 1,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "random-46",
+      "grade": 18,
+      "ids": [
+        "tongs",
+        "locket",
+        "voucher",
+        "mallet",
+        "silverpermit"
+      ],
+      "charge": 9,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        399,
+        22,
+        111,
+        290,
+        178
+      ],
+      "independent_expected": [
+        399,
+        22,
+        111,
+        290,
+        178
+      ]
+    },
+    {
+      "id": "random-47",
+      "grade": 68,
+      "ids": [
+        "endlessaxle",
+        "royalnail",
+        "royalseal"
+      ],
+      "charge": 8,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        74,
+        185,
+        667,
+        74
+      ],
+      "independent_expected": [
+        0,
+        74,
+        185,
+        667,
+        74
+      ]
+    },
+    {
+      "id": "random-48",
+      "grade": 9,
+      "ids": [
+        "tooth",
+        "knot"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "InheritedSuccessTickets": 0,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        443,
+        53,
+        133,
+        318,
+        53
+      ],
+      "independent_expected": [
+        443,
+        53,
+        133,
+        318,
+        53
+      ]
+    },
+    {
+      "id": "random-49",
+      "grade": 35,
+      "ids": [
+        "bellows",
+        "locket",
+        "token",
+        "phoenix",
+        "nail",
+        "still",
+        "ossuary"
+      ],
+      "charge": 3,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        674,
+        34,
+        67,
+        180,
+        45
+      ],
+      "independent_expected": [
+        674,
+        34,
+        67,
+        180,
+        45
+      ]
+    },
+    {
+      "id": "random-50",
+      "grade": 31,
+      "ids": [
+        "brace",
+        "rivet",
+        "star"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "BraceStacks": 4,
+        "StarReady": false,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        536,
+        34,
+        86,
+        206,
+        138
+      ],
+      "independent_expected": [
+        536,
+        34,
+        86,
+        206,
+        138
+      ]
+    },
+    {
+      "id": "random-51",
+      "grade": 92,
+      "ids": [
+        "hold",
+        "glass",
+        "echo",
+        "ironcomb",
+        "royalseal",
+        "apron",
+        "mourning"
+      ],
+      "charge": 3,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        91,
+        156,
+        26
+      ],
+      "independent_expected": [
+        701,
+        26,
+        91,
+        156,
+        26
+      ]
+    },
+    {
+      "id": "random-52",
+      "grade": 64,
+      "ids": [
+        "watch",
+        "holy"
+      ],
+      "charge": 5,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ],
+      "independent_expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ]
+    },
+    {
+      "id": "random-53",
+      "grade": 29,
+      "ids": [
+        "endlessaxle"
+      ],
+      "charge": 10,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ],
+      "independent_expected": [
+        0,
+        87,
+        217,
+        522,
+        174
+      ]
+    },
+    {
+      "id": "random-54",
+      "grade": 67,
+      "ids": [
+        "locket",
+        "dragonpardon",
+        "letter",
+        "brace",
+        "crown",
+        "collector"
+      ],
+      "charge": 5,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "BraceStacks": 1,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        698,
+        29,
+        72,
+        172,
+        29
+      ],
+      "independent_expected": [
+        698,
+        29,
+        72,
+        172,
+        29
+      ]
+    },
+    {
+      "id": "random-55",
+      "grade": 97,
+      "ids": [
+        "tooth",
+        "bellows",
+        "badge",
+        "sieve",
+        "ossuary"
+      ],
+      "charge": 7,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "InheritedSuccessTickets": 3,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          1,
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "expected": [
+        667,
+        33,
+        67,
+        189,
+        44
+      ],
+      "independent_expected": [
+        667,
+        33,
+        67,
+        189,
+        44
+      ]
+    },
+    {
+      "id": "random-56",
+      "grade": 47,
+      "ids": [
+        "dawnsheath",
+        "royalchange",
+        "insurance",
+        "badge",
+        "repair",
+        "hook",
+        "cornerstone",
+        "deeppearl"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "TemperScars": 0,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        659,
+        61,
+        61,
+        146,
+        73
+      ],
+      "independent_expected": [
+        659,
+        61,
+        61,
+        146,
+        73
+      ]
+    },
+    {
+      "id": "random-57",
+      "grade": 17,
+      "ids": [
+        "locket",
+        "shard",
+        "hook",
+        "loop"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        576,
+        41,
+        101,
+        242,
+        40
+      ],
+      "independent_expected": [
+        576,
+        41,
+        101,
+        242,
+        40
+      ]
+    },
+    {
+      "id": "random-58",
+      "grade": 58,
+      "ids": [
+        "coal",
+        "funeralledger",
+        "royalseal",
+        "deeppearl",
+        "kingcup",
+        "echo"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "KingGreatTickets": 4,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        643,
+        60,
+        59,
+        143,
+        95
+      ],
+      "independent_expected": [
+        643,
+        60,
+        59,
+        143,
+        95
+      ]
+    },
+    {
+      "id": "random-59",
+      "grade": 22,
+      "ids": [
+        "gear",
+        "butterfingers",
+        "mold",
+        "still",
+        "cornerstone",
+        "speed"
+      ],
+      "charge": 9,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "BronzeSuccessTickets": 9,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        595,
+        23,
+        58,
+        243,
+        81
+      ],
+      "independent_expected": [
+        595,
+        23,
+        58,
+        243,
+        81
+      ]
+    },
+    {
+      "id": "random-60",
+      "grade": 19,
+      "ids": [
+        "hold",
+        "thirdeye",
+        "oracledie",
+        "supply",
+        "incense",
+        "sieve"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        517,
+        31,
+        109,
+        249,
+        94
+      ],
+      "independent_expected": [
+        517,
+        31,
+        109,
+        249,
+        94
+      ]
+    },
+    {
+      "id": "random-61",
+      "grade": 67,
+      "ids": [
+        "collector",
+        "file",
+        "seal",
+        "hearth"
+      ],
+      "charge": 9,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        640,
+        33,
+        49,
+        229,
+        49
+      ],
+      "independent_expected": [
+        640,
+        33,
+        49,
+        229,
+        49
+      ]
+    },
+    {
+      "id": "random-62",
+      "grade": 1,
+      "ids": [
+        "insurance",
+        "brace",
+        "loop",
+        "coin",
+        "lifecontract",
+        "endlessaxle",
+        "dragonseal"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "BraceStacks": 5,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        13,
+        79,
+        197,
+        474,
+        237
+      ],
+      "independent_expected": [
+        13,
+        79,
+        197,
+        474,
+        237
+      ]
+    },
+    {
+      "id": "random-63",
+      "grade": 19,
+      "ids": [
+        "sicklehammer",
+        "testament",
+        "silverpermit",
+        "blackstone",
+        "loop",
+        "letter"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        479,
+        131,
+        130,
+        130,
+        130
+      ],
+      "independent_expected": [
+        479,
+        131,
+        130,
+        130,
+        130
+      ]
+    },
+    {
+      "id": "random-64",
+      "grade": 97,
+      "ids": [
+        "thirdeye",
+        "coal",
+        "royalchange",
+        "perfectcore"
+      ],
+      "charge": 7,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ],
+      "independent_expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ]
+    },
+    {
+      "id": "random-65",
+      "grade": 3,
+      "ids": [
+        "collector"
+      ],
+      "charge": 10,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ],
+      "independent_expected": [
+        0,
+        91,
+        227,
+        546,
+        136
+      ]
+    },
+    {
+      "id": "random-66",
+      "grade": 61,
+      "ids": [
+        "goldgear",
+        "wax",
+        "glove",
+        "glass",
+        "ossuary",
+        "collector",
+        "firstseal"
+      ],
+      "charge": 1,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          2,
+          2,
+          0,
+          0,
+          1
+        ]
+      },
+      "expected": [
+        733,
+        45,
+        56,
+        133,
+        33
+      ],
+      "independent_expected": [
+        733,
+        45,
+        56,
+        133,
+        33
+      ]
+    },
+    {
+      "id": "random-67",
+      "grade": 37,
+      "ids": [
+        "still",
+        "perfectcore",
+        "eternalseed",
+        "letter",
+        "crown",
+        "scales",
+        "twinseal",
+        "cornerstone"
+      ],
+      "charge": 5,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        61,
+        333,
+        364,
+        242
+      ],
+      "independent_expected": [
+        0,
+        61,
+        333,
+        364,
+        242
+      ]
+    },
+    {
+      "id": "random-68",
+      "grade": 93,
+      "ids": [
+        "firstseal",
+        "shard"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ],
+      "independent_expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ]
+    },
+    {
+      "id": "random-69",
+      "grade": 75,
+      "ids": [
+        "still"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ],
+      "independent_expected": [
+        711,
+        26,
+        66,
+        158,
+        39
+      ]
+    },
+    {
+      "id": "random-70",
+      "grade": 84,
+      "ids": [
+        "voucher",
+        "nail",
+        "seal",
+        "speed",
+        "blackstone",
+        "tongs",
+        "hold",
+        "dawnsheath"
+      ],
+      "charge": 10,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        69,
+        241,
+        552,
+        138
+      ],
+      "independent_expected": [
+        0,
+        69,
+        241,
+        552,
+        138
+      ]
+    },
+    {
+      "id": "random-71",
+      "grade": 26,
+      "ids": [
+        "mirror",
+        "voucher",
+        "collector",
+        "idol",
+        "hold",
+        "file",
+        "sieve"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        654,
+        29,
+        72,
+        202,
+        43
+      ],
+      "independent_expected": [
+        654,
+        29,
+        72,
+        202,
+        43
+      ]
+    },
+    {
+      "id": "random-72",
+      "grade": 51,
+      "ids": [
+        "dawnsheath",
+        "funeralledger",
+        "badge",
+        "sieve",
+        "royalseal",
+        "loop"
+      ],
+      "charge": 9,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ],
+      "independent_expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ]
+    },
+    {
+      "id": "random-73",
+      "grade": 75,
+      "ids": [
+        "shard",
+        "testament"
+      ],
+      "charge": 9,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "random-74",
+      "grade": 3,
+      "ids": [
+        "tooth",
+        "kingcup",
+        "still"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "KingGreatTickets": 0,
+        "InheritedSuccessTickets": 3,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        107,
+        69,
+        172,
+        515,
+        137
+      ],
+      "independent_expected": [
+        107,
+        69,
+        172,
+        515,
+        137
+      ]
+    },
+    {
+      "id": "random-75",
+      "grade": 86,
+      "ids": [
+        "collector",
+        "testament"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ],
+      "independent_expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ]
+    },
+    {
+      "id": "random-76",
+      "grade": 39,
+      "ids": [
+        "gear"
+      ],
+      "charge": 5,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "BronzeSuccessTickets": 1,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        91,
+        227,
+        591,
+        91
+      ],
+      "independent_expected": [
+        0,
+        91,
+        227,
+        591,
+        91
+      ]
+    },
+    {
+      "id": "random-77",
+      "grade": 87,
+      "ids": [
+        "thread",
+        "bellows",
+        "star",
+        "dice",
+        "file"
+      ],
+      "charge": 4,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "StarReady": true,
+        "ThreadReady": false,
+        "DiceReady": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        410,
+        47,
+        71,
+        330,
+        142
+      ],
+      "independent_expected": [
+        410,
+        47,
+        71,
+        330,
+        142
+      ]
+    },
+    {
+      "id": "random-78",
+      "grade": 66,
+      "ids": [
+        "coal"
+      ],
+      "charge": 8,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ],
+      "independent_expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ]
+    },
+    {
+      "id": "random-79",
+      "grade": 25,
+      "ids": [
+        "sicklehammer",
+        "insurance",
+        "ossuary",
+        "ironcomb"
+      ],
+      "charge": 1,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          2,
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        304,
+        218,
+        217,
+        261
+      ],
+      "independent_expected": [
+        0,
+        304,
+        218,
+        217,
+        261
+      ]
+    },
+    {
+      "id": "random-80",
+      "grade": 84,
+      "ids": [
+        "chime",
+        "wax",
+        "fork",
+        "holy",
+        "collector",
+        "redglass"
+      ],
+      "charge": 10,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "random-81",
+      "grade": 92,
+      "ids": [
+        "idol",
+        "silverpermit",
+        "oracledie",
+        "royalseal"
+      ],
+      "charge": 4,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ],
+      "independent_expected": [
+        684,
+        25,
+        63,
+        152,
+        76
+      ]
+    },
+    {
+      "id": "random-82",
+      "grade": 72,
+      "ids": [
+        "voucher",
+        "endlessaxle",
+        "ghostledger",
+        "thirdeye",
+        "cup",
+        "royalchange",
+        "blackstone",
+        "grudge"
+      ],
+      "charge": 2,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "GrudgeTickets": 21
+      },
+      "expected": [
+        0,
+        45,
+        114,
+        273,
+        568
+      ],
+      "independent_expected": [
+        0,
+        45,
+        114,
+        273,
+        568
+      ]
+    },
+    {
+      "id": "random-83",
+      "grade": 18,
+      "ids": [
+        "goldgear",
+        "sieve",
+        "brace",
+        "oracledie",
+        "pin",
+        "mourning"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "BraceStacks": 2,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        414,
+        30,
+        75,
+        180,
+        301
+      ],
+      "independent_expected": [
+        414,
+        30,
+        75,
+        180,
+        301
+      ]
+    },
+    {
+      "id": "random-84",
+      "grade": 15,
+      "ids": [
+        "nail",
+        "oath",
+        "dawnsheath"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        501,
+        40,
+        100,
+        319,
+        40
+      ],
+      "independent_expected": [
+        501,
+        40,
+        100,
+        319,
+        40
+      ]
+    },
+    {
+      "id": "random-85",
+      "grade": 92,
+      "ids": [
+        "still"
+      ],
+      "charge": 2,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ],
+      "independent_expected": [
+        701,
+        26,
+        65,
+        156,
+        52
+      ]
+    },
+    {
+      "id": "random-86",
+      "grade": 76,
+      "ids": [
+        "dawnsheath",
+        "deeppearl"
+      ],
+      "charge": 1,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        675,
+        63,
+        62,
+        150,
+        50
+      ],
+      "independent_expected": [
+        675,
+        63,
+        62,
+        150,
+        50
+      ]
+    },
+    {
+      "id": "random-87",
+      "grade": 78,
+      "ids": [
+        "seal"
+      ],
+      "charge": 6,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        648,
+        34,
+        84,
+        201,
+        33
+      ],
+      "independent_expected": [
+        648,
+        34,
+        84,
+        201,
+        33
+      ]
+    },
+    {
+      "id": "random-88",
+      "grade": 87,
+      "ids": [
+        "sieve",
+        "file",
+        "kingcup"
+      ],
+      "charge": 9,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "KingGreatTickets": 2,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 3,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        74,
+        111,
+        519,
+        296
+      ],
+      "independent_expected": [
+        0,
+        74,
+        111,
+        519,
+        296
+      ]
+    },
+    {
+      "id": "random-89",
+      "grade": 8,
+      "ids": [
+        "grudge"
+      ],
+      "charge": 4,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "GrudgeTickets": 18
+      },
+      "expected": [
+        274,
+        36,
+        91,
+        218,
+        381
+      ],
+      "independent_expected": [
+        274,
+        36,
+        91,
+        218,
+        381
+      ]
+    },
+    {
+      "id": "random-90",
+      "grade": 65,
+      "ids": [
+        "scales",
+        "sicklehammer",
+        "bell",
+        "twinseal",
+        "token",
+        "thorn",
+        "oath"
+      ],
+      "charge": 1,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        588,
+        137,
+        59,
+        98,
+        118
+      ],
+      "independent_expected": [
+        588,
+        137,
+        59,
+        98,
+        118
+      ]
+    },
+    {
+      "id": "random-91",
+      "grade": 28,
+      "ids": [
+        "apron",
+        "letter",
+        "butterfingers",
+        "dragonseal",
+        "mallet",
+        "mourning",
+        "everwick",
+        "bellows"
+      ],
+      "charge": 3,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        37,
+        185,
+        482,
+        296
+      ],
+      "independent_expected": [
+        0,
+        37,
+        185,
+        482,
+        296
+      ]
+    },
+    {
+      "id": "random-92",
+      "grade": 34,
+      "ids": [
+        "voucher",
+        "obsidian"
+      ],
+      "charge": 5,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        87,
+        217,
+        435,
+        261
+      ],
+      "independent_expected": [
+        0,
+        87,
+        217,
+        435,
+        261
+      ]
+    },
+    {
+      "id": "random-93",
+      "grade": 55,
+      "ids": [
+        "glove",
+        "cup",
+        "glass",
+        "lifecontract"
+      ],
+      "charge": 8,
+      "frenzy": true,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 1
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ],
+      "independent_expected": [
+        0,
+        95,
+        238,
+        572,
+        95
+      ]
+    },
+    {
+      "id": "random-94",
+      "grade": 24,
+      "ids": [
+        "seal",
+        "royalseal",
+        "spark",
+        "thirdeye"
+      ],
+      "charge": 5,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        581,
+        36,
+        91,
+        219,
+        73
+      ],
+      "independent_expected": [
+        581,
+        36,
+        91,
+        219,
+        73
+      ]
+    },
+    {
+      "id": "random-95",
+      "grade": 56,
+      "ids": [
+        "ossuary",
+        "bellows",
+        "dragonseal"
+      ],
+      "charge": 9,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4,
+        "ChalkArmed": true
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "expected": [
+        692,
+        26,
+        64,
+        167,
+        51
+      ],
+      "independent_expected": [
+        692,
+        26,
+        64,
+        167,
+        51
+      ]
+    },
+    {
+      "id": "random-96",
+      "grade": 18,
+      "ids": [
+        "hook",
+        "letter",
+        "holy",
+        "crown",
+        "deeppearl"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        562,
+        91,
+        91,
+        219,
+        37
+      ],
+      "independent_expected": [
+        562,
+        91,
+        91,
+        219,
+        37
+      ]
+    },
+    {
+      "id": "random-97",
+      "grade": 50,
+      "ids": [
+        "sicklehammer",
+        "deeppearl",
+        "royalseal",
+        "patience",
+        "ironcomb"
+      ],
+      "charge": 3,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 2,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        517,
+        138,
+        138,
+        86,
+        121
+      ],
+      "independent_expected": [
+        517,
+        138,
+        138,
+        86,
+        121
+      ]
+    },
+    {
+      "id": "random-98",
+      "grade": 1,
+      "ids": [
+        "still",
+        "knot",
+        "dragonseal",
+        "royalseal",
+        "tooth",
+        "collar",
+        "silverpermit"
+      ],
+      "charge": 1,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "InheritedSuccessTickets": 4,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 4
+      },
+      "ctx": {
+        "MourningGreatTickets": 1,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        15,
+        76,
+        189,
+        606,
+        114
+      ],
+      "independent_expected": [
+        15,
+        76,
+        189,
+        606,
+        114
+      ]
+    },
+    {
+      "id": "random-99",
+      "grade": 67,
+      "ids": [
+        "tooth",
+        "knot",
+        "blackstone",
+        "mold",
+        "spark"
+      ],
+      "charge": 0,
+      "frenzy": false,
+      "effects": {
+        "Primed": true,
+        "InheritedSuccessTickets": 1,
+        "HasPreviousOutcome": true,
+        "PreviousOutcome": 2
+      },
+      "ctx": {
+        "MourningGreatTickets": 0,
+        "OssuaryTickets": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": [
+        701,
+        26,
+        65,
+        169,
+        39
+      ],
+      "independent_expected": [
+        701,
+        26,
+        65,
+        169,
+        39
+      ]
+    }
+  ]
+}
