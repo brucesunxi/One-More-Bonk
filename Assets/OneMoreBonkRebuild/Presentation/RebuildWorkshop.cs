@@ -314,7 +314,7 @@ namespace OneMoreBonk.Rebuild.Presentation
                 case "starshard": return "使用后当前剑充能增加3，最多10。";
                 case "delivery": return "购买即生效：下一单额外供剑2把。";
                 case "oblivion": return "购买即生效：愤怒减少1，本契约仅购一次。";
-                default: return "购买后直接加入剑柜，规则与价值由会话计算。";
+                default: return "购入后放入剑柜，可用于锻造或交付订单。";
             }
         }
     }

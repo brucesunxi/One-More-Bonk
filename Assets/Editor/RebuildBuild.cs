@@ -17,7 +17,7 @@ namespace OneMoreBonk.Rebuild.Editor
     {
         public const string ScenePath = "Assets/Scenes/RebuildWorkshop.unity";
         public const string Version = "0.1.0";
-        public const int VersionCode = 4;
+        public const int VersionCode = 5;
 
         [MenuItem("One More Bonk Rebuild/Create Independent Scene")]
         public static void Bootstrap()

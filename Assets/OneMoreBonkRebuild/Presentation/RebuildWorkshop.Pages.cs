@@ -94,7 +94,7 @@ namespace OneMoreBonk.Rebuild.Presentation
 
             string[] outcomes = { "碎裂", "损伤", "不变", "成功", "大成功" };
             Color[] colors = { danger, new Color(.75f, .39f, .10f), muted, mint, gold };
-            Label(new Rect(8, 467, 650, 36), "下一锤结果概率", 23);
+            Label(new Rect(8, 467, 650, 36), "下一锤抽签概率", 23);
             for (int i = 0; i < 5; i++)
             {
                 Rect r = new Rect(i * 134, 510, 128, 110); Panel(r);

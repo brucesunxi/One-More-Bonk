@@ -78,7 +78,7 @@ namespace OneMoreBonk.Rebuild.Presentation
                     if (RewardRetryRequested != null) RewardRetryRequested.Invoke();
                     else Notify("广告服务尚未接入，不能伪造已获奖励。");
                 }
-                if (ModalButton(h - 220, "刷新会话状态")) RefreshFromSession();
+                if (ModalButton(h - 220, "刷新当前状态")) RefreshFromSession();
                 if (!RewardAwaitingSave && request != null && ModalButton(h - 118, "取消未获奖的待处理请求"))
                 {
                     if (RewardCancelRequested != null) RewardCancelRequested.Invoke();
