@@ -1,0 +1,43 @@
+{
+  "recorded_on": "2026-10-16",
+  "purpose": "Fixed local source packages, not build/cache history",
+  "mode": "Google official public Android rewarded test only",
+  "packages": [
+    {
+      "path": "Packages/Vendor/com.google.ads.mobile-11.6.0.tgz",
+      "name": "com.google.ads.mobile",
+      "version": "11.6.0",
+      "bytes": 2102429,
+      "sha256": "84a35425ba5ef8a41cfa4263a2e813172845be9633d1dc85ffa6990c46ebd7e3",
+      "sha1": "dc1fb329e84b18006570c8a30671f43ea3aff669",
+      "dependencies": {
+        "com.unity.external-dependency-manager": "2.1.0",
+        "com.unity.modules.androidjni": "1.0.0"
+      },
+      "source_origin": "OneMoreBonkLegacyDependencies/google-mobile-ads-11.6.0",
+      "license": "Apache-2.0",
+      "license_files": [
+        "Packages/Vendor/com.google.ads.mobile-11.6.0-LICENSE.md",
+        "Packages/Vendor/com.google.ads.mobile-11.6.0-LICENSE"
+      ]
+    },
+    {
+      "path": "Packages/Vendor/com.unity.external-dependency-manager-2.1.0.tgz",
+      "name": "com.unity.external-dependency-manager",
+      "version": "2.1.0",
+      "bytes": 397471,
+      "sha256": "d805846bc49f3f8b8edfc293315b442923438cdcee397f4d3ce9b7b6216f862f",
+      "sha1": "25588ede3cc6577b496fb9f47a380c0b0a1996d9",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "source_origin": "OneMoreBonkLegacyDependencies/google-mobile-ads-11.6.0",
+      "license": "Unity Companion License",
+      "license_files": [
+        "Packages/Vendor/com.unity.external-dependency-manager-2.1.0-LICENSE.md"
+      ]
+    }
+  ],
+  "verification_limit": "SHA256 matched the pre-existing local supply manifest and package name/version/dependencies matched tagged official package metadata. Registry endpoints unavailable to web fetch; archive bytes were not independently compared with a freshly downloaded official digest. Old-project playback evidence is not new-project validation.",
+  "official_metadata": "https://raw.githubusercontent.com/googleads/googleads-mobile-unity/v11.6.0/packages/com.google.ads.mobile/package.json"
+}

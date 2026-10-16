@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "events_sha256": "a880d4c762e4d2694c759f3652b802f4ce4b1c6cf2ad440b946d38185bb7f9e6",
+  "rng": "Independent xorshift32 (13,17,5), uint/2^32. One outcome draw is consumed before forced outcome; then one draw for each source-used proc dice.",
+  "boundary_limit": "0.7 and 0.02 are not representable on uint/2^32; their adjacent lower/upper draws are exercised. 0.5 and 0.25 are exactly representable and tested below/equal/above. Multi-dice mappings preserve source branch decisions, not every arbitrary float.",
+  "cases": [
+    {
+      "id": "ward-first-all-protections",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "cornerstone-before-insurance-spine-phoenix",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "insurance-before-spine-phoenix",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "spine-before-phoenix",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "phoenix-cancels-not-damage",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "actual-break-banks",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "guarded-damage-triggers",
+      "seed": 1,
+      "expected_rng": 67634689,
+      "source_dice": [
+        0.2
+      ],
+      "source_used_dice": 1,
+      "mapped_proc_draws": [
+        0.015747428173199296
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "hold-proc-order",
+      "seed": 1,
+      "expected_rng": 67634689,
+      "source_dice": [
+        0.2
+      ],
+      "source_used_dice": 1,
+      "mapped_proc_draws": [
+        0.015747428173199296
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "great-frenzy-chain",
+      "seed": 1,
+      "expected_rng": 67634689,
+      "source_dice": [
+        0.2
+      ],
+      "source_used_dice": 1,
+      "mapped_proc_draws": [
+        0.015747428173199296
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.25,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [
+        "FrenzyActive",
+        "FrenzyRemaining",
+        "NextTickets"
+      ],
+      "note": "Source helper passes frenzy as an apply argument without persisting feverUntil. C# supplies active four-second state; compare ordered effects/value, not this helper time state or unsafe next preview."
+    },
+    {
+      "id": "hold-independent-dice-success",
+      "seed": 17,
+      "expected_rng": 22020245,
+      "source_dice": [
+        0.69,
+        0.49,
+        0.01
+      ],
+      "source_used_dice": 3,
+      "mapped_proc_draws": [
+        0.26776518346741796,
+        0.3282910624984652,
+        0.005126987816765904
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        },
+        {
+          "threshold": 0.5,
+          "less_than": true
+        },
+        {
+          "threshold": 0.02,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "hold-independent-dice-boundaries",
+      "seed": 45,
+      "expected_rng": 1871483269,
+      "source_dice": [
+        0.7,
+        0.5,
+        0.02
+      ],
+      "source_used_dice": 3,
+      "mapped_proc_draws": [
+        0.7070869605522603,
+        0.9805058389902115,
+        0.43573865410871804
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": false
+        },
+        {
+          "threshold": 0.5,
+          "less_than": false
+        },
+        {
+          "threshold": 0.02,
+          "less_than": false
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "success-independent-dice-boundaries",
+      "seed": 1439435330,
+      "expected_rng": 1074012160,
+      "source_dice": [
+        0.25,
+        0.02
+      ],
+      "source_used_dice": 2,
+      "mapped_proc_draws": [
+        0.25,
+        0.2500629425048828
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.25,
+          "less_than": false
+        },
+        {
+          "threshold": 0.02,
+          "less_than": false
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "The first echo proc draw is exactly 0.25, matching that representable JS strict boundary. The second draw remains on the same non-triggering side of 0.02, not equal to it.",
+      "exact_representable_boundary_draws": [
+        0.25
+      ]
+    },
+    {
+      "id": "damage-independent-dice-success",
+      "seed": 104,
+      "expected_rng": 14046681,
+      "source_dice": [
+        0.69,
+        0.01
+      ],
+      "source_used_dice": 2,
+      "mapped_proc_draws": [
+        0.6368890930898488,
+        0.003270497778430581
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        },
+        {
+          "threshold": 0.02,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    }
+  ],
+  "single_guard_boundaries": [
+    {
+      "id": "still-uint-3006477107",
+      "relic": "still",
+      "seed": 1315394773,
+      "raw_outcome": 2,
+      "threshold": 0.7,
+      "proc_draw_uint": 3006477107,
+      "proc_draw": 0.6999999999534339,
+      "trigger": true,
+      "expected_grade": 11,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "still-uint-3006477108",
+      "relic": "still",
+      "seed": 1556440764,
+      "raw_outcome": 2,
+      "threshold": 0.7,
+      "proc_draw_uint": 3006477108,
+      "proc_draw": 0.7000000001862645,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "hourglass-uint-2147483647",
+      "relic": "hourglass",
+      "seed": 1543202690,
+      "raw_outcome": 2,
+      "threshold": 0.5,
+      "proc_draw_uint": 2147483647,
+      "proc_draw": 0.49999999976716936,
+      "trigger": true,
+      "expected_grade": 10,
+      "expected_charge": 2,
+      "expected_duplicated": false
+    },
+    {
+      "id": "hourglass-uint-2147483648",
+      "relic": "hourglass",
+      "seed": 3147338884,
+      "raw_outcome": 2,
+      "threshold": 0.5,
+      "proc_draw_uint": 2147483648,
+      "proc_draw": 0.5,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "hourglass-uint-2147483649",
+      "relic": "hourglass",
+      "seed": 3893201031,
+      "raw_outcome": 2,
+      "threshold": 0.5,
+      "proc_draw_uint": 2147483649,
+      "proc_draw": 0.5000000002328306,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "echo-uint-1073741823",
+      "relic": "echo",
+      "seed": 238513600,
+      "raw_outcome": 3,
+      "threshold": 0.25,
+      "proc_draw_uint": 1073741823,
+      "proc_draw": 0.24999999976716936,
+      "trigger": true,
+      "expected_grade": 12,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "echo-uint-1073741824",
+      "relic": "echo",
+      "seed": 1439435330,
+      "raw_outcome": 3,
+      "threshold": 0.25,
+      "proc_draw_uint": 1073741824,
+      "proc_draw": 0.25,
+      "trigger": false,
+      "expected_grade": 11,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "echo-uint-1073741825",
+      "relic": "echo",
+      "seed": 106501697,
+      "raw_outcome": 3,
+      "threshold": 0.25,
+      "proc_draw_uint": 1073741825,
+      "proc_draw": 0.25000000023283064,
+      "trigger": false,
+      "expected_grade": 11,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "twinseal-uint-85899345",
+      "relic": "twinseal",
+      "seed": 2771420161,
+      "raw_outcome": 2,
+      "threshold": 0.02,
+      "proc_draw_uint": 85899345,
+      "proc_draw": 0.019999999785795808,
+      "trigger": true,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": true
+    },
+    {
+      "id": "twinseal-uint-85899346",
+      "relic": "twinseal",
+      "seed": 1166999557,
+      "raw_outcome": 2,
+      "threshold": 0.02,
+      "proc_draw_uint": 85899346,
+      "proc_draw": 0.02000000001862645,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    }
+  ],
+  "single_guard_boundary_origin": "Explicit local seed-lattice invariants using strict guards independently evidenced by archived JS event snapshots: still<0.7, hourglass<0.5, echo<0.25, twinseal<0.02. Fixed inverse-xorshift seeds were prepared independently; no current C# output was used as an expectation."
+}

@@ -1,14 +1,22 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "recorded_at": "2026-10-16",
-  "manifest_role": "后续选择性迁入白名单，不是已导入或可运行声明",
+  "manifest_role": "Selective asset-reuse whitelist, actual import receipts and bounded verification observations; not complete product/device/advertising QA.",
   "source_project": {
     "id": "OneMoreBonkLegacy",
     "path_format": "相对于旧Unity工程根的路径；旧工程不在本仓库内",
     "source_project_in_repo": false
   },
   "repo_root_convention": "路径相对于本仓库根；repo_path为null时尚未由本清单登记副本",
-  "import_state": "本次仅编写文档，无资产复制；核心分支若迁入规则/模型，由其独立记录实际路径",
+  "import_state": {
+    "recorded_at": "2026-10-16",
+    "imported_asset_count": 18,
+    "unchanged_asset_count": 16,
+    "namespace_adapted_geometry_count": 2,
+    "deferred_candidate_count": 1,
+    "validation": "All 18 imported resource/script hashes, their metas and 4 folder metas match this manifest. New Unity project import and independent C# compilation passed. Initial real-phone home/starter/forge/relic-page observations confirm original UI, CJK font and the currently displayed 3D sword path. Full phone flow, all sword/material variants and test-ad playback/earned grants remain in progress or unverified.",
+    "current_status_recorded_at": "2026-10-16"
+  },
   "constraints": [
     "只迁选中asset、同名meta和经核对依赖",
     "保留字体等原许可",
@@ -24,14 +32,22 @@
       "bytes": 2073625,
       "kind": "ui_resource",
       "purpose": "工坊背景",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/courtyard-background.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/courtyard-background.png.meta",
         "sha256": "ba5f3f33e4c1a462846cdfd4ac623891d2bcb74480f71c5c14e11ee39dfeb60e",
-        "guid": "a5578c714dcaa4e499464ba8049643b9"
-      }
+        "guid": "a5578c714dcaa4e499464ba8049643b9",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/courtyard-background.png.meta",
+        "repo_sha256": "ba5f3f33e4c1a462846cdfd4ac623891d2bcb74480f71c5c14e11ee39dfeb60e",
+        "repo_guid": "a5578c714dcaa4e499464ba8049643b9",
+        "identity_preserved": true
+      },
+      "repo_sha256": "328b309d32dec941c3227bd0fd4f66256e21d937c0129d6b2b469f4be36ada49",
+      "repo_bytes": 2073625,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/anvil-stone.png",
@@ -39,14 +55,22 @@
       "bytes": 1772151,
       "kind": "ui_resource",
       "purpose": "铁砧",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/anvil-stone.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/anvil-stone.png.meta",
         "sha256": "3789e41359ce8eb024109e707d3265c0fcf13748e3547e1f835bf15e3b895c17",
-        "guid": "eb98ab971abbb481cac662f211520033"
-      }
+        "guid": "eb98ab971abbb481cac662f211520033",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/anvil-stone.png.meta",
+        "repo_sha256": "3789e41359ce8eb024109e707d3265c0fcf13748e3547e1f835bf15e3b895c17",
+        "repo_guid": "eb98ab971abbb481cac662f211520033",
+        "identity_preserved": true
+      },
+      "repo_sha256": "c92293fee3a3d8c9f355cd8a9c158b6afe70789acd8153a1f11674b809552b6e",
+      "repo_bytes": 1772151,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/dock-mint.png",
@@ -54,14 +78,22 @@
       "bytes": 1407593,
       "kind": "ui_resource",
       "purpose": "十孔控台",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/dock-mint.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/dock-mint.png.meta",
         "sha256": "13c5b83d4eb3dbb70ebc3b461bc05bb2654bd16dc8061182650173026b25bf08",
-        "guid": "666c94c00132040fdb35acbe9f9382d8"
-      }
+        "guid": "666c94c00132040fdb35acbe9f9382d8",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/dock-mint.png.meta",
+        "repo_sha256": "13c5b83d4eb3dbb70ebc3b461bc05bb2654bd16dc8061182650173026b25bf08",
+        "repo_guid": "666c94c00132040fdb35acbe9f9382d8",
+        "identity_preserved": true
+      },
+      "repo_sha256": "e7641f17e251d935d2bbc2d99daacdac8d9beaa2760c09fa7848533cdcd6c87d",
+      "repo_bytes": 1407593,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/button-hammer.png",
@@ -69,14 +101,22 @@
       "bytes": 1341052,
       "kind": "ui_resource",
       "purpose": "锤击按钮",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/button-hammer.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/button-hammer.png.meta",
         "sha256": "50feade64eda79f048e9b3bf732e3917d1a4b76dd5b4754b9baffea340cb587c",
-        "guid": "78ba3a3e0ad0d46ca833c96cbffa3144"
-      }
+        "guid": "78ba3a3e0ad0d46ca833c96cbffa3144",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/button-hammer.png.meta",
+        "repo_sha256": "50feade64eda79f048e9b3bf732e3917d1a4b76dd5b4754b9baffea340cb587c",
+        "repo_guid": "78ba3a3e0ad0d46ca833c96cbffa3144",
+        "identity_preserved": true
+      },
+      "repo_sha256": "cb5d6b5adbf69ad29276864411ccb55249395f1c996e3321f0fa69082b26215a",
+      "repo_bytes": 1341052,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/button-gold.png",
@@ -84,14 +124,22 @@
       "bytes": 1200166,
       "kind": "ui_resource",
       "purpose": "主按钮",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/button-gold.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/button-gold.png.meta",
         "sha256": "a19dcfaefc3807fbf9ab5138d8e6bfbf62a2eb60747f4c551f5b0766284ae934",
-        "guid": "d34011ff9155143998e0dfcbe6229aa8"
-      }
+        "guid": "d34011ff9155143998e0dfcbe6229aa8",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/button-gold.png.meta",
+        "repo_sha256": "a19dcfaefc3807fbf9ab5138d8e6bfbf62a2eb60747f4c551f5b0766284ae934",
+        "repo_guid": "d34011ff9155143998e0dfcbe6229aa8",
+        "identity_preserved": true
+      },
+      "repo_sha256": "7d9d3b3e595342c47708dec802e0b13062bc359eb8d66d819de34507c95e5c76",
+      "repo_bytes": 1200166,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/button-ivory.png",
@@ -99,14 +147,22 @@
       "bytes": 1444675,
       "kind": "ui_resource",
       "purpose": "次按钮",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/button-ivory.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/button-ivory.png.meta",
         "sha256": "55d8492278bfca43671c06a594359f0fa4d08e97c731890a59615a41b2024bb6",
-        "guid": "9415d810e0cc541c59b384cdf14cd31c"
-      }
+        "guid": "9415d810e0cc541c59b384cdf14cd31c",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/button-ivory.png.meta",
+        "repo_sha256": "55d8492278bfca43671c06a594359f0fa4d08e97c731890a59615a41b2024bb6",
+        "repo_guid": "9415d810e0cc541c59b384cdf14cd31c",
+        "identity_preserved": true
+      },
+      "repo_sha256": "0f39abe0885adab234863874ee268702c5fbebeb418fd5c8d81886e30370fa23",
+      "repo_bytes": 1444675,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/panel-frosted.png",
@@ -114,14 +170,22 @@
       "bytes": 1297769,
       "kind": "ui_resource",
       "purpose": "面板",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/panel-frosted.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/panel-frosted.png.meta",
         "sha256": "6992b4a230209ba07dff909778449d581b135d98ba69e284cd1d74f26b2351ab",
-        "guid": "4448cc93c2f2b436897f132ac504d1f6"
-      }
+        "guid": "4448cc93c2f2b436897f132ac504d1f6",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/panel-frosted.png.meta",
+        "repo_sha256": "6992b4a230209ba07dff909778449d581b135d98ba69e284cd1d74f26b2351ab",
+        "repo_guid": "4448cc93c2f2b436897f132ac504d1f6",
+        "identity_preserved": true
+      },
+      "repo_sha256": "0e65a7a7144a17e1c7f098cd2be6d6155496968019f8427136569a4c6fb4b8e1",
+      "repo_bytes": 1297769,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/items-atlas-v1.png",
@@ -129,14 +193,22 @@
       "bytes": 1760203,
       "kind": "ui_resource",
       "purpose": "原道具图集",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/items-atlas-v1.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/items-atlas-v1.png.meta",
         "sha256": "55b3cf9a0b1d72e263dbf4d0e35d13bc92326733fa487a095a132bfec9607e9d",
-        "guid": "ec75a49c740604c0a92229ec2e892e42"
-      }
+        "guid": "ec75a49c740604c0a92229ec2e892e42",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/items-atlas-v1.png.meta",
+        "repo_sha256": "55b3cf9a0b1d72e263dbf4d0e35d13bc92326733fa487a095a132bfec9607e9d",
+        "repo_guid": "ec75a49c740604c0a92229ec2e892e42",
+        "identity_preserved": true
+      },
+      "repo_sha256": "e5edc31471a76467b7c7cee69aad63d2ebafeaf5902c97e206915677cc6765b9",
+      "repo_bytes": 1760203,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project. Original 4x4 atlas; do not interpret unused legacy restore/growth icons as supported new gameplay. Atlas cell UVs are display-only.",
+      "device_validation": "Imported and hash-verified. This individual use/variant is not yet included in the reported real-phone smoke observations."
     },
     {
       "source_path": "Assets/Resources/MintUI/universal-break.png",
@@ -144,14 +216,22 @@
       "bytes": 1017703,
       "kind": "ui_resource",
       "purpose": "通用碎裂结果图",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/universal-break.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/universal-break.png.meta",
         "sha256": "1ff667f4f17c3813fef0ac63e95c14a88eec9651420de3228c4ab414544526f9",
-        "guid": "9f48b02e0abe543f28aed595fd81b2e2"
-      }
+        "guid": "9f48b02e0abe543f28aed595fd81b2e2",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/universal-break.png.meta",
+        "repo_sha256": "1ff667f4f17c3813fef0ac63e95c14a88eec9651420de3228c4ab414544526f9",
+        "repo_guid": "9f48b02e0abe543f28aed595fd81b2e2",
+        "identity_preserved": true
+      },
+      "repo_sha256": "4e68758f7943811295a96d445fe456c73677b149d1407a18c0bc58b805d9ff6d",
+      "repo_bytes": 1017703,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Imported and hash-verified. This individual use/variant is not yet included in the reported real-phone smoke observations."
     },
     {
       "source_path": "Assets/Resources/MintUI/wordmark-reference.png",
@@ -159,14 +239,22 @@
       "bytes": 614919,
       "kind": "ui_resource",
       "purpose": "已在旧运行资源中的标题图；按新页面需要选用",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/wordmark-reference.png",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/wordmark-reference.png.meta",
         "sha256": "9c305452a3c0f678f38c9d8fe5987ca34749be82ea9eae1413a2d9e4adf5c244",
-        "guid": "9cfb4d8ee24614df5bf511d7a5ff88ba"
-      }
+        "guid": "9cfb4d8ee24614df5bf511d7a5ff88ba",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/wordmark-reference.png.meta",
+        "repo_sha256": "9c305452a3c0f678f38c9d8fe5987ca34749be82ea9eae1413a2d9e4adf5c244",
+        "repo_guid": "9cfb4d8ee24614df5bf511d7a5ff88ba",
+        "identity_preserved": true
+      },
+      "repo_sha256": "607a5d8e6c2df5ec9f7f873bb9b657e4aace835c356a967a030c2e2d0b131d1f",
+      "repo_bytes": 614919,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/MintUI/asset-layout.json",
@@ -174,14 +262,22 @@
       "bytes": 2758,
       "kind": "ui_resource",
       "purpose": "裁切与九宫格布局参数，适配后使用",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/asset-layout.json",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/asset-layout.json.meta",
         "sha256": "d7c5934c9930897515490b8af6bff684d85214a188dd528e4563998c662a4b29",
-        "guid": "10509f45107ec441c9086f32a481718c"
-      }
+        "guid": "10509f45107ec441c9086f32a481718c",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/asset-layout.json.meta",
+        "repo_sha256": "d7c5934c9930897515490b8af6bff684d85214a188dd528e4563998c662a4b29",
+        "repo_guid": "10509f45107ec441c9086f32a481718c",
+        "identity_preserved": true
+      },
+      "repo_sha256": "9f6aaf232726a1da42c87de9d406c4682959c602ac8fd1f9ee8f6ea611f454aa",
+      "repo_bytes": 2758,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project. Source coordinates retained. New loader uses RebuildArt/MintUI prefix. dock-slots describes exactly ten charge lamps, not relic shelf capacity.",
+      "device_validation": "Used by the observed UI resource loader/ten-charge display; no independent full layout or touch QA claim."
     },
     {
       "source_path": "Assets/Resources/MintUI/dock-slots.json",
@@ -189,14 +285,22 @@
       "bytes": 984,
       "kind": "ui_resource",
       "purpose": "十个充能孔位置；与遗物2×4槽位不同",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/MintUI/dock-slots.json",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/MintUI/dock-slots.json.meta",
         "sha256": "e67f90829209d53fa2fc8889536df527495270965993de318eb9910e082e9f25",
-        "guid": "9b0ec6170fde34afbb8d5be259508be4"
-      }
+        "guid": "9b0ec6170fde34afbb8d5be259508be4",
+        "repo_path": "Assets/Resources/RebuildArt/MintUI/dock-slots.json.meta",
+        "repo_sha256": "e67f90829209d53fa2fc8889536df527495270965993de318eb9910e082e9f25",
+        "repo_guid": "9b0ec6170fde34afbb8d5be259508be4",
+        "identity_preserved": true
+      },
+      "repo_sha256": "4706fb27bfcc4414229409ede633bda127229bb1e7ee5234a381c070308d836f",
+      "repo_bytes": 984,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project. Source coordinates retained. New loader uses RebuildArt/MintUI prefix. dock-slots describes exactly ten charge lamps, not relic shelf capacity.",
+      "device_validation": "Used by the observed UI resource loader/ten-charge display; no independent full layout or touch QA claim."
     },
     {
       "source_path": "Assets/Resources/ContractFonts/NotoSansSC-Regular.otf",
@@ -204,14 +308,22 @@
       "bytes": 16437364,
       "kind": "font_resource",
       "purpose": "中文字体",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/Fonts/NotoSansSC-Regular.otf",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/ContractFonts/NotoSansSC-Regular.otf.meta",
         "sha256": "07a2b8a90d777e97ec006b90b7599bdd3401c1d1a5c6f551c80bc4d45abd5c55",
-        "guid": "bdfdbdeda654d407fb7355f0f99aa001"
-      }
+        "guid": "bdfdbdeda654d407fb7355f0f99aa001",
+        "repo_path": "Assets/Resources/RebuildArt/Fonts/NotoSansSC-Regular.otf.meta",
+        "repo_sha256": "07a2b8a90d777e97ec006b90b7599bdd3401c1d1a5c6f551c80bc4d45abd5c55",
+        "repo_guid": "bdfdbdeda654d407fb7355f0f99aa001",
+        "identity_preserved": true
+      },
+      "repo_sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+      "repo_bytes": 16437364,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Resources/ContractFonts/NotoSansSC-LICENSE.txt",
@@ -219,14 +331,22 @@
       "bytes": 4301,
       "kind": "font_resource",
       "purpose": "字体原许可，随字体保留",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/Fonts/NotoSansSC-LICENSE.txt",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/ContractFonts/NotoSansSC-LICENSE.txt.meta",
         "sha256": "7675393de88c985b8025428cf33faa90a7f7480fb074cc26c5f6db909526b15d",
-        "guid": "26efd2e06175c412a9542381b80fb7bc"
-      }
+        "guid": "26efd2e06175c412a9542381b80fb7bc",
+        "repo_path": "Assets/Resources/RebuildArt/Fonts/NotoSansSC-LICENSE.txt.meta",
+        "repo_sha256": "7675393de88c985b8025428cf33faa90a7f7480fb074cc26c5f6db909526b15d",
+        "repo_guid": "26efd2e06175c412a9542381b80fb7bc",
+        "identity_preserved": true
+      },
+      "repo_sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+      "repo_bytes": 4301,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Provenance/license companion; filesystem verified, no rendered-content claim is applicable."
     },
     {
       "source_path": "Assets/Resources/ContractFonts/font-source.json",
@@ -234,14 +354,22 @@
       "bytes": 578,
       "kind": "font_resource",
       "purpose": "公开字体来源及hash记录",
-      "status": "candidate_only",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/Fonts/font-source.json",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/ContractFonts/font-source.json.meta",
         "sha256": "caae58a8e723520ae5797728948c8073d37021bb4aea50b6a9655a537f51bd43",
-        "guid": "f0d218477587e48c88dbcccfc22cf7f9"
-      }
+        "guid": "f0d218477587e48c88dbcccfc22cf7f9",
+        "repo_path": "Assets/Resources/RebuildArt/Fonts/font-source.json.meta",
+        "repo_sha256": "caae58a8e723520ae5797728948c8073d37021bb4aea50b6a9655a537f51bd43",
+        "repo_guid": "f0d218477587e48c88dbcccfc22cf7f9",
+        "identity_preserved": true
+      },
+      "repo_sha256": "a5a37cb4f8b7b96d52c33886b6d4e9e4e46b0e157854c2e1461df9f959a826ca",
+      "repo_bytes": 578,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project.",
+      "device_validation": "Provenance/license companion; filesystem verified, no rendered-content claim is applicable."
     },
     {
       "source_path": "Assets/Scripts/Visuals/RageWeaponGeometry.cs",
@@ -249,14 +377,22 @@
       "bytes": 44312,
       "kind": "visual_implementation_source",
       "purpose": "已完成普通剑外观生成逻辑，需namespace/显示适配，非直接迁入旧控制器",
-      "status": "candidate_needs_dependency_review",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_namespace_adapted_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/Swords/RageWeaponGeometry.cs",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Scripts/Visuals/RageWeaponGeometry.cs.meta",
         "sha256": "ac160f4ef67d97ea5cb8d178db414a4a3bb41f3ec77badbf174b983c1ba387e1",
-        "guid": "e54f1e7026aec46c79d4f3421267c818"
-      }
+        "guid": "e54f1e7026aec46c79d4f3421267c818",
+        "repo_path": "Assets/Resources/RebuildArt/Swords/RageWeaponGeometry.cs.meta",
+        "repo_sha256": "44587d39292a1c6e60a92c09cb6c574b6e285a041699185b8e2841844741ad10",
+        "repo_guid": "2c77685946314212b68202803e421cda",
+        "identity_preserved": false
+      },
+      "repo_sha256": "480e4ed7c0e5d123c521869e75191b9aff4aa1eda43a53fa68f4e9a9d5cc58ef",
+      "repo_bytes": 44328,
+      "adaptation_notes": "Pure visual geometry only. Namespace changed from OneMoreBonk to OneMoreBonk.Rebuild.Visuals; new script GUID. No Session/UI controller or gameplay state dependency. Appearance parameters still require the new read-only Session adapter.",
+      "device_validation": "Observed in the initial real-phone home/starter/forge/relic-page smoke paths; not every state, shape, material, screen size or interaction."
     },
     {
       "source_path": "Assets/Scripts/Visuals/MerchantWeaponGeometry.cs",
@@ -264,14 +400,22 @@
       "bytes": 40615,
       "kind": "visual_implementation_source",
       "purpose": "已完成商人剑外观生成逻辑，需URP与显示适配",
-      "status": "candidate_needs_dependency_review",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_namespace_adapted_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/Swords/MerchantWeaponGeometry.cs",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Scripts/Visuals/MerchantWeaponGeometry.cs.meta",
         "sha256": "e02699fe73f5e26af08c6e674b770c23fa3981e06bf37a3b7041d311e8d62008",
-        "guid": "b100cc767c0948fab9cef750546b3004"
-      }
+        "guid": "b100cc767c0948fab9cef750546b3004",
+        "repo_path": "Assets/Resources/RebuildArt/Swords/MerchantWeaponGeometry.cs.meta",
+        "repo_sha256": "cf42160bf493ed45c95fa845d100c30e83eb9eee0dc28374731ab98a7b866cac",
+        "repo_guid": "2f8c9e7e398d495abe8b61a2486e9cee",
+        "identity_preserved": false
+      },
+      "repo_sha256": "6dfb1f06d0aef4fbae07d073b8f8fd8e826e208789e81ce42ecd827fff723525",
+      "repo_bytes": 40631,
+      "adaptation_notes": "Pure visual geometry only. Namespace changed from OneMoreBonk to OneMoreBonk.Rebuild.Visuals; new script GUID. No Session/UI controller or gameplay state dependency. Appearance parameters still require the new read-only Session adapter.",
+      "device_validation": "Imported and hash-verified. This individual use/variant is not yet included in the reported real-phone smoke observations."
     },
     {
       "source_path": "Assets/Resources/ForgeGoldFlow.shader",
@@ -279,14 +423,15 @@
       "bytes": 3441,
       "kind": "shader_candidate",
       "purpose": "仅新皮肤实际使用时选入",
-      "status": "candidate_needs_dependency_review",
+      "status": "deferred_optional_visual_effect",
       "repo_path": null,
       "imported_by_this_manifest": false,
       "meta": {
         "source_path": "Assets/Resources/ForgeGoldFlow.shader.meta",
         "sha256": "26754ec38bf47ff8ac324f8fef85f83e452cd72f4528ec807eddada0dde1f543",
         "guid": "a223bee7ba2c743e69db500d73ed85b1"
-      }
+      },
+      "adaptation_notes": "Not needed by the imported geometry factories. Gold-flow overlay is optional; no runtime dependency on this shader was imported."
     },
     {
       "source_path": "Assets/Resources/RedwarmSurfaceShaderReference.mat",
@@ -294,14 +439,22 @@
       "bytes": 6273,
       "kind": "dependency_candidate",
       "purpose": "核对普通剑材质/shader引用是否仍必要，不自动导入",
-      "status": "candidate_needs_dependency_review",
-      "repo_path": null,
-      "imported_by_this_manifest": false,
+      "status": "imported_bytes_verified_unity_imported",
+      "repo_path": "Assets/Resources/RebuildArt/Swords/RedwarmSurfaceShaderReference.mat",
+      "imported_by_this_manifest": true,
       "meta": {
         "source_path": "Assets/Resources/RedwarmSurfaceShaderReference.mat.meta",
         "sha256": "7a2df8329273b22db36b2eea7de589b08a3f0f31a66ed60e2e04e71a12b3490f",
-        "guid": "28bf8d3793cc440af8bad28bd3d948b7"
-      }
+        "guid": "28bf8d3793cc440af8bad28bd3d948b7",
+        "repo_path": "Assets/Resources/RebuildArt/Swords/RedwarmSurfaceShaderReference.mat.meta",
+        "repo_sha256": "7a2df8329273b22db36b2eea7de589b08a3f0f31a66ed60e2e04e71a12b3490f",
+        "repo_guid": "28bf8d3793cc440af8bad28bd3d948b7",
+        "identity_preserved": true
+      },
+      "repo_sha256": "fd4cb6395420f397d8bd238d639460b1744b7b2c3928bf8543a425a3d51a1f07",
+      "repo_bytes": 6273,
+      "adaptation_notes": "Byte-for-byte resource and original meta preserved. No runtime link to the legacy project. Includes its two small embedded textures; external GUIDs resolve to URP 17.3.0 Lit shader (933532a4fcc9baf4fa0491de14d08ed7) and package Editor AssetVersion (d0353a89b1f911e48b9e16bdc9f2e058). Retained as a Resources material reference for dynamic Lit texture variants; Initial real-phone current-sword rendering is observed; complete material-keyword/shape/device coverage is not yet verified.",
+      "device_validation": "Imported and hash-verified. This individual use/variant is not yet included in the reported real-phone smoke observations."
     }
   ],
   "core_source_reference": {
@@ -319,5 +472,55 @@
     "全部旧设计review包和未选生成稿",
     "生成输出hint、临时命令及本机路径",
     "缓存、日志、旧安装包、签名凭据"
-  ]
+  ],
+  "folder_metas": [
+    {
+      "repo_path": "Assets/Resources/RebuildArt.meta",
+      "sha256": "abb3e35064353989057f72822f8a0b60b0d5dd765fe54f1416c93f432bfde03b",
+      "guid": "f3361b87692349e5996481fa54277201"
+    },
+    {
+      "repo_path": "Assets/Resources/RebuildArt/Fonts.meta",
+      "sha256": "b2c2980adbafd76a5b0285bcaae311166253bba463298c6bf03fe5dda86233f1",
+      "guid": "1b7b0415b4ba48ec8b335a1a500fb6de"
+    },
+    {
+      "repo_path": "Assets/Resources/RebuildArt/MintUI.meta",
+      "sha256": "d1b689d33b6608061eabc0e24789910a191e58f8c1a535656903a63a803733fd",
+      "guid": "78047d34bd9641f4829b876f5bc56b43"
+    },
+    {
+      "repo_path": "Assets/Resources/RebuildArt/Swords.meta",
+      "sha256": "498224777322f065b70b6aff8e47910fe86e2ec2074b2e1dc30ff0d0ae14948a",
+      "guid": "c629e17e749f46eeafbe80f06658fcfd"
+    }
+  ],
+  "validation_scope": {
+    "unity_project_import": "passed",
+    "csharp_static_compile": "passed",
+    "device_smoke_observed_pages": [
+      "home",
+      "starter-gift",
+      "forge",
+      "relics"
+    ],
+    "device_observation_provenance": "Parent-agent real-phone observations during the 2026-10-16 rebuild delivery; no screenshots or personal device captures imported into Assets.",
+    "full_phone_flow_qa": "in_progress",
+    "all_weapon_variants": "not_yet_verified",
+    "test_ad_playback_and_earned_grant": "not_claimed_verified"
+  },
+  "asset_tree_audit": {
+    "recorded_at": "2026-10-16",
+    "files_at_audit": 118,
+    "unique_meta_guids": 69,
+    "duplicate_guids": 0,
+    "imported_asset_hash_matches": 18,
+    "imported_meta_hash_matches": 18,
+    "folder_meta_hash_matches": 4,
+    "png_files": 10,
+    "png_text_metadata_chunks": 0,
+    "private_paths_or_personal_media_found": false,
+    "extra_test_output_or_signing_credentials_found": false,
+    "scope": "Assets source tree and ignore rules inspected without changing Git index. URP settings, entry scene and official sample-ad config are legitimate runtime project inputs. This does not certify the final staged-file list."
+  }
 }

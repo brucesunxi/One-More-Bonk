@@ -1,0 +1,1550 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-16",
+  "status": "PASS",
+  "exit_code": 0,
+  "kind": "pure-core-ordered-effects-and-lifecycle",
+  "assertions": 522482,
+  "failed_assertions": 0,
+  "error": null,
+  "failure_samples": [],
+  "sections": {
+    "independent_branch_post_states": 519614,
+    "independent_dynamic_shelf": 1924,
+    "independent_event_snapshots_with_seed_mapping": 896,
+    "local_exact_or_adjacent_seed_guard_boundaries": 21,
+    "local_lifecycle_invariants": 21,
+    "local_shape_money_invariants": 6
+  },
+  "independent_cases": {
+    "branch_cases": 949,
+    "post_states": 7994,
+    "dynamic_shelf_cases": 15,
+    "event_snapshots": 13
+  },
+  "source": {
+    "url": "https://www.forgetax.tools/_next/static/chunks/0vzwcxk1vv8wc.js",
+    "sha256": "2b919717745ff673bfe838356563fedde74fd74a9a1c9eecd85a0af19db7cbe9",
+    "reported_build": 25755699,
+    "archived_oracle": "development/qa/unlimited-forge-v070/source-golden-oracle.json",
+    "archived_oracle_sha256": "12fd7c14f701d1c9cbc0ebeca71b6cb2f9a10fb3aea28855d3aa2e17038ad641",
+    "legacy_check_source": "development/OneMoreBonk/Assets/Editor/RiskRulesChecks.cs",
+    "legacy_check_sha256": "38628c6188f58c250bd9014a440deb0724f15c33bcde95db0f64fb34f7f3b0d8",
+    "expected_origin": "Archived public fan-site JS VM exports. All 949 BranchOracle Expected objects copied without recalculation; 15 dynamic and 13 event observations preserved. The dynamic fixture source metadata replaces a private archive path with the original public URL. Not the original Steam executable."
+  },
+  "fixture_sha256": {
+    "effect-branches.json": "268df0d78a144fd9df1cdde724b7db5bb7ef9e3b986c1a69fc300a60b059295c",
+    "effect-dynamic-shelf.json": "4950927fa4d46fb712ac93321e95d37ddc03028e1a69913a5104be3b324a3b8f",
+    "effect-events.json": "a880d4c762e4d2694c759f3652b802f4ce4b1c6cf2ad440b946d38185bb7f9e6",
+    "effect-event-seeds.json": "2d621d7ca7a2f95de55661aad8ed1a5d65c8dfc867051f7bc50b47cdb8418c42"
+  },
+  "compared_branch_fields": [
+    "AxleSuccesses",
+    "BraceStacks",
+    "Broken",
+    "BronzeSuccessTickets",
+    "ChalkArmed",
+    "Charge",
+    "ChimeLevels",
+    "ContextBroken",
+    "ContextDamageEvents",
+    "ContextFrenzyEvents",
+    "ContextFuneralClaims",
+    "ContextGold",
+    "ContextGreatEvents",
+    "ContextGrudge",
+    "ContextHoldEvents",
+    "ContextInheritanceCharge",
+    "ContextInheritedGrade",
+    "ContextInheritedSuccess",
+    "ContextInsurance",
+    "ContextMourning",
+    "ContextNextSupply",
+    "ContextScrap",
+    "CornerstoneUses",
+    "DamageCount",
+    "DiceReady",
+    "Duplicated",
+    "Flat",
+    "FrenzyActivations",
+    "FrenzyActive",
+    "Grade",
+    "GreatMultiplier",
+    "GrowthBase",
+    "HasPreviousOutcome",
+    "HeldGreatLevels",
+    "Hits",
+    "HoldsTotal",
+    "HoldStreak",
+    "InheritedSuccessTickets",
+    "KingGreatTickets",
+    "MilestoneMask",
+    "Multiplier",
+    "NextTickets",
+    "NormalHits",
+    "NormalSuccesses",
+    "OssuaryTickets",
+    "PeakValue",
+    "PearlUses",
+    "PhoenixUses",
+    "PowderArmed",
+    "PreviousOutcome",
+    "ProcIds",
+    "Rng",
+    "RoyalGreatLevels",
+    "SameResultStreak",
+    "SeedBase",
+    "SpineDamages",
+    "SpineShield",
+    "StarReady",
+    "Successes",
+    "SuccessStreak",
+    "TemperScars",
+    "ThreadReady",
+    "Value",
+    "WardArmed"
+  ],
+  "source_effect_field_mapping": [
+    "successStreak:SuccessStreak",
+    "holdStreak:HoldStreak",
+    "successes:Successes",
+    "brace:BraceStacks",
+    "phoenix:PhoenixUses",
+    "feverActivations:FrenzyActivations",
+    "axleSuccesses:AxleSuccesses",
+    "temperScars:TemperScars",
+    "cornerstoneUses:CornerstoneUses",
+    "pearlUses:PearlUses",
+    "heldGreatLevels:HeldGreatLevels",
+    "kingTickets:KingGreatTickets",
+    "inheritedSuccess:InheritedSuccessTickets",
+    "royalLevels:RoyalGreatLevels",
+    "chimeLevels:ChimeLevels",
+    "bronzeTickets:BronzeSuccessTickets",
+    "hasPreviousOutcome:HasPreviousOutcome",
+    "threadReady:ThreadReady",
+    "starReady:StarReady",
+    "diceReady:DiceReady",
+    "spineShield:SpineShield",
+    "wardArmed:WardArmed",
+    "chalkArmed:ChalkArmed",
+    "powderArmed:PowderArmed",
+    "primed:Primed",
+    "seedBase:SeedBase",
+    "growthBase:GrowthBase",
+    "flat:Flat",
+    "multiplier:Multiplier",
+    "greatMultiplier:GreatMultiplier",
+    "valueScale:ValueScale",
+    "normalHits:NormalHits",
+    "normalSuccesses:NormalSuccesses",
+    "damageCount:DamageCount",
+    "spineLosses:SpineDamages",
+    "holdsTotal:HoldsTotal",
+    "milestones:MilestoneMask"
+  ],
+  "source_context_field_mapping": {
+    "grudgeTickets": "GrudgeTickets",
+    "mourningGreatTickets": "MourningGreatTickets",
+    "successfulTributes": "SuccessfulTributes",
+    "inheritGrade": "InheritedGrade",
+    "inheritanceChargeGrant": "InheritanceChargeGrant",
+    "inheritSuccess": "InheritedSuccessTickets",
+    "insured": "InsuranceUsed",
+    "brokenSwords": "BrokenSwords",
+    "funeralClaims": "FuneralClaims",
+    "funeralPending": "NextSupply",
+    "wallet": "BonusGold",
+    "greatEvents": "GreatEvents",
+    "damageEvents": "DamageEvents",
+    "holdEvents": "HoldEvents",
+    "feverEvents": "FrenzyEvents"
+  },
+  "coverage": {
+    "enabled_relics": 94,
+    "relics_present": 94,
+    "missing_enabled_relics": [],
+    "raw_outcome_order": [
+      "Break",
+      "Damage",
+      "Hold",
+      "Success",
+      "Great"
+    ],
+    "raw_outcome_counts": [
+      477,
+      1888,
+      1891,
+      1879,
+      1859
+    ],
+    "per_relic_case_counts": {
+      "nail": 40,
+      "file": 40,
+      "seal": 40,
+      "glove": 8,
+      "coin": 41,
+      "pin": 40,
+      "bell": 8,
+      "hold": 40,
+      "knot": 41,
+      "star": 40,
+      "insurance": 11,
+      "echo": 8,
+      "still": 8,
+      "rivet": 40,
+      "brace": 40,
+      "shard": 44,
+      "mold": 9,
+      "phoenix": 11,
+      "speed": 40,
+      "supply": 8,
+      "repair": 43,
+      "tongs": 40,
+      "grudge": 41,
+      "rage": 40,
+      "bellows": 40,
+      "holy": 41,
+      "ossuary": 41,
+      "crown": 8,
+      "spine": 11,
+      "royalseal": 8,
+      "dice": 8,
+      "hourglass": 40,
+      "incense": 8,
+      "mirror": 41,
+      "idol": 41,
+      "headless": 8,
+      "hook": 8,
+      "thorn": 40,
+      "obsidian": 8,
+      "testament": 8,
+      "coal": 8,
+      "token": 8,
+      "mallet": 8,
+      "patience": 8,
+      "spark": 8,
+      "thread": 72,
+      "apron": 9,
+      "cup": 41,
+      "fork": 8,
+      "gear": 8,
+      "chime": 40,
+      "blackstone": 8,
+      "voucher": 8,
+      "sieve": 44,
+      "locket": 8,
+      "watch": 8,
+      "collar": 40,
+      "glass": 40,
+      "loop": 40,
+      "firstseal": 8,
+      "thirdeye": 40,
+      "collector": 8,
+      "badge": 8,
+      "ironcomb": 8,
+      "wax": 41,
+      "scales": 8,
+      "letter": 8,
+      "tooth": 41,
+      "royalnail": 8,
+      "mourning": 40,
+      "oath": 8,
+      "kingcup": 40,
+      "goldgear": 40,
+      "oracledie": 8,
+      "hearth": 8,
+      "redglass": 40,
+      "dragonseal": 8,
+      "silverpermit": 8,
+      "cornerstone": 11,
+      "dawnsheath": 41,
+      "endlessaxle": 8,
+      "dragonheart": 40,
+      "perfectcore": 40,
+      "twinseal": 8,
+      "eternalseed": 40,
+      "deeppearl": 43,
+      "funeralledger": 9,
+      "butterfingers": 40,
+      "everwick": 40,
+      "royalchange": 8,
+      "dragonpardon": 8,
+      "ghostledger": 8,
+      "sicklehammer": 40,
+      "lifecontract": 8
+    },
+    "per_relic_raw_outcome_counts": {
+      "nail": [
+        18,
+        80,
+        80,
+        76,
+        72
+      ],
+      "file": [
+        18,
+        80,
+        80,
+        76,
+        72
+      ],
+      "seal": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "glove": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "coin": [
+        19,
+        81,
+        82,
+        82,
+        79
+      ],
+      "pin": [
+        18,
+        80,
+        80,
+        76,
+        72
+      ],
+      "bell": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "hold": [
+        18,
+        72,
+        80,
+        72,
+        72
+      ],
+      "knot": [
+        19,
+        81,
+        82,
+        82,
+        79
+      ],
+      "star": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "insurance": [
+        19,
+        22,
+        16,
+        16,
+        16
+      ],
+      "echo": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "still": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "rivet": [
+        18,
+        80,
+        80,
+        76,
+        72
+      ],
+      "brace": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "shard": [
+        34,
+        87,
+        81,
+        81,
+        76
+      ],
+      "mold": [
+        5,
+        17,
+        18,
+        18,
+        19
+      ],
+      "phoenix": [
+        19,
+        22,
+        16,
+        16,
+        16
+      ],
+      "speed": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "supply": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "repair": [
+        33,
+        86,
+        80,
+        80,
+        76
+      ],
+      "tongs": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "grudge": [
+        19,
+        81,
+        81,
+        81,
+        76
+      ],
+      "rage": [
+        18,
+        72,
+        80,
+        72,
+        72
+      ],
+      "bellows": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "holy": [
+        19,
+        81,
+        81,
+        81,
+        76
+      ],
+      "ossuary": [
+        19,
+        81,
+        81,
+        81,
+        76
+      ],
+      "crown": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "spine": [
+        19,
+        22,
+        16,
+        16,
+        16
+      ],
+      "royalseal": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "dice": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "hourglass": [
+        18,
+        72,
+        80,
+        72,
+        72
+      ],
+      "incense": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "mirror": [
+        19,
+        81,
+        82,
+        82,
+        79
+      ],
+      "idol": [
+        19,
+        81,
+        82,
+        82,
+        79
+      ],
+      "headless": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "hook": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "thorn": [
+        18,
+        80,
+        80,
+        76,
+        72
+      ],
+      "obsidian": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "testament": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "coal": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "token": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "mallet": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "patience": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "spark": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "thread": [
+        32,
+        136,
+        144,
+        136,
+        132
+      ],
+      "apron": [
+        5,
+        17,
+        18,
+        18,
+        19
+      ],
+      "cup": [
+        19,
+        81,
+        82,
+        82,
+        79
+      ],
+      "fork": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "gear": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "chime": [
+        18,
+        72,
+        80,
+        72,
+        72
+      ],
+      "blackstone": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "voucher": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "sieve": [
+        34,
+        87,
+        81,
+        81,
+        76
+      ],
+      "locket": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "watch": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "collar": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "glass": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "loop": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "firstseal": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "thirdeye": [
+        18,
+        72,
+        80,
+        72,
+        72
+      ],
+      "collector": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "badge": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "ironcomb": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "wax": [
+        19,
+        81,
+        82,
+        82,
+        79
+      ],
+      "scales": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "letter": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "tooth": [
+        19,
+        81,
+        81,
+        81,
+        76
+      ],
+      "royalnail": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "mourning": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "oath": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "kingcup": [
+        18,
+        72,
+        80,
+        72,
+        72
+      ],
+      "goldgear": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "oracledie": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "hearth": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "redglass": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "dragonseal": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "silverpermit": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "cornerstone": [
+        19,
+        22,
+        16,
+        16,
+        16
+      ],
+      "dawnsheath": [
+        19,
+        81,
+        81,
+        81,
+        76
+      ],
+      "endlessaxle": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "dragonheart": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "perfectcore": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "twinseal": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "eternalseed": [
+        18,
+        72,
+        80,
+        72,
+        72
+      ],
+      "deeppearl": [
+        33,
+        86,
+        80,
+        76,
+        72
+      ],
+      "funeralledger": [
+        5,
+        17,
+        17,
+        17,
+        16
+      ],
+      "butterfingers": [
+        18,
+        80,
+        80,
+        76,
+        72
+      ],
+      "everwick": [
+        18,
+        80,
+        80,
+        80,
+        76
+      ],
+      "royalchange": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "dragonpardon": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "ghostledger": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ],
+      "sicklehammer": [
+        18,
+        80,
+        80,
+        76,
+        72
+      ],
+      "lifecontract": [
+        4,
+        16,
+        16,
+        16,
+        16
+      ]
+    },
+    "expected_ordered_proc_counts": {
+      "glove": 16,
+      "coin": 161,
+      "bell": 16,
+      "hold": 40,
+      "knot": 78,
+      "insurance": 7,
+      "echo": 16,
+      "still": 12,
+      "shard": 22,
+      "mold": 18,
+      "phoenix": 7,
+      "repair": 92,
+      "grudge": 19,
+      "rage": 116,
+      "ossuary": 15,
+      "crown": 16,
+      "spine": 7,
+      "royalseal": 24,
+      "incense": 24,
+      "idol": 273,
+      "apron": 17,
+      "cup": 82,
+      "fork": 8,
+      "gear": 16,
+      "chime": 116,
+      "sieve": 22,
+      "collar": 158,
+      "glass": 36,
+      "ironcomb": 16,
+      "wax": 159,
+      "scales": 8,
+      "oath": 12,
+      "kingcup": 80,
+      "goldgear": 80,
+      "cornerstone": 7,
+      "endlessaxle": 8,
+      "dragonheart": 112,
+      "twinseal": 12,
+      "eternalseed": 80,
+      "deeppearl": 86,
+      "funeralledger": 3,
+      "mirror": 123
+    },
+    "enabled_without_direct_proc_in_selected_paths": [
+      "nail",
+      "file",
+      "seal",
+      "pin",
+      "star",
+      "rivet",
+      "brace",
+      "speed",
+      "supply",
+      "tongs",
+      "bellows",
+      "holy",
+      "dice",
+      "hourglass",
+      "headless",
+      "hook",
+      "thorn",
+      "obsidian",
+      "testament",
+      "coal",
+      "token",
+      "mallet",
+      "patience",
+      "spark",
+      "thread",
+      "blackstone",
+      "voucher",
+      "locket",
+      "watch",
+      "loop",
+      "firstseal",
+      "thirdeye",
+      "collector",
+      "badge",
+      "letter",
+      "tooth",
+      "royalnail",
+      "mourning",
+      "oracledie",
+      "hearth",
+      "redglass",
+      "dragonseal",
+      "silverpermit",
+      "dawnsheath",
+      "perfectcore",
+      "butterfingers",
+      "everwick",
+      "royalchange",
+      "dragonpardon",
+      "ghostledger",
+      "sicklehammer",
+      "lifecontract"
+    ],
+    "trigger_limit": "Presence and direct ProcIds are reported separately. Passive weights/value modifiers and Session-only economic/progression effects can have no proc ID; this is not proof of every trigger/state combination."
+  },
+  "event_seed_mapping": [
+    {
+      "id": "ward-first-all-protections",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "cornerstone-before-insurance-spine-phoenix",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "insurance-before-spine-phoenix",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "spine-before-phoenix",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "phoenix-cancels-not-damage",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "actual-break-banks",
+      "seed": 1,
+      "expected_rng": 270369,
+      "source_dice": [
+        0.99
+      ],
+      "source_used_dice": 0,
+      "mapped_proc_draws": [],
+      "decision_tests": [],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "guarded-damage-triggers",
+      "seed": 1,
+      "expected_rng": 67634689,
+      "source_dice": [
+        0.2
+      ],
+      "source_used_dice": 1,
+      "mapped_proc_draws": [
+        0.015747428173199296
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "hold-proc-order",
+      "seed": 1,
+      "expected_rng": 67634689,
+      "source_dice": [
+        0.2
+      ],
+      "source_used_dice": 1,
+      "mapped_proc_draws": [
+        0.015747428173199296
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "great-frenzy-chain",
+      "seed": 1,
+      "expected_rng": 67634689,
+      "source_dice": [
+        0.2
+      ],
+      "source_used_dice": 1,
+      "mapped_proc_draws": [
+        0.015747428173199296
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.25,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [
+        "FrenzyActive",
+        "FrenzyRemaining",
+        "NextTickets"
+      ],
+      "note": "Source helper passes frenzy as an apply argument without persisting feverUntil. C# supplies active four-second state; compare ordered effects/value, not this helper time state or unsafe next preview."
+    },
+    {
+      "id": "hold-independent-dice-success",
+      "seed": 17,
+      "expected_rng": 22020245,
+      "source_dice": [
+        0.69,
+        0.49,
+        0.01
+      ],
+      "source_used_dice": 3,
+      "mapped_proc_draws": [
+        0.26776518346741796,
+        0.3282910624984652,
+        0.005126987816765904
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        },
+        {
+          "threshold": 0.5,
+          "less_than": true
+        },
+        {
+          "threshold": 0.02,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "hold-independent-dice-boundaries",
+      "seed": 45,
+      "expected_rng": 1871483269,
+      "source_dice": [
+        0.7,
+        0.5,
+        0.02
+      ],
+      "source_used_dice": 3,
+      "mapped_proc_draws": [
+        0.7070869605522603,
+        0.9805058389902115,
+        0.43573865410871804
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": false
+        },
+        {
+          "threshold": 0.5,
+          "less_than": false
+        },
+        {
+          "threshold": 0.02,
+          "less_than": false
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    },
+    {
+      "id": "success-independent-dice-boundaries",
+      "seed": 1439435330,
+      "expected_rng": 1074012160,
+      "source_dice": [
+        0.25,
+        0.02
+      ],
+      "source_used_dice": 2,
+      "mapped_proc_draws": [
+        0.25,
+        0.2500629425048828
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.25,
+          "less_than": false
+        },
+        {
+          "threshold": 0.02,
+          "less_than": false
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "The first echo proc draw is exactly 0.25, matching that representable JS strict boundary. The second draw remains on the same non-triggering side of 0.02, not equal to it.",
+      "exact_representable_boundary_draws": [
+        0.25
+      ]
+    },
+    {
+      "id": "damage-independent-dice-success",
+      "seed": 104,
+      "expected_rng": 14046681,
+      "source_dice": [
+        0.69,
+        0.01
+      ],
+      "source_used_dice": 2,
+      "mapped_proc_draws": [
+        0.6368890930898488,
+        0.003270497778430581
+      ],
+      "decision_tests": [
+        {
+          "threshold": 0.7,
+          "less_than": true
+        },
+        {
+          "threshold": 0.02,
+          "less_than": true
+        }
+      ],
+      "exact_source_dice_reproduced": false,
+      "excluded_comparisons": [],
+      "note": "Equivalent proc branch decisions, not identical arbitrary injected floating draws."
+    }
+  ],
+  "local_guard_boundary_vectors": [
+    {
+      "id": "still-uint-3006477107",
+      "relic": "still",
+      "seed": 1315394773,
+      "raw_outcome": 2,
+      "threshold": 0.7,
+      "proc_draw_uint": 3006477107,
+      "proc_draw": 0.6999999999534339,
+      "trigger": true,
+      "expected_grade": 11,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "still-uint-3006477108",
+      "relic": "still",
+      "seed": 1556440764,
+      "raw_outcome": 2,
+      "threshold": 0.7,
+      "proc_draw_uint": 3006477108,
+      "proc_draw": 0.7000000001862645,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "hourglass-uint-2147483647",
+      "relic": "hourglass",
+      "seed": 1543202690,
+      "raw_outcome": 2,
+      "threshold": 0.5,
+      "proc_draw_uint": 2147483647,
+      "proc_draw": 0.49999999976716936,
+      "trigger": true,
+      "expected_grade": 10,
+      "expected_charge": 2,
+      "expected_duplicated": false
+    },
+    {
+      "id": "hourglass-uint-2147483648",
+      "relic": "hourglass",
+      "seed": 3147338884,
+      "raw_outcome": 2,
+      "threshold": 0.5,
+      "proc_draw_uint": 2147483648,
+      "proc_draw": 0.5,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "hourglass-uint-2147483649",
+      "relic": "hourglass",
+      "seed": 3893201031,
+      "raw_outcome": 2,
+      "threshold": 0.5,
+      "proc_draw_uint": 2147483649,
+      "proc_draw": 0.5000000002328306,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "echo-uint-1073741823",
+      "relic": "echo",
+      "seed": 238513600,
+      "raw_outcome": 3,
+      "threshold": 0.25,
+      "proc_draw_uint": 1073741823,
+      "proc_draw": 0.24999999976716936,
+      "trigger": true,
+      "expected_grade": 12,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "echo-uint-1073741824",
+      "relic": "echo",
+      "seed": 1439435330,
+      "raw_outcome": 3,
+      "threshold": 0.25,
+      "proc_draw_uint": 1073741824,
+      "proc_draw": 0.25,
+      "trigger": false,
+      "expected_grade": 11,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "echo-uint-1073741825",
+      "relic": "echo",
+      "seed": 106501697,
+      "raw_outcome": 3,
+      "threshold": 0.25,
+      "proc_draw_uint": 1073741825,
+      "proc_draw": 0.25000000023283064,
+      "trigger": false,
+      "expected_grade": 11,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    },
+    {
+      "id": "twinseal-uint-85899345",
+      "relic": "twinseal",
+      "seed": 2771420161,
+      "raw_outcome": 2,
+      "threshold": 0.02,
+      "proc_draw_uint": 85899345,
+      "proc_draw": 0.019999999785795808,
+      "trigger": true,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": true
+    },
+    {
+      "id": "twinseal-uint-85899346",
+      "relic": "twinseal",
+      "seed": 1166999557,
+      "raw_outcome": 2,
+      "threshold": 0.02,
+      "proc_draw_uint": 85899346,
+      "proc_draw": 0.02000000001862645,
+      "trigger": false,
+      "expected_grade": 10,
+      "expected_charge": 1,
+      "expected_duplicated": false
+    }
+  ],
+  "coverage_interpretation": [
+    {
+      "ids": [
+        "nail",
+        "file",
+        "seal",
+        "pin",
+        "rivet",
+        "tongs",
+        "thorn",
+        "obsidian",
+        "mallet",
+        "patience",
+        "spark",
+        "royalnail",
+        "oracledie",
+        "perfectcore",
+        "butterfingers",
+        "sicklehammer"
+      ],
+      "category": "passive_weights_or_risk",
+      "evidence": "No dedicated ProcId is expected; fixed source NextTickets and all ordered post-states are compared."
+    },
+    {
+      "ids": [
+        "coal",
+        "token",
+        "blackstone",
+        "hearth",
+        "dragonseal"
+      ],
+      "category": "passive_value_or_threshold",
+      "evidence": "No dedicated ProcId is expected; fixed Value/PeakValue and source shelf refresh cases validate represented value layers. No all-round tribute history coverage is implied."
+    },
+    {
+      "ids": [
+        "star",
+        "brace",
+        "holy",
+        "dice",
+        "hourglass",
+        "thread",
+        "locket",
+        "watch",
+        "thirdeye",
+        "tooth",
+        "dawnsheath"
+      ],
+      "category": "state_mutations_without_dedicated_proc",
+      "evidence": "State banks/marks/charge and next tickets are compared, including actual-break event and shelf fixtures. Fresh inheritance claim also has separate local purity/one-time invariants."
+    },
+    {
+      "ids": [
+        "firstseal"
+      ],
+      "category": "missing_trigger_in_949_but_present_in_event_fixture",
+      "evidence": "All 949 sequences start Hold, so they do not exercise its first-hit Success/Great trigger. The independent great-frenzy-chain event has Hits=0 and Great, and compares that ordered chain."
+    },
+    {
+      "ids": [
+        "speed",
+        "bellows",
+        "headless",
+        "loop",
+        "redglass",
+        "everwick"
+      ],
+      "category": "timing_scope_beyond_post_roll_snapshots",
+      "evidence": "Raw branch snapshots alone do not prove timed start/end/interval behavior. Added local timing assertions check interval, duration, no hit cap and one-time headless expiry; these timing assertions are not Steam/JS end-to-end oracle captures."
+    },
+    {
+      "ids": [
+        "supply",
+        "hook",
+        "testament",
+        "voucher",
+        "collector",
+        "badge",
+        "letter",
+        "mourning",
+        "silverpermit",
+        "royalchange",
+        "dragonpardon",
+        "ghostledger",
+        "lifecontract"
+      ],
+      "category": "session_or_economy_trigger_not_executed_here",
+      "evidence": "Present in all-relic branch baselines, but supply, trades, shop rerolls, tribute, pardon and merchant transitions need the separate Session/economy suite. This pure-core runner makes no independent trigger-completeness claim for these effects."
+    }
+  ],
+  "verification_artifacts": {
+    "Tests/Headless/ReplayChecks.cs": "0e7a1abdddebe4464fb2d4d7f8ab909dbf99b3f8df91f921e5b6aadceeb71da6",
+    "Tools/verify-effects.sh": "57e450bd7c0ffe143bac159c8321aa828ae2852a35c49ea526012186badbc5a4",
+    "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeRules.cs": "566a594208980fd896b7e529362042a0f863f04bcd7e52815e4cb2d7cbcf14bd",
+    "Assets/OneMoreBonkRebuild/Gameplay/RiskForgeModels.cs": "229d3625bac36214e1f5226949c8ca68cfbf3ec8675329b6aa67a7ef913108af",
+    "Assets/Resources/Risk/rule-data.json": "b96b16ca937b8aba71efbc330c8f840c96e39c91e6f6c2c0dbb105eb68175ac1"
+  },
+  "limits": [
+    "Forced outcomes still consume one C# outcome RNG draw; source BranchOracle generator intentionally did the same. Source fixed arbitrary proc dice in 13 event snapshots are mapped to equal strict-threshold decisions, not identical floats.",
+    "0.7 and 0.02 cannot equal uint/2^32 draws; adjacent lower/upper draws are tested. 0.5 and 0.25 are representable and tested below/equal/above. One event mapping uses exact 0.25. No arbitrary multi-dice injection capability is claimed.",
+    "great-frenzy-chain helper passed safe/frenzy into apply without persisting feverUntil. Its FrenzyActive/FrenzyRemaining and NextTickets are excluded, while ordered effects, value, counters, proc IDs and RNG draw count are checked.",
+    "Source legacy fields absent from RiskSwordEffects are intentionally not mapped: old alternate banks/counters, fever UI timestamps/extensions and retired-item state. Full comparison field lists are included.",
+    "Lifecycle/shape/money checks are explicit local invariants ported from old pure checks; they supplement rather than masquerade as independent oracle output.",
+    "Only ForgeTypes, RiskForgeModels, RiskForgeRules, RiskRelicData and test-only Resources/JSON shim compile. No Session, original rewind/recovery, persistence, Career, UI, ads, device, native JsonUtility, Steam parity or whole-run balance is verified."
+  ]
+}

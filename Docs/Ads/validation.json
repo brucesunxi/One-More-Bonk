@@ -1,0 +1,51 @@
+{
+  "recorded_on": "2026-10-16",
+  "configuration": "Google official Android test only",
+  "controlled_events": {
+    "status": "PASS",
+    "assertions": 79,
+    "actual_adapter_and_session": true,
+    "sdk_ui_unity_event_doubles": true,
+    "real_ad_playback": false,
+    "loading_cancel_ui_contract": "PASS: loading uses nonfullscreen waiting page; earned failure exposes retry; unearned cancel failure exposes cancel; completion resets flag",
+    "background_loaded_invalid_ad": "PASS: both CanShowAd=false and exception after background loading cancel safely on foreground return without reward or null dereference; the new case reproduced NullReferenceException before the Complete(null) guard"
+  },
+  "api_compile": {
+    "status": "PASS",
+    "new_assets_sources": 21,
+    "actual_unity_gma_assembly_references": 183,
+    "scope": "Standalone C# compiler against installed Unity6000.3.17f1 and resolved GMA11.6.0 assemblies; not a Unity import/build/player execution",
+    "warnings": "existing JSON deserialization-field CS0649 warnings only"
+  },
+  "native_unity_import": "root_owned_separate_evidence",
+  "android_native_build": "not_verified_by_this_task",
+  "real_test_video_earned": "not_verified_in_new_project_by_this_task",
+  "diagnostics": {
+    "initialization_foreground_timeout_seconds": 35,
+    "loading_foreground_timeout_seconds": 30,
+    "separate_phase_timers": true,
+    "dev_editor_logs": "phase/status/placement; native and main callbacks; load error code and redacted message; no device/profile/run/request/receipt IDs",
+    "timeout_is_network_proof": false
+  },
+  "production": false,
+  "ssv": false,
+  "mediation": false,
+  "files": [
+    {
+      "path": "Assets/OneMoreBonkRebuild/Ads/RebuildRewardedAds.cs",
+      "sha256": "77cae4003e012b04b202293bdc7d3ad0caf73e0191c9e0dac256bf3f78565a3c"
+    },
+    {
+      "path": "Assets/Editor/RebuildAdsSetup.cs",
+      "sha256": "71076ea5b9f27f721abd65974be20e769d9ae073ee1f50cc562f54db251cedb2"
+    },
+    {
+      "path": "Tests/Ads/ControlledSdkChecks.cs",
+      "sha256": "fbef6cbbc8e8d59d3003f742f52d14d60221a32fe163d355b2349b794056ed44"
+    },
+    {
+      "path": "Tools/verify-ads-adapter.sh",
+      "sha256": "2274be6d89be5604fcdc64e41959ba7a4ae499d4df99bf1f62161a63a01f0179"
+    }
+  ]
+}
