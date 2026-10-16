@@ -1,0 +1,47 @@
+# Unity-generated state
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/[Bb]uild/
+/[Bb]uilds/
+/.utmp/
+
+# Local IDE / OS state
+.DS_Store
+Thumbs.db
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.pdb
+*.mdb
+
+# Test outputs and generated binaries
+/Tests/Headless/.build/
+/Tests/Results/
+__pycache__/
+*.pyc
+*.apk
+*.aab
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.mobileprovision
+*.p12
+*.pfx
+
+# Deliberately track Assets/*.meta and required source assets.

@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-16",
+  "manifest_role": "后续选择性迁入白名单，不是已导入或可运行声明",
+  "source_project": {
+    "id": "OneMoreBonkLegacy",
+    "path_format": "相对于旧Unity工程根的路径；旧工程不在本仓库内",
+    "source_project_in_repo": false
+  },
+  "repo_root_convention": "路径相对于本仓库根；repo_path为null时尚未由本清单登记副本",
+  "import_state": "本次仅编写文档，无资产复制；核心分支若迁入规则/模型，由其独立记录实际路径",
+  "constraints": [
+    "只迁选中asset、同名meta和经核对依赖",
+    "保留字体等原许可",
+    "同一工程不重复GUID",
+    "不导入Library、旧构建、个人影像或研究归档",
+    "旧RiskWorkshop partial和旧Session/Career不是可直接迁入的UI资源",
+    "新脚本/场景绑定须单独实现与验证"
+  ],
+  "assets": [
+    {
+      "source_path": "Assets/Resources/MintUI/courtyard-background.png",
+      "sha256": "328b309d32dec941c3227bd0fd4f66256e21d937c0129d6b2b469f4be36ada49",
+      "bytes": 2073625,
+      "kind": "ui_resource",
+      "purpose": "工坊背景",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/courtyard-background.png.meta",
+        "sha256": "ba5f3f33e4c1a462846cdfd4ac623891d2bcb74480f71c5c14e11ee39dfeb60e",
+        "guid": "a5578c714dcaa4e499464ba8049643b9"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/anvil-stone.png",
+      "sha256": "c92293fee3a3d8c9f355cd8a9c158b6afe70789acd8153a1f11674b809552b6e",
+      "bytes": 1772151,
+      "kind": "ui_resource",
+      "purpose": "铁砧",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/anvil-stone.png.meta",
+        "sha256": "3789e41359ce8eb024109e707d3265c0fcf13748e3547e1f835bf15e3b895c17",
+        "guid": "eb98ab971abbb481cac662f211520033"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/dock-mint.png",
+      "sha256": "e7641f17e251d935d2bbc2d99daacdac8d9beaa2760c09fa7848533cdcd6c87d",
+      "bytes": 1407593,
+      "kind": "ui_resource",
+      "purpose": "十孔控台",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/dock-mint.png.meta",
+        "sha256": "13c5b83d4eb3dbb70ebc3b461bc05bb2654bd16dc8061182650173026b25bf08",
+        "guid": "666c94c00132040fdb35acbe9f9382d8"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/button-hammer.png",
+      "sha256": "cb5d6b5adbf69ad29276864411ccb55249395f1c996e3321f0fa69082b26215a",
+      "bytes": 1341052,
+      "kind": "ui_resource",
+      "purpose": "锤击按钮",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/button-hammer.png.meta",
+        "sha256": "50feade64eda79f048e9b3bf732e3917d1a4b76dd5b4754b9baffea340cb587c",
+        "guid": "78ba3a3e0ad0d46ca833c96cbffa3144"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/button-gold.png",
+      "sha256": "7d9d3b3e595342c47708dec802e0b13062bc359eb8d66d819de34507c95e5c76",
+      "bytes": 1200166,
+      "kind": "ui_resource",
+      "purpose": "主按钮",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/button-gold.png.meta",
+        "sha256": "a19dcfaefc3807fbf9ab5138d8e6bfbf62a2eb60747f4c551f5b0766284ae934",
+        "guid": "d34011ff9155143998e0dfcbe6229aa8"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/button-ivory.png",
+      "sha256": "0f39abe0885adab234863874ee268702c5fbebeb418fd5c8d81886e30370fa23",
+      "bytes": 1444675,
+      "kind": "ui_resource",
+      "purpose": "次按钮",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/button-ivory.png.meta",
+        "sha256": "55d8492278bfca43671c06a594359f0fa4d08e97c731890a59615a41b2024bb6",
+        "guid": "9415d810e0cc541c59b384cdf14cd31c"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/panel-frosted.png",
+      "sha256": "0e65a7a7144a17e1c7f098cd2be6d6155496968019f8427136569a4c6fb4b8e1",
+      "bytes": 1297769,
+      "kind": "ui_resource",
+      "purpose": "面板",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/panel-frosted.png.meta",
+        "sha256": "6992b4a230209ba07dff909778449d581b135d98ba69e284cd1d74f26b2351ab",
+        "guid": "4448cc93c2f2b436897f132ac504d1f6"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/items-atlas-v1.png",
+      "sha256": "e5edc31471a76467b7c7cee69aad63d2ebafeaf5902c97e206915677cc6765b9",
+      "bytes": 1760203,
+      "kind": "ui_resource",
+      "purpose": "原道具图集",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/items-atlas-v1.png.meta",
+        "sha256": "55b3cf9a0b1d72e263dbf4d0e35d13bc92326733fa487a095a132bfec9607e9d",
+        "guid": "ec75a49c740604c0a92229ec2e892e42"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/universal-break.png",
+      "sha256": "4e68758f7943811295a96d445fe456c73677b149d1407a18c0bc58b805d9ff6d",
+      "bytes": 1017703,
+      "kind": "ui_resource",
+      "purpose": "通用碎裂结果图",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/universal-break.png.meta",
+        "sha256": "1ff667f4f17c3813fef0ac63e95c14a88eec9651420de3228c4ab414544526f9",
+        "guid": "9f48b02e0abe543f28aed595fd81b2e2"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/wordmark-reference.png",
+      "sha256": "607a5d8e6c2df5ec9f7f873bb9b657e4aace835c356a967a030c2e2d0b131d1f",
+      "bytes": 614919,
+      "kind": "ui_resource",
+      "purpose": "已在旧运行资源中的标题图；按新页面需要选用",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/wordmark-reference.png.meta",
+        "sha256": "9c305452a3c0f678f38c9d8fe5987ca34749be82ea9eae1413a2d9e4adf5c244",
+        "guid": "9cfb4d8ee24614df5bf511d7a5ff88ba"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/asset-layout.json",
+      "sha256": "9f6aaf232726a1da42c87de9d406c4682959c602ac8fd1f9ee8f6ea611f454aa",
+      "bytes": 2758,
+      "kind": "ui_resource",
+      "purpose": "裁切与九宫格布局参数，适配后使用",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/asset-layout.json.meta",
+        "sha256": "d7c5934c9930897515490b8af6bff684d85214a188dd528e4563998c662a4b29",
+        "guid": "10509f45107ec441c9086f32a481718c"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/MintUI/dock-slots.json",
+      "sha256": "4706fb27bfcc4414229409ede633bda127229bb1e7ee5234a381c070308d836f",
+      "bytes": 984,
+      "kind": "ui_resource",
+      "purpose": "十个充能孔位置；与遗物2×4槽位不同",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/MintUI/dock-slots.json.meta",
+        "sha256": "e67f90829209d53fa2fc8889536df527495270965993de318eb9910e082e9f25",
+        "guid": "9b0ec6170fde34afbb8d5be259508be4"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/ContractFonts/NotoSansSC-Regular.otf",
+      "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+      "bytes": 16437364,
+      "kind": "font_resource",
+      "purpose": "中文字体",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/ContractFonts/NotoSansSC-Regular.otf.meta",
+        "sha256": "07a2b8a90d777e97ec006b90b7599bdd3401c1d1a5c6f551c80bc4d45abd5c55",
+        "guid": "bdfdbdeda654d407fb7355f0f99aa001"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/ContractFonts/NotoSansSC-LICENSE.txt",
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+      "bytes": 4301,
+      "kind": "font_resource",
+      "purpose": "字体原许可，随字体保留",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/ContractFonts/NotoSansSC-LICENSE.txt.meta",
+        "sha256": "7675393de88c985b8025428cf33faa90a7f7480fb074cc26c5f6db909526b15d",
+        "guid": "26efd2e06175c412a9542381b80fb7bc"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/ContractFonts/font-source.json",
+      "sha256": "a5a37cb4f8b7b96d52c33886b6d4e9e4e46b0e157854c2e1461df9f959a826ca",
+      "bytes": 578,
+      "kind": "font_resource",
+      "purpose": "公开字体来源及hash记录",
+      "status": "candidate_only",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/ContractFonts/font-source.json.meta",
+        "sha256": "caae58a8e723520ae5797728948c8073d37021bb4aea50b6a9655a537f51bd43",
+        "guid": "f0d218477587e48c88dbcccfc22cf7f9"
+      }
+    },
+    {
+      "source_path": "Assets/Scripts/Visuals/RageWeaponGeometry.cs",
+      "sha256": "1715389652a41c5fe0d3b95732d2348aa66b637c06d5a53a3b391a366eeac779",
+      "bytes": 44312,
+      "kind": "visual_implementation_source",
+      "purpose": "已完成普通剑外观生成逻辑，需namespace/显示适配，非直接迁入旧控制器",
+      "status": "candidate_needs_dependency_review",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Scripts/Visuals/RageWeaponGeometry.cs.meta",
+        "sha256": "ac160f4ef67d97ea5cb8d178db414a4a3bb41f3ec77badbf174b983c1ba387e1",
+        "guid": "e54f1e7026aec46c79d4f3421267c818"
+      }
+    },
+    {
+      "source_path": "Assets/Scripts/Visuals/MerchantWeaponGeometry.cs",
+      "sha256": "36555a8a691cfe3d8d3f7977669a2a4eecf4bdb12ce69f12d009b0ce2a00daca",
+      "bytes": 40615,
+      "kind": "visual_implementation_source",
+      "purpose": "已完成商人剑外观生成逻辑，需URP与显示适配",
+      "status": "candidate_needs_dependency_review",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Scripts/Visuals/MerchantWeaponGeometry.cs.meta",
+        "sha256": "e02699fe73f5e26af08c6e674b770c23fa3981e06bf37a3b7041d311e8d62008",
+        "guid": "b100cc767c0948fab9cef750546b3004"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/ForgeGoldFlow.shader",
+      "sha256": "9fe179b5a2707ce1102f193181becec9cc39c181007551432a5a2bf277cadf25",
+      "bytes": 3441,
+      "kind": "shader_candidate",
+      "purpose": "仅新皮肤实际使用时选入",
+      "status": "candidate_needs_dependency_review",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/ForgeGoldFlow.shader.meta",
+        "sha256": "26754ec38bf47ff8ac324f8fef85f83e452cd72f4528ec807eddada0dde1f543",
+        "guid": "a223bee7ba2c743e69db500d73ed85b1"
+      }
+    },
+    {
+      "source_path": "Assets/Resources/RedwarmSurfaceShaderReference.mat",
+      "sha256": "fd4cb6395420f397d8bd238d639460b1744b7b2c3928bf8543a425a3d51a1f07",
+      "bytes": 6273,
+      "kind": "dependency_candidate",
+      "purpose": "核对普通剑材质/shader引用是否仍必要，不自动导入",
+      "status": "candidate_needs_dependency_review",
+      "repo_path": null,
+      "imported_by_this_manifest": false,
+      "meta": {
+        "source_path": "Assets/Resources/RedwarmSurfaceShaderReference.mat.meta",
+        "sha256": "7a2df8329273b22db36b2eea7de589b08a3f0f31a66ed60e2e04e71a12b3490f",
+        "guid": "28bf8d3793cc440af8bad28bd3d948b7"
+      }
+    }
+  ],
+  "core_source_reference": {
+    "source_path": "Assets/Resources/Risk/rule-data.json",
+    "sha256": "b96b16ca937b8aba71efbc330c8f840c96e39c91e6f6c2c0dbb105eb68175ac1",
+    "status": "reference_only_core_branch_owned",
+    "repo_path": null,
+    "note": "此处仅记录旧数据身份；本清单不复制它，也不将旧v08-design.json纳入运行配置。"
+  },
+  "excluded_groups": [
+    "旧Session/Career/ContractSession/RiskWorkshop整套控制器",
+    "旧场景、Build入口、v08 fixture及迁移链",
+    "旧v08-design运行配置",
+    "用户视频/个人原始图片及提取帧",
+    "全部旧设计review包和未选生成稿",
+    "生成输出hint、临时命令及本机路径",
+    "缓存、日志、旧安装包、签名凭据"
+  ]
+}
