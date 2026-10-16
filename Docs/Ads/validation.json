@@ -17,9 +17,20 @@
     "scope": "Standalone C# compiler against installed Unity6000.3.17f1 and resolved GMA11.6.0 assemblies; not a Unity import/build/player execution",
     "warnings": "existing JSON deserialization-field CS0649 warnings only"
   },
-  "native_unity_import": "root_owned_separate_evidence",
-  "android_native_build": "not_verified_by_this_task",
-  "real_test_video_earned": "not_verified_in_new_project_by_this_task",
+  "native_unity_import": "PASS: native validation and Android build5",
+  "android_native_build": "PASS: Android IL2CPP ARM64 development build5; see Docs/Validation/build-0.1.0-5.json",
+  "real_test_video_earned": {
+    "status": "PASS",
+    "tested_build": 4,
+    "placements": [
+      "relic-slot-unlock",
+      "prestrike-ward-grant"
+    ],
+    "slot_unlock": "2 to 3; receipt saved; force-stop and cold start preserved 3",
+    "ward_grant": "inventory ward=1, budget used=true, receipt count=2; not automatically armed",
+    "build5_coverage": "same adapter/core/session/rewards; installation preserves awards; manual arm and next Hold result consumption passed; not a second claim of video playback on build5",
+    "details": "Docs/Validation/TEST-REPORT-0.1.0.md"
+  },
   "diagnostics": {
     "initialization_foreground_timeout_seconds": 35,
     "loading_foreground_timeout_seconds": 30,
@@ -47,5 +58,11 @@
       "path": "Tools/verify-ads-adapter.sh",
       "sha256": "2274be6d89be5604fcdc64e41959ba7a4ae499d4df99bf1f62161a63a01f0179"
     }
-  ]
+  ],
+  "device_initial_failure": {
+    "tested_build": 3,
+    "result": "SDK initialized; test creative audio/video CORS error followed by code0 Internal error; no grant or allowance consumption",
+    "comparison": "User changed existing network; same build4 later loaded and earned; does not isolate the sole cause",
+    "private_raw_logs_in_git": false
+  }
 }

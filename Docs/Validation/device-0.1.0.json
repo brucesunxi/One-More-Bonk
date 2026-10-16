@@ -1,0 +1,51 @@
+{
+  "recorded_on": "2026-10-16",
+  "final_version_code": 5,
+  "scope": "Single Android test device; no full compatibility or player-balance claim",
+  "build4": {
+    "slot_earned": true,
+    "slots_before": 2,
+    "slots_after": 3,
+    "cold_restart_slots": 3,
+    "ward_earned": true,
+    "ward_inventory_after": 1,
+    "ward_auto_armed": false,
+    "ward_budget_used": true,
+    "reward_receipts_after_both": 2,
+    "pending_reward_after_both": false
+  },
+  "build5": {
+    "installed_and_launched": true,
+    "prior_awards_preserved": true,
+    "manual_arm": {
+      "inventory": 0,
+      "armed": true,
+      "hits": 3
+    },
+    "next_strike": {
+      "outcome": "Hold",
+      "inventory": 0,
+      "armed": false,
+      "hits": 4,
+      "grade": 2,
+      "slots": 3,
+      "reward_receipts": 2
+    },
+    "new_contract": {
+      "different_run": true,
+      "supplied_swords": 3,
+      "slots": 3,
+      "ward_budget_used": false,
+      "pending_reward": false,
+      "reward_receipts": 2
+    }
+  },
+  "evidence_handling": "Screenshots, raw device logs and exported private player states retained locally outside repository; no device identifiers, ad URL query strings or player identifiers copied here",
+  "not_claimed": [
+    "All six slot videos watched on device",
+    "Full 21-order phone playthrough",
+    "All failure cases repeated on device",
+    "Production ads, revenue, SSV or mediation",
+    "Cross-device cloud entitlement"
+  ]
+}
