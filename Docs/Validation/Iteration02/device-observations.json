@@ -1,0 +1,59 @@
+{
+  "BuildId": "99d55b89c5c54e1784a3990469d3fc05",
+  "Version": "0.1.1",
+  "VersionCode": 7,
+  "DeviceAndroidMajor": 15,
+  "PhysicalScreen": [
+    1080,
+    2400
+  ],
+  "ShortScreenOverride": [
+    1080,
+    1920
+  ],
+  "ScreenOverrideRestored": true,
+  "Version6UpgradePayloadEqual": true,
+  "Version7UpgradeGameplayEqualExceptPreviouslyElapsedForgeTimers": true,
+  "HitSequence": [
+    14,
+    14,
+    15,
+    17,
+    17,
+    17
+  ],
+  "InputObservations": [
+    "short stationary press 140ms: +1 hit",
+    "hold 1100ms: +2 hits",
+    "drag outside, background, return, menus and navigation: +0 further hits"
+  ],
+  "SlotsBeforeAndAfter": 3,
+  "RewardReceiptsBeforeAndAfter": 2,
+  "FinalGrade": 3,
+  "FinalCharge": 3,
+  "ExpectedAppearanceDiscoveriesAddedByForging": 1,
+  "PendingReward": false,
+  "PendingBreak": false,
+  "SoundAndHapticsOffPersistAfterColdStart": true,
+  "FeedbackSettingsRestoredOn": true,
+  "SlotModalRemainsAfterBackgroundHeaderMenuPress": true,
+  "SlotModalFramesExactlyEqual": true,
+  "ObservedUI": [
+    "forge with real probabilities/value/charge",
+    "orders selection page",
+    "cabinet",
+    "relic shelf and next-slot confirmation",
+    "merchant absent on order 1",
+    "collection/achievements first screen",
+    "settings",
+    "short-screen forge and settings"
+  ],
+  "CurrentProcessUnityOrAndroidRuntimeErrorLogBytes": 0,
+  "NotClaimed": [
+    "merchant visit/purchase state in this build",
+    "actual rewarded ad playback in this build",
+    "actual device sound quality or haptic strength",
+    "all relic details or screen/device matrix",
+    "natural 21-order completion or player balance"
+  ]
+}

@@ -61,6 +61,7 @@ namespace OneMoreBonk.Rebuild.Presentation
             Application.targetFrameRate = 60;
             LoadArt();
             CreateViewer();
+            InitializeFeedback();
             OpenSession();
         }
 
@@ -119,6 +120,7 @@ namespace OneMoreBonk.Rebuild.Presentation
         public void SetRewardPresentation(bool visible, string message = null)
         {
             adVisible = visible;
+            if (visible) SuspendFeedback();
             skipClockFrame = true;
             RefreshFromSession(message);
         }
@@ -135,10 +137,10 @@ namespace OneMoreBonk.Rebuild.Presentation
                     if (closeDialog) dialog = Dialog.None;
                     if (!string.IsNullOrEmpty(success)) Notify(success);
                 }
-                else Notify("操作未完成：" + reason);
+                else Notify("Could not complete: " + RiskPlayerText.Message(reason));
                 RefreshView();
             }
-            catch (Exception error) { Notify("操作未完成：" + error.Message); }
+            catch (Exception error) { Notify("Could not complete: " + RiskPlayerText.Message(error.Message)); }
             finally { commandBusy = false; }
         }
 
@@ -153,9 +155,10 @@ namespace OneMoreBonk.Rebuild.Presentation
                     lastStrike = result;
                     lastImpactAt = Time.unscaledTime;
                     RefreshView();
+                    PlayStrikeFeedback(result);
                     if (result.Fatal) ClearPress();
                 }
-                else { ClearPress(); Notify("未锤击：" + reason); }
+                else { ClearPress(); Notify("No strike: " + RiskPlayerText.Message(reason)); }
             }
             finally { commandBusy = false; }
         }
@@ -174,29 +177,28 @@ namespace OneMoreBonk.Rebuild.Presentation
             dialog = next; modalScroll = Vector2.zero;
             capturedRunId = view?.Run?.Id; capturedRound = view?.Run?.Round ?? 0;
         }
-        void Notify(string message) { notice = message; noticeUntil = Time.unscaledTime + 7f; }
-        static string PlayerDescription(string text) => (text ?? "").Replace("Frenzy", "入神").Replace("Success", "成功")
-            .Replace("Great", "大成功").Replace("Damage", "损伤").Replace("Break", "碎裂").Replace("Hold", "不变");
+        void Notify(string message) { notice = RiskPlayerText.Message(message); noticeUntil = Time.unscaledTime + 7f; }
+        static string PlayerDescription(string text) => RiskPlayerText.Message(text);
 
         void RequestReward(string placement)
         {
             ClearPress(); dialog = Dialog.None;
             if (!RewardProviderReady || RewardRequested == null)
-            { Notify("广告尚未就绪，未发放奖励。可继续游戏。"); return; }
+            { Notify("Ad not ready. No reward granted. You can keep playing."); return; }
             try { RewardRequested.Invoke(placement); RefreshView(); }
-            catch (Exception error) { Notify("广告未启动：" + error.Message); }
+            catch (Exception error) { Notify("Could not start ad: " + RiskPlayerText.Message(error.Message)); }
         }
 
-        void OnApplicationFocus(bool value) { focused = value; skipClockFrame = true; ClearPress(); if (!value) Checkpoint(); }
-        void OnApplicationPause(bool value) { appPaused = value; skipClockFrame = true; ClearPress(); if (value) Checkpoint(); }
+        void OnApplicationFocus(bool value) { focused = value; skipClockFrame = true; ClearPress(); if (!value) { SuspendFeedback(); Checkpoint(); } }
+        void OnApplicationPause(bool value) { appPaused = value; skipClockFrame = true; ClearPress(); if (value) { SuspendFeedback(); Checkpoint(); } }
         void OnApplicationQuit() { ClearPress(); Checkpoint(); }
-        void OnDisable() { ClearPress(); Checkpoint(); }
+        void OnDisable() { ClearPress(); SuspendFeedback(); Checkpoint(); }
         void Checkpoint()
         {
-            if (session != null && !session.TryCheckpoint(out string reason)) Notify("保存待重试：" + reason);
+            if (session != null && !session.TryCheckpoint(out string reason)) Notify("Save needs a retry: " + RiskPlayerText.Message(reason));
         }
 
-        void OnDestroy() { DisposeViewer(); }
+        void OnDestroy() { DisposeFeedback(); DisposeViewer(); }
 
         void OnGUI()
         {
@@ -217,9 +219,9 @@ namespace OneMoreBonk.Rebuild.Presentation
             if (session == null)
             {
                 Panel(new Rect(24, 160, 672, 470));
-                Label(new Rect(52, 184, 616, 60), "工坊暂未打开", 34);
-                Label(new Rect(52, 260, 616, 205), openError ?? "正在载入…", 23, danger);
-                if (Button(new Rect(72, 520, 576, 82), "重试读取（保留原存档）", true, true)) OpenSession();
+                Label(new Rect(52, 184, 616, 60), "Workshop unavailable", 34);
+                Label(new Rect(52, 260, 616, 205), RiskPlayerText.Message(openError ?? "Loading…"), 23, danger);
+                if (Button(new Rect(72, 520, 576, 82), "Retry loading saved game", true, true)) OpenSession();
             }
             else
             {
@@ -246,18 +248,19 @@ namespace OneMoreBonk.Rebuild.Presentation
         void Header()
         {
             Panel(new Rect(16, 14, 688, 112));
-            Sprite(new Rect(29, 28, 206, 66), "wordmark-reference");
-            Label(new Rect(250, 23, 340, 38), view.Run == null ? "工坊就绪" :
-                "第 " + view.Run.Round + (view.Run.Round > 21 ? " 单 · 延期" : " / 21 单"), 23);
+            Label(new Rect(34, 27, 205, 28), "ONE MORE", 24, ink);
+            Label(new Rect(32, 52, 210, 56), "BONK", 43, ink);
+            Label(new Rect(250, 23, 340, 38), view.Run == null ? "Workshop ready" :
+                "Order " + view.Run.Round + (view.Run.Round > 21 ? " · Overtime" : " / 21"), 23);
             Label(new Rect(250, 67, 340, 38), view.Run == null ?
-                "永久遗物槽 " + view.Profile.UnlockedRelicSlots + "/8" :
-                "金币 " + Money(view.Run.Gold) + "   剑信用 " + view.Run.SwordCredits, 21);
-            if (Button(new Rect(610, 32, 76, 72), "菜单", !SpecialModal && !adVisible)) Show(Dialog.Menu);
+                "Relic slots " + view.Profile.UnlockedRelicSlots + "/8" :
+                Money(view.Run.Gold) + " G   ·   " + view.Run.SwordCredits + " Credits", 21);
+            if (Button(new Rect(599, 32, 88, 72), "Menu", dialog == Dialog.None && !SpecialModal && !adVisible && !commandBusy)) Show(Dialog.Menu);
         }
 
         void Footer()
         {
-            string[] names = { "锻造", "订单", "剑柜", "遗物", "商人" };
+            string[] names = { "Forge", "Orders", "Cabinet", "Relics", "Shop" };
             Panel(new Rect(8, height - 110, 704, 100));
             for (int i = 0; i < names.Length; i++)
                 if (Button(new Rect(16 + i * 139, height - 102, 132, 82), names[i], view.Run != null, page == (Page)i)) Go((Page)i);
@@ -266,11 +269,11 @@ namespace OneMoreBonk.Rebuild.Presentation
         void StorageBanner()
         {
             Panel(new Rect(16, 130, 688, 108));
-            Label(new Rect(32, 138, 450, 88), "保存未完成，后续动作已暂停。\n" + session.LastSaveError, 19, danger);
-            if (Button(new Rect(500, 145, 184, 76), "重试保存"))
+            Label(new Rect(32, 138, 450, 88), "Save failed. Actions paused.\n" + RiskPlayerText.Message(session.LastSaveError), 19, danger);
+            if (Button(new Rect(500, 145, 184, 76), "Retry save"))
             {
                 if (view.PendingReward != null && RewardRetryRequested != null) RewardRetryRequested.Invoke();
-                else if (session.TryCheckpoint(out string reason)) { RefreshView(); Notify("保存已恢复"); }
+                else if (session.TryCheckpoint(out string reason)) { RefreshView(); Notify("Game saved."); }
                 else Notify(reason);
             }
         }
@@ -278,29 +281,21 @@ namespace OneMoreBonk.Rebuild.Presentation
         static string Money(double value)
         {
             if (value >= 1e12) return value.ToString("0.##E+0", CultureInfo.InvariantCulture);
-            if (value >= 1e8) return (value / 1e8).ToString("0.##", CultureInfo.InvariantCulture) + "亿";
-            if (value >= 1e5) return (value / 1e4).ToString("0.##", CultureInfo.InvariantCulture) + "万";
+            if (value >= 1e9) return (value / 1e9).ToString("0.##", CultureInfo.InvariantCulture) + "B";
+            if (value >= 1e6) return (value / 1e6).ToString("0.##", CultureInfo.InvariantCulture) + "M";
+            if (value >= 1e4) return (value / 1e3).ToString("0.##", CultureInfo.InvariantCulture) + "K";
             return value.ToString("N0", CultureInfo.InvariantCulture);
         }
         static string Exact(double value) => value.ToString("N0", CultureInfo.InvariantCulture);
         static string SwordName(RiskSword s) => FamilyName(s.SourceFamily) + " #" + s.Id + "  +" + s.Grade;
-        static string FamilyName(string family)
-        {
-            switch (family)
-            {
-                case "citadel": return "城堡剑"; case "holy": return "圣剑"; case "sawblade": return "锯刃";
-                case "dragonfang": return "龙牙"; case "runeblade": return "符文剑"; case "splitblade": return "分刃";
-                case "world-tree": return "世界树"; case "fishblade": return "海生剑"; case "funerary": return "葬仪剑";
-                default: return family ?? "普通剑";
-            }
-        }
+        static string FamilyName(string family) => RiskPlayerText.FamilyName(family);
         static string ItemName(string id)
         {
             switch (id)
             {
-                case "ward": return "龙鳞"; case "chalk": return "白垩"; case "powder": return "锻造粉";
-                case "starshard": return "星之碎片"; case "delivery": return "供剑补给";
-                case "oblivion": return "遗忘"; case "basic-sword": return "普通剑"; case "special-sword": return "商人剑";
+                case "ward": return "Dragon Scale"; case "chalk": return "Chalk"; case "powder": return "Forge Powder";
+                case "starshard": return "Star Shard"; case "delivery": return "Sword Delivery";
+                case "oblivion": return "Oblivion"; case "basic-sword": return "Steel Sword"; case "special-sword": return "Merchant Sword";
                 default: return id;
             }
         }
@@ -308,13 +303,13 @@ namespace OneMoreBonk.Rebuild.Presentation
         {
             switch (id)
             {
-                case "ward": return "锤前手动武装；下一锤任意结果均消耗，碎裂时保护剑。";
-                case "chalk": return "下一锤大成功权重翻倍；归一化后的抽签概率见锻造页。";
-                case "powder": return "下一次普通锤击仅抽碎裂/大成功：损伤、不变并入碎裂，成功并入大成功。";
-                case "starshard": return "使用后当前剑充能增加3，最多10。";
-                case "delivery": return "购买即生效：下一单额外供剑2把。";
-                case "oblivion": return "购买即生效：愤怒减少1，本契约仅购一次。";
-                default: return "购入后放入剑柜，可用于锻造或交付订单。";
+                case "ward": return "Arm before striking. Consumed on your next strike, whatever the outcome. Blocks a break.";
+                case "chalk": return "Doubles Great's weight for the next strike. See the final normalized odds on the Forge page.";
+                case "powder": return "Next normal strike draws only Break or Great: Damage/Hold become Break; Success becomes Great.";
+                case "starshard": return "Adds 3 charge to the selected sword, up to 10.";
+                case "delivery": return "On purchase: 2 extra swords supplied with the next order.";
+                case "oblivion": return "On purchase: anger -1. Can be bought once per contract.";
+                default: return "Added to your cabinet. Forge it or deliver it with an order.";
             }
         }
     }

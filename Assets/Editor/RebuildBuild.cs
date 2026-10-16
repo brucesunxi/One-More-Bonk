@@ -16,8 +16,8 @@ namespace OneMoreBonk.Rebuild.Editor
     public static class RebuildBuild
     {
         public const string ScenePath = "Assets/Scenes/RebuildWorkshop.unity";
-        public const string Version = "0.1.0";
-        public const int VersionCode = 5;
+        public const string Version = "0.1.1";
+        public const int VersionCode = 7;
 
         [MenuItem("One More Bonk Rebuild/Create Independent Scene")]
         public static void Bootstrap()
@@ -101,7 +101,13 @@ namespace OneMoreBonk.Rebuild.Editor
                 Require(saved.Snapshot().Run.TotalHits == 1 && saved.Snapshot().Profile.UnlockedRelicSlots == 2, "Native save/reopen mismatch.");
                 var font = Resources.Load<Font>("RebuildArt/Fonts/NotoSansSC-Regular");
                 Require(font != null && font.HasCharacter('剑'), "Packaged Chinese font is unavailable.");
+                foreach (var relic in RiskRelicData.All)
+                {
+                    Require(Presentation.RiskPlayerText.RelicName(relic.Id) != "Unknown relic", "Missing English relic name: " + relic.Id);
+                    Require(Presentation.RiskPlayerText.RelicDescription(relic.Id) != "Description unavailable.", "Missing English relic description: " + relic.Id);
+                }
                 Debug.Log("REBUILD_NATIVE_STATE_PASS: JsonUtility presence, initialization, preview, pending reward, one-hit commit and file round-trip.");
+                Debug.Log("REBUILD_ENGLISH_CATALOGUE_PASS: 98 relic names and descriptions loaded through native Resources/JsonUtility.");
             }
             finally { if (Directory.Exists(directory)) Directory.Delete(directory, true); }
         }
@@ -117,6 +123,7 @@ namespace OneMoreBonk.Rebuild.Editor
                 ApplicationId = "com.brucesunxi.onemorebonk.rebuild",
                 CodeSha256 = HashFiles(Directory.GetFiles("Assets", "*.cs", SearchOption.AllDirectories)),
                 RuleSha256 = HashFile("Assets/Resources/Risk/rule-data.json"),
+                DisplayTextSha256 = HashFile("Assets/Resources/Risk/player-text-en.json"),
                 ArtSha256 = HashFiles(Directory.GetFiles("Assets/Resources/RebuildArt", "*", SearchOption.AllDirectories)),
                 DependencyLockSha256 = HashFile("Packages/packages-lock.json")
             };
@@ -132,6 +139,7 @@ namespace OneMoreBonk.Rebuild.Editor
             if (report.summary.result != BuildResult.Succeeded) throw new InvalidOperationException("Rebuild Android build failed: " + report.summary.result);
             if (stamp.CodeSha256 != HashFiles(Directory.GetFiles("Assets", "*.cs", SearchOption.AllDirectories)) ||
                 stamp.RuleSha256 != HashFile("Assets/Resources/Risk/rule-data.json") ||
+                stamp.DisplayTextSha256 != HashFile("Assets/Resources/Risk/player-text-en.json") ||
                 stamp.ArtSha256 != HashFiles(Directory.GetFiles("Assets/Resources/RebuildArt", "*", SearchOption.AllDirectories)) ||
                 stamp.DependencyLockSha256 != HashFile("Packages/packages-lock.json"))
                 throw new InvalidOperationException("Source changed during build; do not deliver this APK.");
@@ -142,7 +150,7 @@ namespace OneMoreBonk.Rebuild.Editor
 
         [Serializable] sealed class BuildStamp
         {
-            public string BuildId, BuiltAtUtc, Version, ApplicationId, CodeSha256, RuleSha256, ArtSha256, DependencyLockSha256, ApkSha256;
+            public string BuildId, BuiltAtUtc, Version, ApplicationId, CodeSha256, RuleSha256, DisplayTextSha256, ArtSha256, DependencyLockSha256, ApkSha256;
             public int VersionCode;
         }
         static string HashFile(string path)

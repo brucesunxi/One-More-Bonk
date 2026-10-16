@@ -93,7 +93,7 @@ namespace OneMoreBonk.Rebuild.Presentation
             Color old = GUI.color; GUI.color = color;
             GUI.DrawTexture(rect, Texture2D.whiteTexture); GUI.color = old;
         }
-        bool Button(Rect rect, string text, bool enabled = true, bool primary = false)
+        bool Button(Rect rect, string text, bool enabled = true, bool primary = false, int textSize = 0)
         {
             bool old = GUI.enabled;
             bool allowed = old && enabled;
@@ -102,7 +102,7 @@ namespace OneMoreBonk.Rebuild.Presentation
             if (!allowed) GUI.color = new Color(oldColor.r, oldColor.g, oldColor.b, oldColor.a * .72f);
             Slice(rect, primary ? "button-gold" : "button-ivory");
             GUI.color = oldColor;
-            Label(new Rect(rect.x + 9, rect.y + 7, rect.width - 18, rect.height - 14), text, rect.width < 150 ? 21 : 24,
+            Label(new Rect(rect.x + 9, rect.y + 7, rect.width - 18, rect.height - 14), text, textSize > 0 ? textSize : rect.width < 150 ? 21 : 24,
                 allowed ? ink : muted, TextAnchor.MiddleCenter);
             GUI.enabled = allowed;
             bool clicked = GUI.Button(rect, GUIContent.none, GUIStyle.none);
@@ -163,7 +163,12 @@ namespace OneMoreBonk.Rebuild.Presentation
             {
                 if (i >= charge && !frenzy) continue;
                 var hole = holes[i]; Vector2 center = start + new Vector2(hole.cx - a.x, hole.cy - a.y) * scale;
-                GUI.color = frenzy ? new Color(1f, .62f, .10f) : new Color(.95f, .83f, .25f);
+                // A fixed ten-socket progression: mint -> cream -> gold -> coral.
+                // Color is cosmetic; the saved charge alone selects which lamps are lit.
+                float step = i / 9f;
+                Color lamp = step < .38f ? Color.Lerp(new Color(.64f, .94f, .67f), new Color(1f, .96f, .54f), step / .38f) :
+                    Color.Lerp(new Color(1f, .93f, .35f), new Color(1f, .36f, .13f), (step - .38f) / .62f);
+                GUI.color = frenzy ? Color.Lerp(lamp, Color.white, .22f + .14f * Mathf.Sin(Time.unscaledTime * 7)) : lamp;
                 GUI.DrawTexture(new Rect(center.x - 64 * scale, center.y - 64 * scale, 128 * scale, 128 * scale), chargeLights[i]);
             }
             GUI.color = old;
@@ -173,6 +178,7 @@ namespace OneMoreBonk.Rebuild.Presentation
         {
             var screenObject = new GameObject("Rebuild screen camera"); screenObject.transform.SetParent(transform, false);
             clearCamera = screenObject.AddComponent<Camera>(); clearCamera.depth = -100;
+            screenObject.AddComponent<AudioListener>();
             clearCamera.clearFlags = CameraClearFlags.SolidColor; clearCamera.backgroundColor = cream; clearCamera.cullingMask = 0;
             previewRoot = new GameObject("Rebuild weapon preview"); previewRoot.transform.SetParent(transform, false);
             previewRoot.transform.position = new Vector3(100, 0, 0);
@@ -210,7 +216,7 @@ namespace OneMoreBonk.Rebuild.Presentation
                 previewWeapon = merchant ? MerchantWeaponGeometry.Create(sword.SourceFamily, stage, route, awakened) : RageWeaponGeometry.Create(stage, route, awakened);
                 previewWeapon.transform.SetParent(previewRoot.transform, false);
                 previewWeapon.transform.localPosition = Vector3.zero;
-                previewWeapon.transform.localRotation = Quaternion.Euler(-8, -12, 9);
+                previewWeapon.transform.localRotation = Quaternion.Euler(-18, -8, 0);
                 foreach (Transform child in previewWeapon.GetComponentsInChildren<Transform>(true)) child.gameObject.layer = 30;
                 var renderers = previewWeapon.GetComponentsInChildren<Renderer>();
                 if (renderers.Length > 0)
@@ -221,7 +227,7 @@ namespace OneMoreBonk.Rebuild.Presentation
                     previewCamera.orthographicSize = Mathf.Max(.75f, Mathf.Max(bounds.extents.y, bounds.extents.x / 2) * 1.20f);
                 }
             }
-            catch (Exception error) { viewerError = "剑预览暂不可用：" + error.Message; }
+            catch (Exception error) { viewerError = "Sword preview unavailable: " + error.Message; }
         }
         void ReleasePreview()
         {

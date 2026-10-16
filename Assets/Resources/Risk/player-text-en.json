@@ -1,0 +1,499 @@
+{
+  "SchemaVersion": 1,
+  "Language": "en",
+  "RuleDataSha256": "b96b16ca937b8aba71efbc330c8f840c96e39c91e6f6c2c0dbb105eb68175ac1",
+  "NameSource": "RiskRelicData.NameEn from the unchanged Risk/rule-data catalogue.",
+  "Note": "Display text only; weights are normalized into chances, not percentage-point bonuses. Inheritance charge descriptions reflect the current verified implementation. Legacy conversion descriptions document inactive reference entries; this rebuild does not import legacy saves.",
+  "Relics": [
+    {
+      "Id": "nail",
+      "Description": "Success base weight +4.",
+      "Inactive": false
+    },
+    {
+      "Id": "file",
+      "Description": "Hold weight -2 and Success weight +2. Hold weight cannot fall below 0.",
+      "Inactive": false
+    },
+    {
+      "Id": "seal",
+      "Description": "Multiplies the calibrated Break chance by 0.9.",
+      "Inactive": false
+    },
+    {
+      "Id": "glove",
+      "Description": "Every 2nd consecutive Success or Great grants +1 extra grade. Any other effective result resets the streak.",
+      "Inactive": false
+    },
+    {
+      "Id": "coin",
+      "Description": "Each Success or Great immediately adds 100 G to this sword's value. Later grade increases do not amplify this flat gain.",
+      "Inactive": false
+    },
+    {
+      "Id": "pin",
+      "Description": "Great base weight +2.",
+      "Inactive": false
+    },
+    {
+      "Id": "bell",
+      "Description": "Each Great multiplies this sword's lasting value multiplier by 1.2.",
+      "Inactive": false
+    },
+    {
+      "Id": "hold",
+      "Description": "Hold base weight +2. Every 2nd consecutive Hold grants +1 grade.",
+      "Inactive": false
+    },
+    {
+      "Id": "knot",
+      "Description": "Every 2nd consecutive Success or Great multiplies this sword's lasting value multiplier by 1.1.",
+      "Inactive": false
+    },
+    {
+      "Id": "star",
+      "Description": "After a non-Frenzy Great, the next strike's Break chance is multiplied by 0.6. That strike consumes the mark regardless of its result.",
+      "Inactive": false
+    },
+    {
+      "Id": "insurance",
+      "Description": "The first Break in each order still needing protection becomes Damage. Consumes this order's protection; resets each order.",
+      "Inactive": false
+    },
+    {
+      "Id": "echo",
+      "Description": "Each Success or Great has a separate 25% chance to grant +1 extra grade.",
+      "Inactive": false
+    },
+    {
+      "Id": "still",
+      "Description": "Each Hold has a separate 70% chance to grant +1 extra grade.",
+      "Inactive": false
+    },
+    {
+      "Id": "rivet",
+      "Description": "Break base weight -2, with a minimum weight of 1. The final Break chance at +0 remains 0%.",
+      "Inactive": false
+    },
+    {
+      "Id": "brace",
+      "Description": "Each non-Frenzy Success or Great adds 1 risk-reduction stack, up to 6. The risk factor is 1 - 0.03 per stack, with a minimum of 0.82.",
+      "Inactive": false
+    },
+    {
+      "Id": "shard",
+      "Description": "A real Break contributes scrap worth 30% of the sword's highest recorded value, rounded to the nearest G, directly to the order. This is not a direct gold payment.",
+      "Inactive": false
+    },
+    {
+      "Id": "mold",
+      "Description": "Each Hold immediately adds a flat 180 G to this sword's value.",
+      "Inactive": false
+    },
+    {
+      "Id": "phoenix",
+      "Description": "Once per sword, if no earlier protection takes over, cancels a Break without losing a grade and multiplies its lasting value multiplier by 0.6. A ready Giant's Spine takes priority.",
+      "Inactive": false
+    },
+    {
+      "Id": "speed",
+      "Description": "Normal and Frenzy hammering speed +15%. The base 0.64-second interval is divided by the total speed multiplier.",
+      "Inactive": false
+    },
+    {
+      "Id": "supply",
+      "Description": "Base sword supply +1, starting with the next order.",
+      "Inactive": false
+    },
+    {
+      "Id": "repair",
+      "Description": "Each Damage adds 1 scar, up to 4. The risk factor is 1 - 0.15 per scar, with a minimum of 0.4.",
+      "Inactive": false
+    },
+    {
+      "Id": "tongs",
+      "Description": "At current grade +6 or higher, multiplies Break chance by 0.75.",
+      "Inactive": false
+    },
+    {
+      "Id": "grudge",
+      "Description": "Adds the grades of swords that actually break to a shared, one-use Great weight bonus. The next Great on any sword consumes the entire bonus.",
+      "Inactive": false
+    },
+    {
+      "Id": "rage",
+      "Description": "Each Hold banks +1 extra grade for the next Great, up to 4. That Great releases all banked grades. A real Break clears them.",
+      "Inactive": false
+    },
+    {
+      "Id": "bellows",
+      "Description": "Frenzy hammering speed +30%.",
+      "Inactive": false
+    },
+    {
+      "Id": "holy",
+      "Description": "A real Break reserves floor(30% of its grade) for the next eligible unstruck +0 sword. Pending grades keep the highest, not a sum. If the inherited grade is above 0, charge rises to at least 3. With Dawn Scabbard, combine to 70% before flooring; a positive inheritance raises charge to at least 7.",
+      "Inactive": false
+    },
+    {
+      "Id": "ossuary",
+      "Description": "When a sword at +7 or higher actually breaks, permanently adds +1 weight for this contract to its previous effective result. It does not add Break weight just because the current roll was Break.",
+      "Inactive": false
+    },
+    {
+      "Id": "crown",
+      "Description": "Each Damage adds 50% of the lost base-grade value to the sword's flat value layer; value multipliers still apply. Damage protected from grade loss uses a theoretical loss of at most 1 grade.",
+      "Inactive": false
+    },
+    {
+      "Id": "spine",
+      "Description": "Every 2 Damage results on a sword charge a shield. After Dragon Scale, Unyielding Cornerstone and Wirebound Scabbard, it converts the next unhandled Break to Damage and consumes the shield. That conversion does not recharge it. Removing this relic clears its counter and shield.",
+      "Inactive": false
+    },
+    {
+      "Id": "royalseal",
+      "Description": "Each Damage banks +1 extra grade for the next Great. That Great releases the entire bank, up to the supported numeric limit.",
+      "Inactive": false
+    },
+    {
+      "Id": "dice",
+      "Description": "After Damage or Hold, Great weight +3 for the next strike. That strike consumes the mark.",
+      "Inactive": false
+    },
+    {
+      "Id": "hourglass",
+      "Description": "Each non-Frenzy Hold has a separate 50% chance to add 1 charge, up to 10.",
+      "Inactive": false
+    },
+    {
+      "Id": "incense",
+      "Description": "When the effective result differs from the previous effective result, growth base value +20 G. Later grade increases amplify it.",
+      "Inactive": false
+    },
+    {
+      "Id": "mirror",
+      "Description": "Every 2nd consecutive identical effective result repeats this strike's last eligible relic value gain as an immediate flat G bonus. Does not repeat the base result, pure grade gains or duplication.",
+      "Inactive": false
+    },
+    {
+      "Id": "idol",
+      "Description": "At strike-end milestone checks, each newly recorded +4/+8/+12... multiplies lasting value by 1.15. Jumps may trigger several. Recorded milestones never repeat, including those recorded before owning this relic. Dragon Scale/Phoenix Ash-cancelled Breaks skip this check.",
+      "Inactive": false
+    },
+    {
+      "Id": "headless",
+      "Description": "When Frenzy expires naturally while the sword survives, grants +1 extra grade.",
+      "Inactive": false
+    },
+    {
+      "Id": "hook",
+      "Description": "After at least one relic-shop reroll, the first untouched +0 sword exchanged for Sword Credits this order gives 2 credits instead of 1. Once per order.",
+      "Inactive": false
+    },
+    {
+      "Id": "thorn",
+      "Description": "Sword value ×1.1. Hold weight -2 and Damage weight +2; Hold weight cannot fall below 0.",
+      "Inactive": false
+    },
+    {
+      "Id": "obsidian",
+      "Description": "At current grade +8 or higher, moves up to 2 weight from Success to Great.",
+      "Inactive": false
+    },
+    {
+      "Id": "testament",
+      "Description": "After a fully paid order with a delivered sword at +10 or higher, the first sword supplied next order starts at least at floor(30% of the best delivered grade).",
+      "Inactive": false
+    },
+    {
+      "Id": "coal",
+      "Description": "Sword base value +80 G. Later grade increases amplify it by 1.5 per grade.",
+      "Inactive": false
+    },
+    {
+      "Id": "token",
+      "Description": "All surviving swords have value ×1.15.",
+      "Inactive": false
+    },
+    {
+      "Id": "mallet",
+      "Description": "Damage base weight -1 and Success base weight +1. Damage weight cannot fall below 0.",
+      "Inactive": false
+    },
+    {
+      "Id": "patience",
+      "Description": "Hold base weight +3.",
+      "Inactive": false
+    },
+    {
+      "Id": "spark",
+      "Description": "Great base weight +1.",
+      "Inactive": false
+    },
+    {
+      "Id": "thread",
+      "Description": "After Hold, the next strike's Break chance is multiplied by 0.8. That strike consumes the mark.",
+      "Inactive": false
+    },
+    {
+      "Id": "apron",
+      "Description": "Each Damage immediately adds a flat 140 G to value, including Damage at +0 or Damage protected from grade loss by Abyssal Pearl.",
+      "Inactive": false
+    },
+    {
+      "Id": "cup",
+      "Description": "Each Hold multiplies this sword's lasting value multiplier by 1.06.",
+      "Inactive": false
+    },
+    {
+      "Id": "fork",
+      "Description": "A non-Frenzy Great grants +1 extra grade, for a base change of +3 grades.",
+      "Inactive": false
+    },
+    {
+      "Id": "gear",
+      "Description": "Each Success permanently adds +1 Success weight to this sword. Great does not count; Success during Frenzy does.",
+      "Inactive": false
+    },
+    {
+      "Id": "chime",
+      "Description": "Each Hold banks +1 extra grade, up to 2. Only the next Success releases them; Great does not.",
+      "Inactive": false
+    },
+    {
+      "Id": "blackstone",
+      "Description": "At current grade +8 or higher, sword value ×1.3. Falling below +8 removes this current-grade multiplier.",
+      "Inactive": false
+    },
+    {
+      "Id": "ledger",
+      "Description": "Reference-only legacy item: old holdings converted to 1 Sword Credit. This version does not import legacy saves or offer this item.",
+      "Inactive": true
+    },
+    {
+      "Id": "safe",
+      "Description": "Reference-only legacy item: old holdings converted to 1 Sword Credit. This version does not import legacy saves or offer this item.",
+      "Inactive": true
+    },
+    {
+      "Id": "voucher",
+      "Description": "The first relic-shop reroll each order is free and does not advance paid-reroll pricing.",
+      "Inactive": false
+    },
+    {
+      "Id": "sieve",
+      "Description": "A real Break pays 500 G directly.",
+      "Inactive": false
+    },
+    {
+      "Id": "burial",
+      "Description": "Reference-only legacy item: old holdings converted to 2 Sword Credits. This version does not import legacy saves or offer this item.",
+      "Inactive": true
+    },
+    {
+      "Id": "locket",
+      "Description": "On this sword's very first strike, normal charge gain is 3 instead of 1. If its first strike is in Frenzy, the bonus is not deferred to a later normal strike.",
+      "Inactive": false
+    },
+    {
+      "Id": "watch",
+      "Description": "Each non-Frenzy Damage grants 1 extra charge, up to 10.",
+      "Inactive": false
+    },
+    {
+      "Id": "collar",
+      "Description": "Each surviving strike resolved during Frenzy multiplies lasting value by 1.05, regardless of its effective result. Breaks cancelled by Dragon Scale or Phoenix Ash return before the normal effect chain and do not trigger it.",
+      "Inactive": false
+    },
+    {
+      "Id": "glass",
+      "Description": "A Great during Frenzy grants +1 extra grade, for a base change of +3 grades.",
+      "Inactive": false
+    },
+    {
+      "Id": "loop",
+      "Description": "Non-Frenzy hammering speed +20%.",
+      "Inactive": false
+    },
+    {
+      "Id": "firstseal",
+      "Description": "Only if this sword's very first strike is Success or Great, grants +2 extra grades.",
+      "Inactive": false
+    },
+    {
+      "Id": "thirdeye",
+      "Description": "If the previous effective result was Hold, the next strike has Success weight +4.",
+      "Inactive": false
+    },
+    {
+      "Id": "collector",
+      "Description": "Each fully paid order grants 1 Sword Credit for the relic shop.",
+      "Inactive": false
+    },
+    {
+      "Id": "patchbag",
+      "Description": "Reference-only legacy item: old holdings converted to 1 Sword Credit. This version does not import legacy saves or offer this item.",
+      "Inactive": true
+    },
+    {
+      "Id": "badge",
+      "Description": "After a fully paid order, all swords supplied next order start at least at +2.",
+      "Inactive": false
+    },
+    {
+      "Id": "ironcomb",
+      "Description": "Each Damage adds 5% of the pre-strike base-grade value to this sword's flat value layer. Other value multipliers still apply.",
+      "Inactive": false
+    },
+    {
+      "Id": "wax",
+      "Description": "Every 2nd consecutive identical effective result immediately adds a flat 150 G to value. A real Break does not pass through the surviving-strike effect chain.",
+      "Inactive": false
+    },
+    {
+      "Id": "scales",
+      "Description": "If the previous effective result was Damage, a Success or Great grants +2 extra grades.",
+      "Inactive": false
+    },
+    {
+      "Id": "letter",
+      "Description": "Base order target -10%, before Royal Change credit is deducted.",
+      "Inactive": false
+    },
+    {
+      "Id": "tooth",
+      "Description": "When a sword at +4 or higher actually breaks, the next untouched +0 sword receives a permanent +4 Success weight. Pending inheritances do not stack into +8.",
+      "Inactive": false
+    },
+    {
+      "Id": "royalnail",
+      "Description": "Success base weight +6.",
+      "Inactive": false
+    },
+    {
+      "Id": "mourning",
+      "Description": "Each failed order while held permanently adds +1 Great weight for the rest of this contract.",
+      "Inactive": false
+    },
+    {
+      "Id": "oath",
+      "Description": "Each Damage has a separate 70% chance to grant +1 extra grade, normally offsetting its -1 grade.",
+      "Inactive": false
+    },
+    {
+      "Id": "kingcup",
+      "Description": "Each Hold permanently adds +1 Great weight to this sword.",
+      "Inactive": false
+    },
+    {
+      "Id": "goldgear",
+      "Description": "Each Success adds 30 G to this sword's growth base value. Great does not count; Success during Frenzy does.",
+      "Inactive": false
+    },
+    {
+      "Id": "oracledie",
+      "Description": "Great base weight +4.",
+      "Inactive": false
+    },
+    {
+      "Id": "hearth",
+      "Description": "Each order already paid in full this contract adds 20 G to the shared base value of all swords. Later grade increases amplify it.",
+      "Inactive": false
+    },
+    {
+      "Id": "redglass",
+      "Description": "Frenzy lasts 1 second longer.",
+      "Inactive": false
+    },
+    {
+      "Id": "dragonseal",
+      "Description": "At current grade +12 or higher, sword value ×1.5.",
+      "Inactive": false
+    },
+    {
+      "Id": "silverpermit",
+      "Description": "Basic-sword merchant stock +2, starting with the next visit.",
+      "Inactive": false
+    },
+    {
+      "Id": "cornerstone",
+      "Description": "The first Break on each sword still needing protection becomes Damage. Takes priority over Wirebound Scabbard.",
+      "Inactive": false
+    },
+    {
+      "Id": "dawnsheath",
+      "Description": "A real Break reserves floor(40% of its grade) for the next eligible unstruck +0 sword. Pending grades keep the highest, not a sum. If the inherited grade is above 0, charge rises to at least 4. With Broken Holy Sword, combine to 70% before flooring; a positive inheritance raises charge to at least 7.",
+      "Inactive": false
+    },
+    {
+      "Id": "endlessaxle",
+      "Description": "Every 2nd accumulated Success grants +1 extra grade. They need not be consecutive; Great does not count.",
+      "Inactive": false
+    },
+    {
+      "Id": "dragonheart",
+      "Description": "A Success or Great whose pre-strike grade is at least +7 multiplies lasting value by 1.15. Reaching +7 during this strike is not enough.",
+      "Inactive": false
+    },
+    {
+      "Id": "perfectcore",
+      "Description": "Great base weight +6 during Frenzy.",
+      "Inactive": false
+    },
+    {
+      "Id": "twinseal",
+      "Description": "Each surviving strike has a separate 2% chance to copy this sword, preserving its grade, value and relic-effect layers. It does not create a fresh +0 sword.",
+      "Inactive": false
+    },
+    {
+      "Id": "eternalseed",
+      "Description": "Hold base weight +6. Each Hold adds 40 G to this sword's seed base value; later grade increases amplify it.",
+      "Inactive": false
+    },
+    {
+      "Id": "deeppearl",
+      "Description": "Damage base weight +3. The first 2 Damage results on each sword do not lower its grade, but still count as Damage and trigger Damage relics.",
+      "Inactive": false
+    },
+    {
+      "Id": "funeralledger",
+      "Description": "When a sword at +7 or higher actually breaks, next order's supply +1 sword, up to 2 extra swords earned per order.",
+      "Inactive": false
+    },
+    {
+      "Id": "butterfingers",
+      "Description": "Break base weight +3 and Great base weight +5.",
+      "Inactive": false
+    },
+    {
+      "Id": "everwick",
+      "Description": "Frenzy lasts 2 seconds longer. With Red Hourglass, total Frenzy duration is 7 seconds.",
+      "Inactive": false
+    },
+    {
+      "Id": "royalchange",
+      "Description": "30% of this order's overpayment becomes credit toward the next target. The usable credit is capped at 30% of that next target after Sealed Rebate.",
+      "Inactive": false
+    },
+    {
+      "Id": "dragonpardon",
+      "Description": "If an underpaid order at Anger 2 would end the contract, consumes this relic and keeps Anger at 2 so the contract continues.",
+      "Inactive": false
+    },
+    {
+      "Id": "ghostledger",
+      "Description": "Raises the merchant's offer limit by 2, starting with the next visit. Fewer offers appear if too few types are available.",
+      "Inactive": false
+    },
+    {
+      "Id": "sicklehammer",
+      "Description": "Sets all 5 base weights to 5, then applies other relics, the grade curve and Frenzy. This does not mean a final 20% chance for each result.",
+      "Inactive": false
+    },
+    {
+      "Id": "lifecontract",
+      "Description": "All supplied swords start at +7 or higher.",
+      "Inactive": false
+    }
+  ]
+}

@@ -22,18 +22,25 @@ namespace OneMoreBonk.Rebuild.Presentation
             GUI.EndGroup(); GUI.enabled = oldEnabled;
         }
 
-        void ModalTitle(string title) => Label(new Rect(24, 16, 608, 66), title, 34, ink, TextAnchor.MiddleCenter);
+        void ModalTitle(string title) => Label(new Rect(24, 12, 608, 76), title, 32, ink, TextAnchor.MiddleCenter);
         void CloseModal() { dialog = Dialog.None; skipClockFrame = true; ClearPress(); }
         bool ModalButton(float y, string text, bool primary = false) => Button(new Rect(28, y, 600, 82), text, !commandBusy, primary);
 
         void StarterDialog(float h)
         {
-            ModalTitle("开局赠礼 · 三选一");
-            Label(new Rect(28, 85, 600, 58), "选一件遗物，开启这次锻造之旅。", 22, muted, TextAnchor.MiddleCenter);
-            modalScroll = GUI.BeginScrollView(new Rect(18, 154, 620, h - 174), modalScroll,
-                new Rect(0, 0, 600, view.Run.ShopOffers.Count * 278));
+            ModalTitle("Choose Your Starting Relic");
+            Label(new Rect(28, 85, 600, 58), "Pick one relic to begin this contract.", 22, muted, TextAnchor.MiddleCenter);
             string[] offers = view.Run.ShopOffers.ToArray();
-            for (int i = 0; i < offers.Length; i++) OfferCard(new Rect(0, i * 278, 594, 262), offers[i], true);
+            float contentHeight = 0;
+            foreach (string id in offers) contentHeight += RelicOfferHeight(id, 594, true) + 16;
+            modalScroll = GUI.BeginScrollView(new Rect(18, 154, 620, h - 174), modalScroll, new Rect(0, 0, 600, contentHeight));
+            float y = 0;
+            foreach (string id in offers)
+            {
+                float cardHeight = RelicOfferHeight(id, 594, true);
+                OfferCard(new Rect(0, y, 594, cardHeight), id, true);
+                y += cardHeight + 16;
+            }
             GUI.EndScrollView();
         }
 
@@ -41,45 +48,47 @@ namespace OneMoreBonk.Rebuild.Presentation
         {
             var pending = view.Run.PendingBreak;
             long eventId = pending.EventId;
-            ModalTitle("剑碎裂了");
+            ModalTitle("Your Sword Broke");
             Sprite(new Rect(50, 108, 556, 210), "universal-break");
-            Label(new Rect(34, 330, 588, 146), SwordName(pending.PreSword) + "\n锤前价值 " + Exact(pending.Result.ValueBefore) +
-                "\n这把剑已碎裂，可换下一把继续。", 26, ink, TextAnchor.MiddleCenter);
-            string effects = "已拥有的遗物仍可能带来碎裂收益。";
+            Label(new Rect(34, 330, 588, 146), SwordName(pending.PreSword) + "\nValue before the hit: " + Exact(pending.Result.ValueBefore) +
+                "\nThis sword is lost. Choose another to keep forging.", 26, ink, TextAnchor.MiddleCenter);
+            string effects = "Your relics may still grant rewards from this loss.";
             if (pending.Result.Procs != null)
-                foreach (var proc in pending.Result.Procs) effects += "\n" + proc.Text;
+                foreach (var proc in pending.Result.Procs) effects += "\n" + RiskPlayerText.Message(proc.Text);
             Label(new Rect(40, 490, 576, Mathf.Max(80, h - 680)), effects, 22, muted, TextAnchor.UpperCenter);
-            if (ModalButton(h - 116, "接受损失并继续", true)) Execute((out string reason) => session.TryAcceptBreak(eventId, out reason));
+            if (ModalButton(h - 116, "Accept Loss & Continue", true)) Execute((out string reason) => session.TryAcceptBreak(eventId, out reason));
         }
 
         void ClearDialog(float h)
         {
             string id = view.Run.Id;
-            ModalTitle("21单契约完成");
-            Label(new Rect(40, 132, 576, 230), "你活过了21单。\n合格订单 " + view.Run.PassCount + "单\n最高 +" + view.Run.Best +
-                " · 累计 " + view.Run.TotalHits + "锤\n金币 " + Exact(view.Run.Gold), 31, ink, TextAnchor.MiddleCenter);
-            Label(new Rect(42, 390, 572, 140), "可结束契约，永久发现和已开槽保留。\n也可继续延期挑战后续订单。", 25, muted, TextAnchor.MiddleCenter);
-            if (ModalButton(h - 220, "继续延期挑战", true)) { Execute((out string reason) => session.TryContinueExtended(id, out reason)); page = Page.Forge; }
-            if (ModalButton(h - 118, "结束契约")) Execute((out string reason) => session.TryEndContract(id, out reason));
+            ModalTitle("21-Order Contract Complete");
+            Label(new Rect(40, 132, 576, 230), "You survived all 21 orders.\nOrders fulfilled: " + view.Run.PassCount + "\nBest +" + view.Run.Best +
+                " · Hits: " + view.Run.TotalHits + "\nGold: " + Exact(view.Run.Gold), 31, ink, TextAnchor.MiddleCenter);
+            Label(new Rect(42, 390, 572, 140), "Finish here and keep your discoveries and unlocked slots, or continue with harder orders.", 25, muted, TextAnchor.MiddleCenter);
+            if (ModalButton(h - 220, "Continue Beyond 21", true)) { Execute((out string reason) => session.TryContinueExtended(id, out reason)); page = Page.Forge; }
+            if (ModalButton(h - 118, "Finish Contract")) Execute((out string reason) => session.TryEndContract(id, out reason));
         }
 
         void RewardPending(float h)
         {
             var request = view.PendingReward;
-            ModalTitle(adVisible ? "广告进行中" : "广告请求待处理");
-            string text = request == null ? "等待广告服务返回。" : request.Placement == RiskRewardPlacement.RelicSlot ?
-                "请求永久开启第 " + request.TargetSlot + " 个遗物槽。" : "请求本契约龙鳞×1。";
-            Label(new Rect(40, 155, 576, 230), text + "\n完整观看并获得奖励后即可领取。\n提前关闭或暂时没有广告，不消耗领取次数。", 28, ink, TextAnchor.MiddleCenter);
-            Label(new Rect(42, 414, 572, 160), "若已获奖励但保存未完成，请重试保存，无需再次观看。", 24, muted, TextAnchor.MiddleCenter);
+            ModalTitle(adVisible ? "Ad in Progress" : "Reward Pending");
+            string text = request == null ? "Waiting for the ad service." : request.Placement == RiskRewardPlacement.RelicSlot ?
+                "Unlocking relic slot " + request.TargetSlot + "." : "Claiming 1 Dragon Scale for this contract.";
+            string instructions = RewardAwaitingSave ? "\nYour reward has been earned. Retry saving it below." :
+                "\nComplete the ad to earn your reward.\nClosing early or an unavailable ad does not use your claim.";
+            Label(new Rect(40, 155, 576, 230), text + instructions, 28, ink, TextAnchor.MiddleCenter);
+            Label(new Rect(42, 414, 572, 160), "If your reward was earned but not saved, retry saving. You do not need to watch again.", 24, muted, TextAnchor.MiddleCenter);
             if (!adVisible)
             {
-                if (RewardAwaitingSave && ModalButton(h - 320, "重试保存已获奖励", true))
+                if (RewardAwaitingSave && ModalButton(h - 320, "Retry Saving Reward", true))
                 {
                     if (RewardRetryRequested != null) RewardRetryRequested.Invoke();
-                    else Notify("广告服务尚未接入，不能伪造已获奖励。");
+                    else Notify("The ad service is unavailable. No reward can be verified.");
                 }
-                if (ModalButton(h - 220, "刷新当前状态")) RefreshFromSession();
-                if (!RewardAwaitingSave && request != null && ModalButton(h - 118, "取消未获奖的待处理请求"))
+                if (ModalButton(h - 220, "Refresh Status")) RefreshFromSession();
+                if (!RewardAwaitingSave && request != null && ModalButton(h - 118, "Cancel Unearned Request"))
                 {
                     if (RewardCancelRequested != null) RewardCancelRequested.Invoke();
                     else Execute((out string reason) => session.TryCancelReward(request.Id, out reason));
@@ -106,168 +115,168 @@ namespace OneMoreBonk.Rebuild.Presentation
 
         void SubmitDialog(float h)
         {
-            ModalTitle("确认交付第 " + capturedRound + " 单");
+            ModalTitle("Deliver Order " + capturedRound + "?");
             var run = view.Run;
-            Label(new Rect(34, 128, 588, 280), "消耗已选 " + run.OrderIds.Count + " 把剑\n当前交付价值 " + Exact(session.OrderValue) +
-                "\n实际目标 " + Exact(run.Quota) + "\n" + (session.OrderValue >= run.Quota ? "达到目标" : "不足目标：愤怒将上升，请确认") +
-                "\n当前愤怒 " + run.Anger + "/3", 29, session.OrderValue >= run.Quota ? ink : danger, TextAnchor.MiddleCenter);
-            Label(new Rect(40, 448, 576, 100), "交付后此单立即结算。所选实体剑和碎料贡献将被消耗。", 24, muted, TextAnchor.MiddleCenter);
-            if (ModalButton(h - 220, "确认交付", true)) Execute((out string reason) => session.TrySubmitOrder(capturedRunId, capturedRound, out reason));
-            if (ModalButton(h - 118, "返回选择")) CloseModal();
+            Label(new Rect(34, 128, 588, 280), "Swords to consume: " + run.OrderIds.Count + "\nDelivery value: " + Exact(session.OrderValue) +
+                "\nEffective target: " + Exact(run.Quota) + "\n" + (session.OrderValue >= run.Quota ? "Target met" : "Below target: anger will rise") +
+                "\nCurrent anger: " + run.Anger + "/3", 29, session.OrderValue >= run.Quota ? ink : danger, TextAnchor.MiddleCenter);
+            Label(new Rect(40, 448, 576, 100), "Submitting consumes the selected swords and scrap.\nThis order settles immediately.", 24, muted, TextAnchor.MiddleCenter);
+            if (ModalButton(h - 220, "Confirm Delivery", true)) Execute((out string reason) => session.TrySubmitOrder(capturedRunId, capturedRound, out reason));
+            if (ModalButton(h - 118, "Back to Selection")) CloseModal();
         }
 
         void SellDialog(float h)
         {
             var sword = view.Run.Swords.Find(s => s.Id == selectedDialogSword);
-            ModalTitle("换取剑信用");
+            ModalTitle("Trade for Sword Credits");
             if (sword == null) { CloseModal(); return; }
             int credits = RiskEconomy.SwordCreditsForTrade(sword, view.Run.Context, view.Run.AnyReroll, view.Run.HookUsed);
-            Label(new Rect(40, 165, 576, 290), SwordName(sword) + "\n价值 " + Exact(RiskForgeRules.Value(sword, view.Run.Context)) +
-                "\n消耗这把剑，获得 " + credits + " 剑信用。\n此操作不会获得金币。", 29, ink, TextAnchor.MiddleCenter);
-            if (ModalButton(h - 220, "确认换取 " + credits + " 剑信用", true)) Execute((out string reason) => session.TrySellForCredit(selectedDialogSword, out reason));
-            if (ModalButton(h - 118, "保留这把剑")) CloseModal();
+            Label(new Rect(40, 165, 576, 290), SwordName(sword) + "\nValue: " + Exact(RiskForgeRules.Value(sword, view.Run.Context)) +
+                "\nConsume this sword for " + credits + (credits == 1 ? " Sword Credit." : " Sword Credits.") + "\nThis trade does not grant gold.", 29, ink, TextAnchor.MiddleCenter);
+            if (ModalButton(h - 220, "Trade for " + credits + (credits == 1 ? " Sword Credit" : " Sword Credits"), true)) Execute((out string reason) => session.TrySellForCredit(selectedDialogSword, out reason));
+            if (ModalButton(h - 118, "Keep This Sword")) CloseModal();
         }
 
         void RelicDetail(float h)
         {
             var entry = RiskRelicData.Find(selectedDialogRelic);
             if (entry == null) { CloseModal(); return; }
-            ModalTitle(entry.Name);
-            Label(new Rect(36, 118, 584, h - 380), PlayerDescription(entry.Description), 28, ink);
+            ModalTitle(RiskPlayerText.RelicName(entry.Id));
+            string description = RiskPlayerText.RelicDescription(entry.Id);
+            float descriptionHeight = EnglishTextHeight(description, 26, 568, h - 390);
+            modalScroll = GUI.BeginScrollView(new Rect(28, 112, 600, h - 382), modalScroll, new Rect(0, 0, 574, descriptionHeight));
+            Label(new Rect(4, 0, 568, descriptionHeight), description, 26, ink);
+            GUI.EndScrollView();
             bool owned = view.Run?.Relics.Contains(entry.Id) == true;
-            if (owned && ModalButton(h - 220, "丢弃此遗物")) Show(Dialog.Discard);
-            if (!owned && view.Run?.ShopOffers.Contains(entry.Id) == true && ModalButton(h - 220, "购买 · " + entry.Price + "剑信用", true))
+            if (owned && ModalButton(h - 220, "Discard This Relic")) Show(Dialog.Discard);
+            if (!owned && view.Run?.ShopOffers.Contains(entry.Id) == true && ModalButton(h - 220, "Buy · " + SwordCreditText(entry.Price), true))
             {
                 if (view.Run.Relics.Count >= view.Profile.UnlockedRelicSlots) Show(Dialog.Replace);
                 else Execute((out string reason) => session.TryBuyRelic(entry.Id, null, capturedRound, out reason));
             }
-            if (ModalButton(h - 118, "返回")) CloseModal();
+            if (ModalButton(h - 118, "Back")) CloseModal();
         }
 
         void DiscardDialog(float h)
         {
-            ModalTitle("确认丢弃遗物");
-            Label(new Rect(40, 165, 576, 280), RiskRelicData.Name(selectedDialogRelic) + "\n丢弃后效果立即移除，不退还剑信用。\n若只是想购买新遗物，可在报价中显式替换。", 28, ink, TextAnchor.MiddleCenter);
-            if (ModalButton(h - 220, "确认丢弃", true)) Execute((out string reason) => session.TryDiscardRelic(selectedDialogRelic, out reason));
-            if (ModalButton(h - 118, "保留")) CloseModal();
+            ModalTitle("Discard This Relic?");
+            Label(new Rect(40, 165, 576, 280), RiskPlayerText.RelicName(selectedDialogRelic) + "\nIts effects end immediately. Sword Credits are not refunded.\nTo buy a new relic, you can replace an old one directly from its offer.", 28, ink, TextAnchor.MiddleCenter);
+            if (ModalButton(h - 220, "Discard Relic", true)) Execute((out string reason) => session.TryDiscardRelic(selectedDialogRelic, out reason));
+            if (ModalButton(h - 118, "Keep Relic")) CloseModal();
         }
 
         void ReplaceDialog(float h)
         {
             string incoming = selectedDialogRelic; int round = capturedRound;
             var entry = RiskRelicData.Find(incoming);
-            ModalTitle("满架 · 显式替换");
-            Label(new Rect(32, 96, 592, 104), "购买 " + RiskRelicData.Name(incoming) + " · " + (entry?.Price ?? 0) + "剑信用\n选一件遗物丢弃，不退费。不需要广告。", 24, ink, TextAnchor.MiddleCenter);
+            ModalTitle("Shelf Full · Choose a Replacement");
+            Label(new Rect(32, 96, 592, 104), "Buy " + RiskPlayerText.RelicName(incoming) + " · " + SwordCreditText(entry?.Price ?? 0) + "\nChoose a relic to discard. No refund. No ad needed.", 24, ink, TextAnchor.MiddleCenter);
             modalScroll = GUI.BeginScrollView(new Rect(18, 218, 620, h - 352), modalScroll,
                 new Rect(0, 0, 596, view.Run.Relics.Count * 102));
             string[] relics = view.Run.Relics.ToArray();
             for (int i = 0; i < relics.Length; i++)
             {
                 string outgoing = relics[i];
-                if (Button(new Rect(8, i * 102, 580, 90), "丢弃 " + RiskRelicData.Name(outgoing) + " 并购买", true, true))
+                if (Button(new Rect(8, i * 102, 580, 90), "Replace " + RiskPlayerText.RelicName(outgoing), true, true))
                     Execute((out string reason) => session.TryBuyRelic(incoming, outgoing, round, out reason));
             }
             GUI.EndScrollView();
-            if (ModalButton(h - 118, "取消，保留当前遗物架")) CloseModal();
+            if (ModalButton(h - 118, "Cancel · Keep Current Shelf")) CloseModal();
         }
 
         void SlotDialog(float h)
         {
-            ModalTitle("永久解锁第 " + (view.Profile.UnlockedRelicSlots + 1) + " 格");
-            Label(new Rect(40, 145, 576, 280), "完整观看一次广告，开启下一格。\n已开槽位跨契约、重启保留。\n槽位增加摆放空间，遗物需另行获取。\n当前 " + view.Profile.UnlockedRelicSlots + "/8格，最多8格。", 28, ink, TextAnchor.MiddleCenter);
+            ModalTitle("Unlock Relic Slot " + (view.Profile.UnlockedRelicSlots + 1));
+            Label(new Rect(40, 145, 576, 280), "Complete an ad to unlock the next slot.\nUnlocked slots stay on this device across contracts and restarts.\nSlots add space; relics are obtained separately.\nCurrently " + view.Profile.UnlockedRelicSlots + "/8 slots. Maximum: 8.", 28, ink, TextAnchor.MiddleCenter);
             RewardAvailability(new Rect(40, 450, 576, 130));
-            if (ModalButton(h - 220, RewardProviderReady && RewardRequested != null ? "观看广告，永久开启下一格" : "广告未就绪（不发奖）", true)) RequestReward(RiskRewardPlacement.RelicSlot);
-            if (ModalButton(h - 118, "继续使用当前槽位")) CloseModal();
+            if (ModalButton(h - 220, RewardProviderReady && RewardRequested != null ? "Watch Ad · Unlock Next Slot" : "Ad Unavailable · No Reward", true)) RequestReward(RiskRewardPlacement.RelicSlot);
+            if (ModalButton(h - 118, "Keep Current Slots")) CloseModal();
         }
 
         void WardDialog(float h)
         {
-            ModalTitle("领取龙鳞×1");
-            Label(new Rect(40, 140, 576, 290), "每次契约可免费领取一次龙鳞。\n领取后进入道具库存，可与已有龙鳞叠加。\n请回锻造页手动使用，保护下一锤。\n这一锤无论何种结果都会消耗龙鳞。", 28, ink, TextAnchor.MiddleCenter);
+            ModalTitle("Claim Dragon Scale ×1");
+            Label(new Rect(40, 140, 576, 290), "Watch an ad for 1 Dragon Scale, once per contract.\nIt is added to your item inventory.\nArm it on the Forge page to block a Break on your next hit.\nAny result consumes the scale.", 28, ink, TextAnchor.MiddleCenter);
             RewardAvailability(new Rect(40, 450, 576, 130));
-            if (ModalButton(h - 220, RewardProviderReady && RewardRequested != null ? "观看广告领取龙鳞" : "广告未就绪（不发奖）", true)) RequestReward(RiskRewardPlacement.Ward);
-            if (ModalButton(h - 118, "返回商人")) CloseModal();
+            if (ModalButton(h - 220, RewardProviderReady && RewardRequested != null ? "Watch Ad · Get Dragon Scale" : "Ad Unavailable · No Reward", true)) RequestReward(RiskRewardPlacement.Ward);
+            if (ModalButton(h - 118, "Back to Merchant")) CloseModal();
         }
 
         void RewardAvailability(Rect r) => Label(r, RewardProviderReady && RewardRequested != null ?
-            "本版本使用Google官方测试广告。\n完整观看后领取；提前关闭或暂无广告时可继续游戏。" :
-            "广告暂未就绪，请稍后再试。\n仍可继续使用当前槽位和道具。", 23, muted, TextAnchor.MiddleCenter);
+            "This build uses official Google test ads.\nComplete an ad to earn the reward. If an ad is unavailable or closed early, you can keep playing." :
+            "Ads are unavailable. Please try again later.\nYou can keep playing with your current slots and items.", 23, muted, TextAnchor.MiddleCenter);
 
         void MenuDialog(float h)
         {
-            ModalTitle("工坊菜单");
-            Label(new Rect(40, 110, 576, 110), "永久遗物槽 " + view.Profile.UnlockedRelicSlots + "/8\n测试构建 " + Application.version + " · 原回溯暂未开放", 23, muted, TextAnchor.MiddleCenter);
-            if (ModalButton(254, "图鉴与成就")) Show(Dialog.Codex);
-            if (ModalButton(356, "保存并返回工坊", true))
-            { Execute(session.TryCheckpoint, "已保存"); }
-            if (view.Run != null && ModalButton(458, "结束当前契约")) Show(Dialog.End);
-            if (ModalButton(h - 118, "返回游戏")) CloseModal();
+            ModalTitle("Workshop Menu");
+            Label(new Rect(40, 110, 576, 96), "Relic slots: " + view.Profile.UnlockedRelicSlots + "/8\nVersion " + Application.version + " · Local profile", 23, muted, TextAnchor.MiddleCenter);
+            float contentHeight = view.Run == null ? 376 : 470;
+            modalScroll = GUI.BeginScrollView(new Rect(18, 228, 620, h - 362), modalScroll, new Rect(0, 0, 594, contentHeight));
+            if (Button(new Rect(8, 0, 580, 82), "Collection & Achievements", !commandBusy)) Show(Dialog.Codex);
+            if (Button(new Rect(8, 94, 580, 82), SoundEnabled ? "Sound: On" : "Sound: Off", !commandBusy)) ToggleSound();
+            if (Button(new Rect(8, 188, 580, 82), HapticsEnabled ? "Haptics: On" : "Haptics: Off", !commandBusy)) ToggleHaptics();
+            if (Button(new Rect(8, 282, 580, 82), "Save & Return to Workshop", !commandBusy, true))
+            { Execute(session.TryCheckpoint, "Saved"); }
+            if (view.Run != null && Button(new Rect(8, 376, 580, 82), "End Current Contract", !commandBusy)) Show(Dialog.End);
+            GUI.EndScrollView();
+            if (ModalButton(h - 118, "Back to Game")) CloseModal();
         }
 
         void EndDialog(float h)
         {
-            ModalTitle("结束当前契约？");
-            Label(new Rect(40, 150, 576, 250), "本次订单、金币、剑与局内遗物将结束。\n永久已开槽和原发现/成就保留。\n想下次接着玩，请选择返回游戏后直接退出。", 28, ink, TextAnchor.MiddleCenter);
-            if (ModalButton(h - 220, "确认结束当前契约", true)) Execute((out string reason) => session.TryEndContract(capturedRunId, out reason));
-            if (ModalButton(h - 118, "返回游戏，保留进度")) CloseModal();
+            ModalTitle("End This Contract?");
+            Label(new Rect(40, 150, 576, 250), "This ends the current orders, gold, swords and relics.\nUnlocked slots, discoveries and achievements stay.\nTo resume this contract later, go back to the game and close the app.", 28, ink, TextAnchor.MiddleCenter);
+            if (ModalButton(h - 220, "End This Contract", true)) Execute((out string reason) => session.TryEndContract(capturedRunId, out reason));
+            if (ModalButton(h - 118, "Back · Keep This Contract")) CloseModal();
         }
 
         void CodexDialog(float h)
         {
-            ModalTitle("图鉴与成就");
+            ModalTitle("Collection & Achievements");
             var achievements = RiskProgression.Achievements();
-            float contentHeight = 190 + achievements.Length * 108 + view.Profile.Discoveries.Count * 58 + RiskRelicData.All.Count * 130;
+            float contentHeight = 170 + achievements.Length * 114 + view.Profile.Discoveries.Count * 58;
+            foreach (var entry in RiskRelicData.All)
+            {
+                if (entry.Disabled) continue;
+                contentHeight += EnglishTextHeight(RiskPlayerText.RelicName(entry.Id), 25, 580, 42) +
+                    EnglishTextHeight(RiskPlayerText.RelicDescription(entry.Id), 19, 580, 72) + 18;
+            }
             modalScroll = GUI.BeginScrollView(new Rect(18, 94, 620, h - 225), modalScroll, new Rect(0, 0, 594, contentHeight));
             float y = 0;
-            Label(new Rect(8, y, 580, 50), "成就 " + view.Profile.Achievements.Count + "/" + achievements.Length + " · 最高 +" + view.Profile.Best, 26); y += 58;
+            Label(new Rect(8, y, 580, 50), "Achievements: " + view.Profile.Achievements.Count + "/" + achievements.Length + " · Best +" + view.Profile.Best, 26); y += 58;
             foreach (var definition in achievements)
             {
                 bool complete = view.Profile.Achievements.Contains(definition.Id);
                 Label(new Rect(8, y, 580, 62), (complete ? "✓ " : "○ ") + AchievementText(definition), 22, complete ? mint : muted); y += 64;
-                Label(new Rect(8, y, 580, 38), string.IsNullOrEmpty(definition.UnlockedRelicId) ? "" : "遗物开池：" + RiskRelicData.Name(definition.UnlockedRelicId), 19, muted); y += 44;
+                Label(new Rect(8, y, 580, 44), string.IsNullOrEmpty(definition.UnlockedRelicId) ? "" : "Unlocks in shop: " + RiskPlayerText.RelicName(definition.UnlockedRelicId), 19, muted); y += 50;
             }
-            Label(new Rect(8, y, 580, 48), "已发现外观", 26); y += 52;
+            Label(new Rect(8, y, 580, 48), "Discovered Appearances", 26); y += 52;
             foreach (string id in view.Profile.Discoveries) { Label(new Rect(8, y, 580, 52), DiscoveryText(id), 22, muted); y += 58; }
-            Label(new Rect(8, y, 580, 48), "遗物规则目录", 26); y += 52;
+            Label(new Rect(8, y, 580, 48), "Relic Catalogue", 26); y += 52;
             foreach (var entry in RiskRelicData.All)
             {
                 if (entry.Disabled) continue;
-                Label(new Rect(8, y, 580, 40), entry.Name, 25); y += 42;
-                Label(new Rect(8, y, 580, 82), PlayerDescription(entry.Description), 19, muted); y += 88;
+                float titleHeight = EnglishTextHeight(RiskPlayerText.RelicName(entry.Id), 25, 580, 42);
+                float descriptionHeight = EnglishTextHeight(RiskPlayerText.RelicDescription(entry.Id), 19, 580, 72);
+                Label(new Rect(8, y, 580, titleHeight), RiskPlayerText.RelicName(entry.Id), 25); y += titleHeight + 4;
+                Label(new Rect(8, y, 580, descriptionHeight), RiskPlayerText.RelicDescription(entry.Id), 19, muted); y += descriptionHeight + 14;
             }
             GUI.EndScrollView();
-            if (ModalButton(h - 118, "返回游戏")) CloseModal();
+            if (ModalButton(h - 118, "Back to Game")) CloseModal();
         }
 
-        static string AchievementText(RiskAchievementDefinition entry)
-        {
-            switch (entry.Condition)
-            {
-                case "surviving-family-grade": return FamilyName(entry.Family) + "幸存达到 +" + entry.Threshold;
-                case "survive-contract-round": return "活过21单契约";
-                case "actual-breaks-in-contract": return "单次契约真实碎裂10把剑";
-                case "frenzy-starts-in-contract": return "单次契约进入入神5次";
-                case "payment-times-effective-quota": return "一次交付达到实际目标的3倍";
-                case "full-payment-at-anger": return "愤怒2时足额交付";
-                case "purchase-all-stock-in-one-visit": return "一次到访买光商人全部库存";
-                case "full-extended-payments-in-contract": return "单次契约延期后足额交付3单";
-                case "surviving-grade": return "首次幸存达到 +10";
-                case "third-unprotected-underpayment": return "首次因愤怒结束契约";
-                case "first-nontutorial-frenzy": return "首次进入入神";
-                default: return "完成原始成就条件";
-            }
-        }
+        static string AchievementText(RiskAchievementDefinition entry) => RiskPlayerText.AchievementDescription(entry.Id);
 
         static string DiscoveryText(string key)
         {
-            if (string.IsNullOrEmpty(key)) return "未知外观";
+            if (string.IsNullOrEmpty(key)) return "Unknown appearance";
             string[] parts = key.Split(':');
             bool merchant = parts.Length >= 5 && parts[0] == "merchant";
             int stageOffset = merchant ? 2 : 1;
-            if (parts.Length < stageOffset + 3 || !int.TryParse(parts[stageOffset], out int stage)) return "已发现外观";
-            string route = parts[stageOffset + 1] == "Sunfire" ? "日焰" : parts[stageOffset + 1] == "Moonsteel" ? "月钢" : "虚晶";
-            return (merchant ? FamilyName(parts[1]) : "红温剑") + " · 第" + (stage + 1) + "形态 · " + route +
-                (parts[stageOffset + 2] == "awake" ? " · 觉醒" : "");
+            if (parts.Length < stageOffset + 3 || !int.TryParse(parts[stageOffset], out int stage)) return "Discovered Appearances";
+            string route = parts[stageOffset + 1] == "Sunfire" ? "Sunfire" : parts[stageOffset + 1] == "Moonsteel" ? "Moonsteel" : "Voidglass";
+            return (merchant ? FamilyName(parts[1]) : "Forged Sword") + " · Form " + (stage + 1) + " · " + route +
+                (parts[stageOffset + 2] == "awake" ? " · Awakened" : "");
         }
     }
 }

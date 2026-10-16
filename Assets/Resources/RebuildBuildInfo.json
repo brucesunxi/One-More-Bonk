@@ -1,12 +1,13 @@
 {
-    "BuildId": "327ff01acb88450fbc6c4fdaa2b12745",
-    "BuiltAtUtc": "2026-10-16T03:33:56.5588090Z",
-    "Version": "0.1.0",
+    "BuildId": "99d55b89c5c54e1784a3990469d3fc05",
+    "BuiltAtUtc": "2026-10-16T08:51:07.4935740Z",
+    "Version": "0.1.1",
     "ApplicationId": "com.brucesunxi.onemorebonk.rebuild",
-    "CodeSha256": "ed738624b378b0264e5125bc210cbc3e41a1117bbd83a039fefdddfa8539fd36",
+    "CodeSha256": "9a6e544ceb65cae496b71fe832b3e457987b89d402f594f4bcb2a01d5a0a92e6",
     "RuleSha256": "b96b16ca937b8aba71efbc330c8f840c96e39c91e6f6c2c0dbb105eb68175ac1",
+    "DisplayTextSha256": "b5852a5e8f5b1a34c115de8ffc1a5de73b00fe10d49d48c97a35623e229e7f22",
     "ArtSha256": "38b12e531799048ae360af77d85c7d53fadcb2dfca2018757d58e76129e53859",
     "DependencyLockSha256": "9b3ad41fdc1c76b14403d8ec5d40060219d38a5ebe0d2b9a92e216fa6ffae84c",
     "ApkSha256": "",
-    "VersionCode": 5
+    "VersionCode": 7
 }

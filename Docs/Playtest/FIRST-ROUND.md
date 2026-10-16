@@ -1,13 +1,13 @@
 # 首轮陌生玩家试玩
 
-目标：用5–8名未玩过本作的海外Android玩家，发现闭环中的理解、操作与情绪卡点。先回答“能否理解并愿意继续”，不以这轮样本估计通关率、留存或广告收入。当前默认包为`0.1.0 / versionCode 5`；发包前核对[构建清单](../Validation/build-0.1.0-5.json)与[主测试报告](../Validation/TEST-REPORT-0.1.0.md)。若换包，每场记录新的版本和BuildId。
+目标：用5–8名未玩过本作的海外Android玩家，发现闭环中的理解、操作与情绪卡点。先回答“能否理解并愿意继续”，不以这轮样本估计通关率、留存或广告收入。当前默认包为`0.1.1 / versionCode 7`；发包前核对[构建清单](../Validation/build-0.1.1-7.json)与[本轮测试报告](../Validation/ITERATION-02.md)。若换包，每场记录新的版本和BuildId。
 
 每人约20–30分钟，可随时提前结束。主持人一名、观察记录一份即可，不新增埋点、奖励、问卷系统或游戏功能。
 
 ## 样本与准备
 
 - 招募5–8名陌生玩家，避免都来自开发者朋友或已经听过玩法说明的人。记录是否看过演示；看过者单列，不混作首次接触。
-- 当前包以简体中文为主。海外不等于英文读者：正式理解观察优先找能读当前UI的人；不懂中文者可以记录安装、第一印象和语言卡点，但不把语言障碍算成概率/规则设计失败，也不把主持人翻译后的表现算成独立理解。下方英文任务不代表游戏已完整英文适配。
+- 当前包使用英文UI。海外不等于英文读者：正式理解观察优先找能读当前英文的人；语言受阻单独记录，不把主持人翻译后的表现算成独立理解。遗物英文说明已核对实际实现，但母语自然度和新手理解仍待本轮真人检验。
 - 使用玩家自愿参加的Android设备。只需记录Android大版本；只有兼容问题确有必要时才另补设备型号。不收设备标识、账号或联系方式。
 - 先确认安装包身份、能启动且为官方测试广告配置。测试广告不代表生产广告或真实收入，不承诺正式服务、收入或未来奖励。玩家不必看广告、点击广告或故意输掉来配合研究。
 - 默认使用新本地档案、初始2槽。重开契约会保留永久槽，不能把已有3槽的旧档重开后记成“新账号2槽”。不为赶进度给自然组补钱、补剑、补遗物或暗改概率。
@@ -54,7 +54,7 @@
 
 ## 可直接发给参与者的英文任务
 
-> This is an early Android test build. We are testing the game, not you. Please play in your own way and say what you are thinking. You may stop at any time. The current UI mainly uses Simplified Chinese; please tell us if language blocks you. Ads are optional official test ads. You do not need to watch or click an ad, lose on purpose, or give a positive review.
+> This is an early Android test build. We are testing the game, not you. Please play in your own way and say what you are thinking. You may stop at any time. The current UI is in English; please tell us if any wording blocks you. Ads are optional official test ads. You do not need to watch or click an ad, lose on purpose, or give a positive review.
 >
 > 1. Start a new contract and choose a starting item you want.
 > 2. Before the next hit, tell us what you think could happen and what the sword's value means.
