@@ -38,7 +38,7 @@ Packages/Vendor保留GMA11.6.0、EDM2.1.0源包及许可；[来源与hash](../..
 受控事件harness位于Tests/Ads，Unity/GMA/UI替身只在测试编译中出现，绝不在Assets。运行：
 `UNITY_EDITOR_ROOT=<Unity.app> sh Tools/verify-ads-adapter.sh`
 
-当前79断言覆盖取消、无填充、earned、重复/过期、已收到earned后队列倒序、保存失败免重看、取消保存失败、失焦返回、CanShowAd/Show异常、前台加载超时及两奖励独立性。新增后台加载成功、回前台时CanShowAd=false或抛异常的两个分支：先在旧代码复现Complete(null)空引用，再验证守卫修复后安全取消、无奖、恢复可请求。另用真实Unity/GMA程序集编译新Assets源码检查API。结果见[validation.json](validation.json)。
+初始79断言覆盖取消、无填充、earned、重复/过期、已收到earned后队列倒序、保存失败免重看、取消保存失败、失焦返回、CanShowAd/Show异常、前台加载超时及两奖励独立性。新增后台加载成功、回前台时CanShowAd=false或抛异常的两个分支：先在旧代码复现Complete(null)空引用，再验证守卫修复后安全取消、无奖、恢复可请求。另用真实Unity/GMA程序集编译新Assets源码检查API。结果见[validation.json](validation.json)。 后续新增32项异步初始化边界断言，当前共111项：34/35秒等待与超时、取消/超时后的迟到回调与新请求、空状态失败后重新初始化。它们使用事件替身，不代表设备网络场景；增量见[第一轮验收](../Validation/ITERATION-01.md)。
 
 受控harness与真实设备分开记账。新独立包已完成依赖resolve、Android原生构建与安装：版本4两接点均实际展示并earned保存，永久第三槽在强停冷启后保留；版本5保留这两份权益，并验证龙鳞手动武装、下一次Hold消费和新契约预算重置。版本5只有玩家文案和构建标识调整，未将其写成重新实播两条广告。详见[版本测试报告](../Validation/TEST-REPORT-0.1.0.md)。手机早退/网络/后台阶段尚未形成完整矩阵；未运行生产配置、收入、SSV、mediation或iOS验证。
 

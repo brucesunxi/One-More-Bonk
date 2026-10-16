@@ -120,10 +120,25 @@ public static class SessionChecks
         var before = session.Snapshot();
         Check(!session.TryBuyRelic("file", null, 2, out reason), "Full two-slot shelf silently exceeded capacity.");
         Check(RiskStateCodec.Encode(before) == RiskStateCodec.Encode(session.Snapshot()), "Rejected capacity command spent currency or RNG.");
+        string durableBefore = store.Payload;
+        int writes = store.Writes;
+        store.Fail = true;
+        Check(!session.TryBuyRelic("file", "nail", 2, out reason) && session.PersistenceBlocked,
+            "A full-shelf replacement ignored the failed save.");
+        Check(RiskStateCodec.Encode(before) == RiskStateCodec.Encode(session.Snapshot()) && store.Payload == durableBefore && store.Writes == writes,
+            "Failed replacement lost the old relic, spent credits, removed the offer or published a candidate.");
+        store.Fail = false;
+        session = Open(store);
+        Check(RiskStateCodec.Encode(before) == RiskStateCodec.Encode(session.Snapshot()), "Reopening after failed replacement changed the original shelf.");
         Ok(session.TryBuyRelic("file", "nail", 2, out reason), reason);
         var after = session.Snapshot();
         Check(after.Profile.UnlockedRelicSlots == 2 && after.Run.Relics.Count == 2 && after.Run.Relics.Contains("file") &&
             !after.Run.Relics.Contains("nail") && after.Run.SwordCredits == before.Run.SwordCredits - RiskRelicData.Find("file").Price, "Free replacement required ad or spent wrong credits.");
+        session = Open(store);
+        string replaced = RiskStateCodec.Encode(session.Snapshot());
+        writes = store.Writes;
+        Check(!session.TryBuyRelic("file", "seal", 2, out reason) && RiskStateCodec.Encode(session.Snapshot()) == replaced && store.Writes == writes,
+            "Repeated replacement after restart charged twice or discarded another relic.");
     }
 
     static void Rewards()
@@ -183,6 +198,61 @@ public static class SessionChecks
         Ok(session.TryBeginReward(RiskRewardPlacement.RelicSlot, out _, out reason), reason);
     }
 
+    static void WardBlocksNaturalBreak()
+    {
+        // A controlled starting state, not a natural-play balance sample. Seed 1 has the
+        // fixed xorshift32 next value 270369, so floor(next / 2^32 * 1000) is ticket 0.
+        // No forced-outcome helper or state injection is used after opening this fixture.
+        var session = Fixture(state =>
+        {
+            var run = state.Run;
+            run.Round = run.Context.Round = 3; run.BaseQuota = run.Quota = 2600;
+            run.StarterGift = false; run.ShopOffers.Clear();
+            run.MerchantOffers = RiskEconomy.GenerateMerchantOffers(3, 0, false, run.Context, ref run.ShopRngState);
+            var sword = run.Swords[0]; sword.Grade = sword.PeakGrade = 30; sword.Hits = 1; sword.Effects.Primed = true;
+            run.Swords.RemoveRange(1, 2); run.SelectedId = sword.Id;
+            run.Relics.Add("shard"); run.ResultRngState = 1;
+        }, out var store);
+        string reason;
+        var initial = session.Snapshot();
+        int swordId = initial.Run.SelectedId;
+        int[] tickets = session.GetProbabilities(swordId);
+        Check(tickets[0] > 0 && tickets.Sum() == 1000, "Natural Break fixture does not contain ticket 0 in its Break bucket.");
+
+        var unprotected = Open(new MemoryStore { Payload = store.Payload });
+        Ok(unprotected.TryStrike(out var fatal, out reason), reason);
+        Check(fatal.RolledOutcome == ForgeOutcome.Break && fatal.Fatal && unprotected.Snapshot().Run.ResultRngState == 270369u,
+            "Unprotected control did not naturally draw the fixed Break ticket with one RNG draw.");
+
+        Ok(session.TryBeginReward(RiskRewardPlacement.Ward, out var request, out reason), reason);
+        Ok(session.TryApplyEarnedReward(Earned(request), new CallbackVerifier(), out reason), reason);
+        Ok(session.TryUseConsumable("ward", out reason), reason);
+        var armed = session.Snapshot();
+        Check(session.ItemCount("ward") == 0 && armed.Run.Swords.Single().Effects.WardArmed && armed.Run.TotalHits == initial.Run.TotalHits &&
+            armed.Run.ResultRngState == initial.Run.ResultRngState, "Manual ward arming rolled, hammered, or retained a spendable item.");
+        Check(tickets.SequenceEqual(session.GetProbabilities(swordId)), "Ward changed the raw draw probabilities instead of guarding the result.");
+        session = Open(store);
+        Check(session.Snapshot().Run.Swords.Single().Effects.WardArmed && session.ItemCount("ward") == 0,
+            "An armed ward or its consumed inventory did not survive reopening.");
+
+        Ok(session.TryStrike(out var guarded, out reason), reason);
+        var after = session.Snapshot(); var surviving = after.Run.Swords.Single();
+        Check(guarded.RolledOutcome == fatal.RolledOutcome && guarded.Outcome == ForgeOutcome.Break && guarded.ProtectionId == "ward" && !guarded.Fatal &&
+            guarded.Tickets.SequenceEqual(fatal.Tickets), "Ward rewrote the raw Break draw, failed protection, or used a different ticket distribution.");
+        Check(surviving.Id == swordId && !surviving.Broken && surviving.Grade == 30 && !surviving.Effects.WardArmed &&
+            surviving.Hits == initial.Run.Swords.Single().Hits + 1 && after.Run.TotalHits == initial.Run.TotalHits + 1,
+            "Ward did not preserve this sword and grade while consuming exactly one armed hit.");
+        Check(after.Run.ResultRngState == 270369u && after.Run.ResultRngState == unprotected.Snapshot().Run.ResultRngState,
+            "Ward rewound, redrew or skipped the outcome RNG.");
+        Check(after.Run.PendingBreak == null && after.Run.RealBrokenSwords == 0 && after.Run.Context.BrokenSwords == 0 &&
+            after.Run.ScrapValue == 0 && after.Run.Gold == initial.Run.Gold && after.Run.Context.FuneralClaims == 0,
+            "A protected nonfatal Break created a loss event, death count, scrap or funeral payout.");
+        string saved = RiskStateCodec.Encode(after); int writes = store.Writes;
+        Check(!session.TryAcceptBreak(after.NextEventId - 1, out reason) && RiskStateCodec.Encode(session.Snapshot()) == saved && store.Writes == writes,
+            "Protected nonfatal Break accepted a loss confirmation or committed death effects.");
+        Check(RiskStateCodec.Encode(Open(store).Snapshot()) == saved, "Protected natural Break changed after restart.");
+    }
+
     static void PersistenceFailure()
     {
         var session = Fresh(out var store); string reason;
@@ -226,7 +296,15 @@ public static class SessionChecks
         Check(hit.Fatal && pending != null && session.Snapshot().Run.Swords.Count == 0 && session.Snapshot().Run.RealBrokenSwords == 0 &&
             session.Snapshot().Run.ScrapValue == 0 && session.Snapshot().Run.ResultRngState != beforeRng, "Fatal branch committed deferred loss or failed to consume RNG.");
         Check(!session.TrySubmitOrder(session.Snapshot().Run.Id, 1, out reason), "Unresolved break allowed settlement.");
+        string pendingState = RiskStateCodec.Encode(session.Snapshot());
         session = Open(store);
+        Check(RiskStateCodec.Encode(session.Snapshot()) == pendingState, "Restart changed the pending sword, outcome, RNG or deferred loss context.");
+        int writes = store.Writes;
+        Check(!session.TryAcceptBreak(pending.EventId + 1, out reason) && !session.TryEndContract(session.Snapshot().Run.Id, out reason) &&
+            RiskStateCodec.Encode(session.Snapshot()) == pendingState && store.Writes == writes,
+            "A stale loss event or end-contract command escaped the restarted pending loss.");
+        session.Advance(10, true);
+        Check(RiskStateCodec.Encode(session.Snapshot()) == pendingState, "Restarted pending loss advanced forge time or passive effects before confirmation.");
         uint afterRng = session.Snapshot().Run.ResultRngState;
         Ok(session.TryAcceptBreak(pending.EventId, out reason), reason);
         Check(session.Snapshot().Run.RealBrokenSwords == 1 && session.Snapshot().Run.ScrapValue > 0 &&
@@ -240,15 +318,59 @@ public static class SessionChecks
         {
             var run = state.Run; run.Round = run.Context.Round = 21; run.Anger = 1; run.StarterGift = false;
             run.BaseQuota = run.Quota = RiskEconomy.BaseQuotaForRound(21); run.ShopOffers.Clear();
+            // Two controlled banked swords pay the extended orders through legal marking
+            // and submission commands. This is transaction coverage, not natural forging.
+            foreach (var sword in run.Swords.Take(2)) { sword.Grade = sword.PeakGrade = 99; sword.Effects.Primed = true; }
         }, out var store); string reason;
         var id = session.Snapshot().Run.Id;
+        int[] bankedSwordIds = session.Snapshot().Run.Swords.Take(2).Select(x => x.Id).ToArray();
+        uint resultRng = session.Snapshot().Run.ResultRngState;
         Ok(session.TrySubmitOrder(id, 21, out reason), reason);
         Check(session.Snapshot().Run.Status == "clear_offer" && session.Snapshot().Run.Anger == 2 &&
             session.Snapshot().Profile.Completed == 1 && session.Snapshot().Profile.Achievements.Contains("FORGE_CLEAR"), "Survivable final underpayment failed completion.");
+        string cleared = RiskStateCodec.Encode(session.Snapshot()); int writes = store.Writes;
+        Check(!session.TrySubmitOrder(id, 21, out reason) && !session.TryContinueExtended(id + ":stale", out reason) &&
+            RiskStateCodec.Encode(session.Snapshot()) == cleared && store.Writes == writes,
+            "Repeated final settlement or a stale continuation changed the completed decision.");
+        session = Open(store);
+        Check(RiskStateCodec.Encode(session.Snapshot()) == cleared, "Final completion decision changed on reopening.");
         Ok(session.TryContinueExtended(id, out reason), reason);
-        Check(session.Snapshot().Run.Round == 22 && session.Snapshot().Run.Quota == RiskEconomy.BaseQuotaForRound(22), "Extended contract did not begin at day22.");
+        Check(session.Snapshot().Run.Round == 22 && session.Snapshot().Run.BaseQuota == 278400 && session.Snapshot().Run.Quota == 278400 &&
+            session.Snapshot().Run.Swords.Count == 6 && session.Snapshot().Profile.Completed == 1, "Extended contract did not begin at day22 with one supply grant.");
+        string extended = RiskStateCodec.Encode(session.Snapshot()); writes = store.Writes;
+        Check(!session.TryContinueExtended(id, out reason) && RiskStateCodec.Encode(session.Snapshot()) == extended && store.Writes == writes,
+            "Repeated continuation skipped a round or granted supply twice.");
+        for (int round = 22; round <= 23; round++)
+        {
+            Ok(session.TryMarkForOrder(bankedSwordIds[round - 22], true, out reason), reason);
+            var beforeOrder = session.Snapshot();
+            double value = session.OrderValue;
+            Check(value >= beforeOrder.Run.Quota && value < RiskEconomy.MoneyCap / 10,
+                "Controlled banked sword cannot isolate the extended payment transaction.");
+            Ok(session.TrySubmitOrder(id, round, out reason), reason);
+            var paid = session.Snapshot(); var receipt = paid.Run.History.Last();
+            double nextQuota = round == 22 ? 334080 : 400896;
+            Check(paid.Run.Round == round + 1 && paid.Run.Status == "active" && paid.Run.BaseQuota == nextQuota && paid.Run.Quota == nextQuota &&
+                paid.Run.Anger == 2 && paid.Run.Swords.Count == beforeOrder.Run.Swords.Count + 2 &&
+                !paid.Run.Swords.Any(x => x.Id == bankedSwordIds[round - 22]), "Extended settlement consumed the wrong sword, supply, anger or next quota.");
+            Check(paid.Run.Gold == beforeOrder.Run.Gold + value && paid.Run.PassCount == round - 21 && paid.Run.ExtendedPayments == round - 21 &&
+                paid.Run.Context.SuccessfulTributes == round - 21 && paid.Run.Context.FailedTributes == 1 && paid.Profile.Completed == 1 &&
+                paid.Run.ResultRngState == resultRng, "Extended payment duplicated money/completion, missed counters, or consumed forge RNG.");
+            Check(receipt.Round == round && receipt.Passed && receipt.Value == value && receipt.GoldPaid == value &&
+                receipt.SwordIds.SequenceEqual(new[] { bankedSwordIds[round - 22] }) && paid.Run.History.Select(x => x.Round).SequenceEqual(Enumerable.Range(21, round - 20)),
+                "Extended order receipt did not identify exactly one payment per round.");
+            string settled = RiskStateCodec.Encode(paid); writes = store.Writes;
+            Check(!session.TrySubmitOrder(id, round, out reason) && RiskStateCodec.Encode(session.Snapshot()) == settled && store.Writes == writes,
+                "Repeated extended submit changed a later round, money or supply.");
+            session = Open(store);
+            Check(RiskStateCodec.Encode(session.Snapshot()) == settled, "Extended settlement did not survive reopening.");
+        }
         Ok(session.TryEndContract(id, out reason), reason);
-        Check(session.Snapshot().LastResult.ContractCleared && session.Snapshot().Profile.Completed == 1, "Finishing counted completion twice.");
+        Check(session.Snapshot().LastResult.ContractCleared && session.Snapshot().LastResult.Rounds == 23 && session.Snapshot().LastResult.PassedOrders == 2 &&
+            session.Snapshot().Profile.Completed == 1 && session.Snapshot().Profile.Contracts == 1, "Finishing extended orders counted completion twice or reported the wrong result.");
+        string ended = RiskStateCodec.Encode(session.Snapshot()); writes = store.Writes;
+        Check(!session.TryEndContract(id, out reason) && RiskStateCodec.Encode(session.Snapshot()) == ended && store.Writes == writes,
+            "Repeated end-contract counted or closed the contract twice.");
         string directory = Path.Combine(Path.GetTempPath(), "bonk-rebuild-save-check-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(directory);
         try
@@ -377,7 +499,7 @@ public static class SessionChecks
         {
             UnityEngine.Resources.Root = args[0];
             int economyAssertions = EconomyChecks.Run();
-            BasicLoop(); FailureAndRestart(); FullShelfReplacement(); Rewards(); PersistenceFailure(); FatalBranch(); CompletionAndFiles();
+            BasicLoop(); FailureAndRestart(); FullShelfReplacement(); Rewards(); WardBlocksNaturalBreak(); PersistenceFailure(); FatalBranch(); CompletionAndFiles();
             InheritanceAndRoyalCreditRegressions(); FatalWriteFailures();
             EmptyCabinetMerchantRescue();
             Console.WriteLine("{\"status\":\"PASS\",\"session_assertions\":" + assertions + ",\"economy_assertions\":" + economyAssertions +

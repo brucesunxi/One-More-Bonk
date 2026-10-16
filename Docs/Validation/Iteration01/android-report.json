@@ -1,0 +1,52 @@
+{
+  "BuildId": "acceptance-97b9ac73d164452a814831f0d306e386",
+  "CompletedUtc": "2026-10-16T07:41:57.7712720Z",
+  "Platform": "Android",
+  "UnityVersion": "6000.3.17f1",
+  "Status": "PASS",
+  "Scope": "Controlled Session fixtures on native Unity; not natural gameplay, UI or real SDK earned evidence.",
+  "Cases": [
+    {
+      "Name": "native-null-preview",
+      "Status": "PASS",
+      "Detail": "",
+      "Assertions": 7
+    },
+    {
+      "Name": "orders-1-through-23",
+      "Status": "PASS",
+      "Detail": "",
+      "Assertions": 195
+    },
+    {
+      "Name": "ward-natural-break",
+      "Status": "PASS",
+      "Detail": "",
+      "Assertions": 17
+    },
+    {
+      "Name": "pending-break-reopen",
+      "Status": "PASS",
+      "Detail": "",
+      "Assertions": 12
+    },
+    {
+      "Name": "full-shelf-write-failure",
+      "Status": "PASS",
+      "Detail": "",
+      "Assertions": 11
+    },
+    {
+      "Name": "slots-and-earned-write-retry",
+      "Status": "PASS",
+      "Detail": "",
+      "Assertions": 46
+    },
+    {
+      "Name": "file-backup-corruption",
+      "Status": "PASS",
+      "Detail": "",
+      "Assertions": 5
+    }
+  ]
+}

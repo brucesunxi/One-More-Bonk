@@ -8,6 +8,8 @@
 
 验收范围以[主测试报告](Docs/Validation/TEST-REPORT-0.1.0.md)和[版本5构建清单](Docs/Validation/build-0.1.0-5.json)为准。
 
+后续第一轮已补充[闭环与原生保存增量验收](Docs/Validation/ITERATION-01.md)：333项Session、9200项经济、111项广告事件断言通过，独立Android验收包7组293项通过；玩家包仍为构建5。已备好[陌生玩家试玩流程](Docs/Playtest/FIRST-ROUND.md)和[海外Android发布清单](Docs/Release/OVERSEAS-ANDROID.md)，英文UI与真人体验仍待推进。
+
 - `main`：已确认规则、范围与开发约束。
 - `rebuild/minimal-core`：内核、最小Session、独立存档、现有原创UI/剑素材和官方测试广告的重建工作分支。
 - 五页为锻造、订单、剑柜、遗物和商人，实际展示观察分布于不同测试版本，不代表版本5逐页全流程回归完成。

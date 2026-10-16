@@ -3,12 +3,14 @@
   "configuration": "Google official Android test only",
   "controlled_events": {
     "status": "PASS",
-    "assertions": 79,
+    "assertions": 111,
     "actual_adapter_and_session": true,
     "sdk_ui_unity_event_doubles": true,
     "real_ad_playback": false,
     "loading_cancel_ui_contract": "PASS: loading uses nonfullscreen waiting page; earned failure exposes retry; unearned cancel failure exposes cancel; completion resets flag",
-    "background_loaded_invalid_ad": "PASS: both CanShowAd=false and exception after background loading cancel safely on foreground return without reward or null dereference; the new case reproduced NullReferenceException before the Complete(null) guard"
+    "background_loaded_invalid_ad": "PASS: both CanShowAd=false and exception after background loading cancel safely on foreground return without reward or null dereference; the new case reproduced NullReferenceException before the Complete(null) guard",
+    "initialization_async": "PASS: delayed initialization, 34/35-second boundary, cancellation/timeout followed by late callbacks and a fresh request, null status and retry; SDK doubles only",
+    "incremental_evidence": "Docs/Validation/ITERATION-01.md"
   },
   "api_compile": {
     "status": "PASS",
@@ -52,7 +54,7 @@
     },
     {
       "path": "Tests/Ads/ControlledSdkChecks.cs",
-      "sha256": "fbef6cbbc8e8d59d3003f742f52d14d60221a32fe163d355b2349b794056ed44"
+      "sha256": "317d392ba00f6221d3d7421168eeda5873438cd406ac969725b8ac76c87c8a6c"
     },
     {
       "path": "Tools/verify-ads-adapter.sh",

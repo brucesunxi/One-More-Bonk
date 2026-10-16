@@ -34,16 +34,33 @@ namespace GoogleMobileAds.Api
     public sealed class AdError {}
     public sealed class Reward {}
     public sealed class AdRequest {}
-    public static class MobileAds { public static void Initialize(Action<InitializationStatus> callback) => callback(new InitializationStatus()); }
+    public static class MobileAds
+    {
+        public static bool DelayInitialization;
+        public static int Initializations;
+        public static Action<InitializationStatus> PendingInitialization;
+        public static void Initialize(Action<InitializationStatus> callback)
+        {
+            Initializations++;
+            if(DelayInitialization) PendingInitialization=callback;
+            else callback(new InitializationStatus());
+        }
+        public static void CompleteInitialization(InitializationStatus status)
+        {
+            var callback=PendingInitialization;PendingInitialization=null;
+            if(callback==null) throw new InvalidOperationException("No controlled initialization pending");
+            callback(status);
+        }
+    }
     public sealed class RewardedAd
     {
         public static Action<RewardedAd,LoadAdError> Loading;
-        public static int Shows;
+        public static int Shows,Loads;
         public bool Destroyed,ThrowCanShow,ThrowShow,CanShow=true;
         public Action<Reward> Earn;
         public event Action OnAdFullScreenContentClosed;
         public event Action<AdError> OnAdFullScreenContentFailed;
-        public static void Load(string id,AdRequest request,Action<RewardedAd,LoadAdError> callback) { Loading=callback; }
+        public static void Load(string id,AdRequest request,Action<RewardedAd,LoadAdError> callback) { Loads++;Loading=callback; }
         public bool CanShowAd() { if(ThrowCanShow) throw new Exception("controlled state exception");return CanShow; }
         public void Show(Action<Reward> callback) { if(ThrowShow) throw new Exception("controlled show exception");Shows++;Earn=callback; }
         public void Destroy() { Destroyed=true; }
@@ -83,7 +100,9 @@ public static class ControlledSdkChecks
     static void Fresh(bool merchant=false)
     {
         if(adapter!=null)Call("OnDestroy");
-        MobileAdsEventExecutor.Queue.Clear();RewardedAd.Loading=null;RewardedAd.Shows=0;
+        MobileAdsEventExecutor.Queue.Clear();RewardedAd.Loading=null;RewardedAd.Shows=0;RewardedAd.Loads=0;
+        MobileAds.DelayInitialization=false;MobileAds.Initializations=0;MobileAds.PendingInitialization=null;
+        UnityEngine.Time.unscaledDeltaTime=.02f;
         typeof(RebuildRewardedAds).GetField("initialized",BindingFlags.Static|BindingFlags.NonPublic).SetValue(null,false);
         typeof(RebuildRewardedAds).GetField("initializing",BindingFlags.Static|BindingFlags.NonPublic).SetValue(null,false);
         store=new Store();Check(RiskSession.TryOpen(store,1234,out var session,out string reason),reason);Check(session.TryStart(out reason),reason);
@@ -154,6 +173,53 @@ public static class ControlledSdkChecks
         }
         Fresh();ui.Click(RiskRewardPlacement.RelicSlot);MobileAdsEventExecutor.Flush();UnityEngine.Time.unscaledDeltaTime=31;Call("OnApplicationPause",true);Call("Update");Check(adapter.Busy,"background timed out request");
         Call("OnApplicationPause",false);Call("Update");Check(!adapter.Busy,"foreground loading timeout failed");NoGrant("timeout granted");UnityEngine.Time.unscaledDeltaTime=.02f;
+        InitializationCases();
+    }
+    static void InitializationCases()
+    {
+        Fresh();MobileAds.DelayInitialization=true;ui.Click(RiskRewardPlacement.RelicSlot);
+        Check(MobileAds.Initializations==1&&RewardedAd.Loads==0&&ui.Session.Snapshot().PendingReward!=null,"delayed initialization did not retain exactly one waiting request");
+        UnityEngine.Time.unscaledDeltaTime=34;Call("Update");Check(adapter.Busy&&RewardedAd.Loads==0,"initialization incorrectly used the 30-second load timeout");
+        UnityEngine.Time.unscaledDeltaTime=1;Call("Update");
+        Check(!adapter.Busy&&ui.Session.Snapshot().PendingReward==null&&ui.RewardProviderReady&&RewardedAd.Shows==0&&ui.Session.Snapshot().RewardCommits.Count==0,"35-second initialization timeout did not safely cancel");
+        NoGrant("initialization timeout granted");
+        MobileAds.CompleteInitialization(new InitializationStatus());MobileAdsEventExecutor.Flush();
+        Check(!adapter.Busy&&RewardedAd.Loads==0,"late initialization loaded a timed-out request");
+        ui.Click(RiskRewardPlacement.RelicSlot);
+        Check(adapter.Busy&&MobileAds.Initializations==1&&RewardedAd.Loads==1,"initialized SDK could not serve a fresh request after timeout");
+        ui.Cancel();NoGrant("retry after initialization timeout granted without earned");
+
+        foreach(bool newRequestBeforeCallback in new[]{false,true})
+        {
+            Fresh();MobileAds.DelayInitialization=true;ui.Click(RiskRewardPlacement.RelicSlot);
+            Check(MobileAds.Initializations==1&&RewardedAd.Loads==0,"cancel regression did not delay initialization");
+            ui.Cancel();Check(!adapter.Busy&&ui.Session.Snapshot().PendingReward==null,"initialization-stage cancellation did not clear the bound request");
+            if(newRequestBeforeCallback)
+            {
+                ui.Click(RiskRewardPlacement.RelicSlot);
+                Check(adapter.Busy&&MobileAds.Initializations==1&&RewardedAd.Loads==0,"new request duplicated an in-flight SDK initialization");
+            }
+            MobileAds.CompleteInitialization(new InitializationStatus());MobileAdsEventExecutor.Flush();
+            if(!newRequestBeforeCallback)
+            {
+                Check(!adapter.Busy&&RewardedAd.Loads==0,"late initialization resurrected the cancelled request");
+                ui.Click(RiskRewardPlacement.RelicSlot);
+            }
+            Check(adapter.Busy&&MobileAds.Initializations==1&&RewardedAd.Loads==1&&RewardedAd.Shows==0,"late initialization did not issue exactly one Load for the new request");
+            RewardedAd.Loading(null,new LoadAdError());MobileAdsEventExecutor.Flush();
+            Check(!adapter.Busy&&ui.Session.Snapshot().PendingReward==null&&ui.Session.Snapshot().RewardCommits.Count==0,"fresh request following cancelled initialization could not safely finish without earned");
+            NoGrant("cancelled initialization granted");
+        }
+
+        Fresh();MobileAds.DelayInitialization=true;ui.Click(RiskRewardPlacement.RelicSlot);
+        MobileAds.CompleteInitialization(null);MobileAdsEventExecutor.Flush();
+        Check(!adapter.Busy&&ui.Session.Snapshot().PendingReward==null&&ui.RewardProviderReady&&RewardedAd.Loads==0,"null initialization status did not fail without loading");
+        NoGrant("null initialization status granted");
+        ui.Click(RiskRewardPlacement.RelicSlot);
+        Check(adapter.Busy&&MobileAds.Initializations==2&&RewardedAd.Loads==0,"null status prevented a later initialization retry");
+        MobileAds.CompleteInitialization(new InitializationStatus());MobileAdsEventExecutor.Flush();var recovered=Loaded();
+        recovered.EarnNow();recovered.Close();MobileAdsEventExecutor.Flush();var state=ui.Session.Snapshot();
+        Check(!adapter.Busy&&MobileAds.Initializations==2&&RewardedAd.Loads==1&&state.Profile.UnlockedRelicSlots==3&&state.RewardCommits.Count==1&&state.PendingReward==null,"successful retry after null status failed or duplicated the reward");
     }
     public static int Main(string[] args)
     {

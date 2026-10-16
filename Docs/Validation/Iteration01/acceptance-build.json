@@ -1,0 +1,14 @@
+{
+  "BuildId": "acceptance-97b9ac73d164452a814831f0d306e386",
+  "BuiltAtUtc": "2026-10-16T07:36:31.3350690Z",
+  "ApplicationId": "com.brucesunxi.onemorebonk.acceptance",
+  "ApkSha256": "205542d4eb193b1bee4f483ced1f73400716505e16e7baf3a6aa28658d3612dc",
+  "RuleSha256": "b96b16ca937b8aba71efbc330c8f840c96e39c91e6f6c2c0dbb105eb68175ac1",
+  "RunnerSha256": "bb39c66e26bb7b77f576cb58416e6d8cbcad155f5ae78ebd7595a2a9b63739a9",
+  "GameplaySha256": "cbbbb4e43a9642b0bfd3841d6eef64d0f901029c04204932ee3db3c623d41146",
+  "SessionSha256": "8a11b145d445cc2e66368fd1bc53beb4c15e774f7f594a05d37fe57fac365545",
+  "PersistenceSha256": "8638fc042e790b46c8f154b226b4c5d86a77319acb3e2b8c11383f9b03febf9d",
+  "RewardsSha256": "2083d7cb3487db1ef232bc91993646b6cfa7ae8f62c8e93619d90f7b5850ed6d",
+  "Define": "BONK_DEVICE_ACCEPTANCE",
+  "Scope": "Controlled test-only fixtures; no SDK ad playback or natural completion claim."
+}
